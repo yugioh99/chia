@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>PTC Start Page</title>
+		
+		<link rel="shortcut icon" href="content/img/icons/ptc-mini.png" type="image/x-icon">
+		<style>
+			.start-container{
+				display: block;
+			}
+			.startpage-type{
+				background-color: rgba(255, 255, 255, 0.3);
+				border-radius: 5px;
+				text-decoration-line: none;
+			}
+		
+		</style>
+		<style>
+			.start-div{
+				align-items: center;
+				min-width: 20vw;
+				margin-top: 30vh;
+				margin-left: 20vw;
+				vertical-align: middle;
+				align-items: center;
+				border-width: 5px;
+				border-color: black;
+				display: inline-block;
+				font-size: 4vmin;
+				font-weight: bold;
+				
+			}
+			.start-link{
+				background-color: rgba(255, 255, 255, 0.3);
+				border-radius: 5px;
+				text-decoration-line: none;
+			}
+			a:visited {color: rgb(33, 22, 179);}
+			a:active, a:hover { color: rgb(160, 7, 7);}
+		</style>
+			
+
+		  <style>
+			body {
+			  background-image: url("content/img/background/2.jpg");
+			  background-repeat: no-repeat;
+  			background-size: cover;
+			background-position: center;
+			}
+		  </style>
+
+			</head>
+			<body>
+				
+				<script>
+					// Create an array of image URLs
+					var images = ["content/img/background/1.jpg", "content/img/background/2.jpg", "content/img/background/3.png", "content/img/background/4.jpg", "content/img/background/5.jpg"];
+				
+					// Get a random image from the array
+					var randomImage = images[Math.floor(Math.random() * images.length)];
+				
+					// Set the background image of the body element to the random image
+					document.body.style.backgroundImage = "url(" + randomImage + ")";
+				  </script>
+
+
+
+
+	
+<div class="start-container">
+
+<div class="start-div">
+	<span class="startpage-type"> Laptop</span><br><br>
+	<a href="content/html/dark/home.html" class="start-link">Dark Theme</a>
+	<br><br>
+	<a href="content/html/light/home.html" class="start-link">Light Theme</a>
+</div>
+
+<div class="start-div">
+	<span class="startpage-type">Mobile</span><br><br>
+	<a href="content/html/dark-mobile/home.html" class="start-link">Dark Theme</a>
+	<br><br>
+	<a href="content/html/light-mobile/home.html" class="start-link">Light Theme</a>
+</div>
+
+
+
+			</div><!-- div container -->
+			</body>
+</html>

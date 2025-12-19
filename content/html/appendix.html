@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<!--  Essentials -->
+	<meta charset="UTF-8">
+	<title>PTC appendix</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style1.css" rel="stylesheet">
+	<script src="js/script1.js" type="text/javascript" defer></script>
+	<script src="js/glossary1.js" type="text/javascript" defer></script>
+	<!-- favicon -->
+	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
+	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
+	<link href="../img/favicons/favicon.ico" rel="icon">
+	<link href="../img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="../img/favicons/manifest.json" rel="manifest">
+	<meta name="apple-mobile-web-app-title" content="PTC">
+</head>
+
+	<body class="pFF pFS pFC">
+
+<header class="hcapx pBdC">
+<nav class="headernav"> <!-- headernav START   -->
+<div class="smallScreenTitle">APX</div>
+<div class="midScreenTitle">PTC - Appendix</div>
+<div class="lddcontainer lddsh"><!-- ldd = location drop down = Navigation START  -->
+	<button class="navdropbtn menubtn">Navigation</button>
+	<div id="lddid" class="lddcontent pBdC"> 
+		Navigation
+		<a href="home.html">Home</a>
+		<a onclick="goBack();">Return to previous page</a>	
+		Appendix
+	</div>
+</div><!-- navigation END -->
+<div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
+	<button  class="menubtn navdropbtn">Bookmarks</button>
+	<div id="bmddid2" class="bmddcontent2 pBdC">
+		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
+	</div>
+	<div id="bmddid" class="bmddcontent pBdC"> 
+		Bookmarks 
+		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
+		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
+		<a onclick="goToBm(); sp();">view #1</a>
+		<a onclick="goToBm2(); sp();">view #2</a>
+		Sections
+		<a href="#top">top</a>
+		<a href="#htubm">How to use</a>
+		<a href="#exbm">Example</a>
+		<a href="#fibm">FTLE - Finite Time Lyapunov Exponent</a>
+		<a href="#labm">LCS - Lagrangian Coherent Structures</a>
+		<a href="#pibm">Pitchfork</a>
+		bottom
+	</div>
+</div><!-- bm = bookmark END -->
+<div class="wideScreenTitle">PTC - Appendix</div>
+<div class="sddcontainer"><!-- settings START -->
+	<a href="settings.html" onclick="sp();"><button class="menubtn">Settings</button></a>
+</div><!-- settings END -->
+
+</nav><!-- headernav END -->
+</header>
+
+<div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
+
+<!-- footnotes group START -->
+<div id="f0" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f0');">Close</button>
+	<h2>Footnote 0</h2>
+	<p>This is a footnote. </p> 	
+	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
+</div>
+<div id="f1" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f1');">Close</button>
+	<h2>Footnote 1</h2>
+	<p>This is the appendix topic. This topic says example because it's an example. </p> 
+	<p>Next to the topic is a # with an anchor link for bookmarks. You can see a list of bookmarks in the <button class="menubtn">bookmark</button> tab at the top or on the right side of the page.</p>	
+</div>
+<div id="f2" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f2');">Close</button>
+	<h2>Footnote 2</h2>
+	<p>You can ignore this. Appendix topic ID for coding.</p> 	
+</div>
+<div id="f3" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f3');">Close</button>
+	<h2>Footnote 3</h2>
+	<p>Words with a red <span class="ttbo">underline</span>  can be clicked to show a pop up window with a brief glossary description.</p> 
+</div>
+<div id="f4" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f4');">Close</button>
+	<h2>Footnote 4</h2>
+	<p>This link will go to the appendix topic that corresponds to the glossary description.</p>	
+</div>
+<div id="f5" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f5');">Close</button>
+	<h2>Footnote 5</h2>
+	<p>Links about this appendix topic in the theories category.</p>	
+</div>
+<div id="f6" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f6');">Close</button>
+	<h2>Footnote 6</h2>
+	<p>Full screen images that illustrate the appendix topic.</p>	
+</div>
+<div id="f7" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f7');">Close</button>
+	<h2>Footnote 7</h2>
+	<p>Inline images that illustrate the appendix topic.</p>
+	<p>Click on individual images one at a time or click view all.</p>	
+</div>
+<div id="f8" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f8');">Close</button>
+	<h2>Footnote 8</h2>
+	<p>Links about this appendix topic in the tools category.</p>	
+</div>
+<div id="f9" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f9');">Close</button>
+	<h2>Footnote 9</h2>
+	<p>Click the close button to close the glossary pop up window or footnote window.</p>	
+</div>
+<!-- footnotes group END -->
+
+<div id="gcon" class="ttdiv gBdC"><!-- glossary container START -->
+	<button class="ttbc" onclick="tdb('gcon');">Close</button>
+	<h2>Glossary</h2>
+	<p id="glossary-description"></p> 
+	<div class="ssm" id="alex"><!-- example -->
+	<a href="#exbm" onclick="tdb('gcon');">Appendix Link</a>: learn more</div>
+	<div class="ssm" id="alfi"><!-- ftle -->
+	<a href="#fibm" onclick="tdb('gcon');">Appendix Link</a>: learn more</div>
+	<div class="ssm" id="alla"><!-- LCS -->
+	<a href="#labm" onclick="tdb('gcon');">Appendix Link</a>: learn more </div>
+	<div class="ssm" id="alpi"><!-- pitchfork -->
+	<a href="#pibm" onclick="tdb('gcon');">Appendix Link</a>: learn more </div>
+	
+</div> <!-- glossary container END -->
+
+</div><!-- ttgroup END -->
+
+<main><!-- Main  ----------------------------   -->
+<div class="pageTC"> <!-- Page Title -->
+	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Appendix</h1></div>
+</div>
+<!--  Article template. Don't use it, just make a copy. 
+<article id="exbm" class="pFF pFS pFC pBgC ac">  example (hide for notes)
+	<div class="gd"><h2>Example<sup><a href="#exbm">#</a></sup></h2>
+		<p><a class="ttbo" onclick="tdb('gcon'); gk('ex'); o('alex');">Example</a>: Description here (key&nbsp;ex)
+	
+		</p>
+	</div>
+	<div class="gfi">full screen images: 
+		<a href="../img/background/1.jpg">example&nbsp;1</a>, 
+		<a href="../img/background/leopardprint.jpg">example&nbsp;2</a> 
+	</div>
+	<div class="gii">inline images: <button onclick="vi('siex1'); vi('siex2');" class="smenubtn">view all</button>  <br>
+		<img id="siex1" onclick="vi('siex1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1">
+		<img id="siex2" onclick="vi('siex2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+	</div>
+	<div><b>Tools Index</b>
+	
+	</div>   
+	<div><b>Theories Index</b>
+	
+	</div>
+</article>   -->
+<!--  Section template. Don't use it, just make a copy.
+<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
+	<h2>Section Title<sup><a href="#sectitlebm">#</a></sup></h2>
+	<p> 
+		Content in this section goes here. 
+	</p>
+	<a class="ttbo" onclick="tdb('ttex'); vi('ttiex');">Example</a> glossary button <br>
+	<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button <br>
+	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+	inline image 
+	<br>
+	<a href="../img/background/1.jpg">view&nbsp;image</a> big image in same window <br>
+	<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window
+</section>  -->
+<section id="htubm" class="pFF pFS pFC pBgC pBdC"> <!-- how to use -->
+	<h2>How to use<sup><a href="#htubm">#</a></sup></h2>
+	<p> 
+	This is the appendix for Shadi Trading Systems (STS). It contains a glossary and indexed links for more details about the appendix topic. 
+	</p>
+	<p>
+	In the sections below you can see an example of a glossary pop up window and appendix topic. 
+	</p>
+	<p>
+	Click on the footnotes <sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> for a description of what everything means.
+	</p>
+	
+</section>
+<article id="gpopup" class="pFF pFS pFC pBgC ac"> <!-- glossary pop up -->
+	<div class="gd">
+	<button class="ttbc">Close</button><sup><a style="float: right;" class="ttbo" onclick="tdb('f9');">[9]</a></sup>
+	<h2>Glossary</h2>
+	<p>This is an <a class="ttbo" onclick="tdb('gcon'); gk('ex'); o('alex');">example</a><sup><a class="ttbo" onclick="tdb('f3');">[3]</a></sup> of a glossary pop up window when you click words with a red underline. (key ex)<sup><a class="ttbo" onclick="tdb('f2'); vi('fi2');">[2]</a></sup></p> 
+	<a href="#exbm">Appendix Link</a>: learn more<sup><a class="ttbo" onclick="tdb('f4');">[4]</a></sup>
+	</div>
+</article> 
+<article id="exbm" class="pFF pFS pFC pBgC ac"> <!-- Example -->
+	<div class="gd"><h2>Example<sup><a href="#exbm">#</a></sup><sup><a class="ttbo" onclick="tdb('f1');">[1]</a></sup></h2>
+		<p><a class="ttbo" onclick="tdb('gcon'); gk('ex'); o('alex');">Example</a>:<sup><a class="ttbo" onclick="tdb('f3');">[3]</a></sup> This is an example of an appendix topic. This section will have an extended glossary description. (key&nbsp;ex)<sup><a class="ttbo" onclick="tdb('f2');">[2]</a></sup>
+		</p>
+	</div>
+	<div class="gfi">full screen images: 
+		<a href="../img/background/1.jpg">example&nbsp;1</a>, 
+		<a href="../img/background/leopardprint.jpg">example&nbsp;2</a> <sup><a class="ttbo" onclick="tdb('f6');">[6]</a></sup>
+	</div>
+	<div class="gii">inline images: <button onclick="vi('siex1'); vi('siex2');" class="smenubtn">view all</button><sup><a class="ttbo" onclick="tdb('f7');">[7]</a></sup>  <br>
+		<img id="siex1" onclick="vi('siex1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1">
+		<img id="siex2" onclick="vi('siex2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+	</div>
+	<div><b>Tools Index</b><sup><a class="ttbo" onclick="tdb('f8');">[8]</a></sup>
+	
+	</div>  
+	<div><b>Theories Index</b><sup><a class="ttbo" onclick="tdb('f5');">[5]</a></sup>
+	
+	</div>
+
+</article> 
+<section class="pFF pFS pFC pBgC pBdC"><!-- apx topics listed alphabetically -->
+	<h2>Appendix topics listed alphabetically</h2>
+</section>
+<article id="fibm" class="pFF pFS pFC pBgC ac"><!-- ftle -->
+	<div class="gd"><h2>FTLE<sup><a href="#fibm">#</a></sup></h2>
+		<p><a class="ttbo" onclick="tdb('gcon'); gk('fi'); o('alfi');">FTLE</a>: Finite Time Lyapunov Exponent (FTLE) is a measure of the rate of stretching of fluid parcels within a time-varying velocity field over a finite time interval, used to understand and visualize transport mechanisms in unsteady flows. (key&nbsp;fi)
+		</p>
+		<p>
+		In STS, FTLE is used to search for <a class="ttbo" onclick="tdb('gcon'); gk('la'); o('alla');">LCS</a>.
+		</p>
+	</div>
+	<div class="gfi">full screen images: 
+		
+	</div>
+	<div class="gii">inline images: 
+		
+	</div>
+	<div><b>Tools Index</b>
+	
+	</div>   
+	<div><b>Theories Index</b>
+	
+	</div>
+</article>
+<article id="labm" class="pFF pFS pFC pBgC ac">  <!-- LCS -->
+	<div class="gd"><h2>LCS<sup><a href="#labm">#</a></sup></h2>
+		<p><a class="ttbo" onclick="tdb('gcon'); gk('la'); o('alla');">LCS</a>: 
+		Lagrangian Coherent Structures (LCS) are like "material lines of attraction and repulsion" that help us understand how fluid particles move and mix over time, acting as pathways or barriers for fluid transport. In STS, LCS are used to speculate on the fluid dynamics of market sentiment. (key&nbsp;la)
+	
+		</p>
+	</div>
+	<div class="gfi">full screen images: 
+		
+	</div>
+	<div class="gii">inline images: 
+		
+	</div>
+	<div><b>Tools Index</b>
+	
+	</div>   
+	<div><b>Theories Index</b>
+	
+	</div>
+</article>
+<article id="pibm" class="pFF pFS pFC pBgC ac"> <!-- pitchfork -->
+	<div class="gd"><h2>Pitchfork<sup><a href="#pibm">#</a></sup></h2>
+		<p><a class="ttbo" onclick="tdb('gcon'); gk('pi'); o('alpi');">Pitchforks</a>: also called median lines, are drawing tools. In STS, pitchforks are used to search for the <a class="ttbo" onclick="tdb('gcon'); gk('fi'); o('alfi');">FTLE</a> of <a class="ttbo" onclick="tdb('gcon'); gk('la'); o('alla');">LCS</a> in market sentiment. (key&nbsp;pi)
+	
+		</p>
+	</div>
+	<div class="gfi">full screen images: 
+		
+	</div>
+	<div class="gii">inline images: 
+
+	</div>
+	<div><b>Tools Index</b>
+	
+	</div>   
+	<div><b>Theories Index</b>
+	
+	</div>
+</article>
+</main>
+
+	</body>
+
+	
+</html>

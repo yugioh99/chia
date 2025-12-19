@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<!--  Essentials -->
+	<meta charset="UTF-8">
+	<title>settings - CTS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style1.css" rel="stylesheet">
+	<script src="js/script1.js" type="text/javascript" defer></script>
+	<!-- favicon -->
+	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
+	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
+	<link href="../img/favicons/favicon.ico" rel="icon">
+	<link href="../img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="../img/favicons/manifest.json" rel="manifest">
+	<meta name="apple-mobile-web-app-title" content="CTS">
+</head>
+
+	<body class="pFS pFF pFC">
+
+<header class="hcsettings pBdC"> 
+<nav class="headernav"><!-- headernav START   -->
+<div class="smallScreenTitle">CTS</div>
+<div class="midScreenTitle">CTS - Settings</div>
+<div class="lddcontainer lddsh"><!-- ldd = location drop down = Navigation START  -->
+	<button class="navdropbtn menubtn">Navigation</button>
+	<div id="lddid" class="lddcontent pBdC"> 
+		Navigation
+		<a href="home.html">Home</a>
+		<a onclick="goBack();">Return to previous page</a>	
+		<span title="You are here.">Settings</span>
+		
+	</div>
+</div><!-- navigation END -->
+<div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
+	<button  class="menubtn navdropbtn">Bookmarks</button>
+	<div id="bmddid2" class="bmddcontent2 pBdC">
+		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
+	</div>
+	<div id="bmddid" class="bmddcontent pBdC"> 
+		Bookmarks 
+		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
+		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
+		<a onclick="goToBm(); sp();">view #1</a>
+		<a onclick="goToBm2(); sp();">view #2</a>
+		Sections
+		<a href="#top">top</a>
+		<a href="#sddid">Settings</a>
+		<a href="#previewbm">Preview</a>
+		<a href="#ilinksbm">Indexed Links</a>
+		bottom
+	</div>
+</div><!-- bm = bookmark END -->
+<div class="wideScreenTitle">PTC - Settings</div>
+<div class="sddcontainer"><!-- settings START -->
+	<button class="menubtn" onclick="goBack();">Go Back</button>
+</div><!-- settings END -->
+</nav><!-- headernav END -->
+</header>
+
+<div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
+<!-- footnotes group START -->
+ 	<div id="flinks" class="ttdiv" style="top: 5px;">
+		<button class="ttbc" onclick="tdb('flinks');">Close</button>
+		<h2>Appendix Topics with links to this page in settings category</h2>
+		<!-- 
+		<p> (hide this for notes) template
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br> 
+		Link: you can change the text size in settings
+		</p> -->
+		
+	</div>
+	<div id="f2" class="ttdiv" style="top: 5px;"> 
+		<button class="ttbc" onclick="tdb('f2');">Close</button>
+		<h2>Footnote 2</h2>
+	<h3>Restore Defualts</h3>
+	<p>
+		This will reset the website to its default appearance. It will also clear saved links in the bookmarks menu.
+	</p>
+	<h3>Text Size</h3>
+	<p>
+		Select text size.
+	</p>
+	<h3>Font Family</h3>
+	<p>
+		Select font style.
+	</p>
+	<h3>Themes</h3>
+	<p>
+		Select text color and background color.
+	</p>
+	<h3>BG Image</h3><button class="ttbc" onclick="tdb('f2');">Close</button>
+	<p>
+		Select background image.
+	</p>	
+
+
+	<p>Below are descriptions of what the buttons do.</p>
+	<p>
+		<button class="srDefaults" style="float: none;">Restore Defaults</button><br>
+		This button will reset the website to its default appearance. It will also clear view # in the bookmarks menu.
+	</p>
+	<p>
+		<button class="smenubtn">Text Size</button><br> select text size.
+	</p>
+	<p>
+		<button class="smenubtn">Font Family</button><br> select font style.
+	</p>
+	<p>
+		<button class="smenubtn">Themes</button><br> select text, border, and background color.
+	</p>
+	<button class="ttbc" onclick="tdb('f2');">Close</button>
+	</div>
+
+<!-- footnotes group END -->
+
+<div id="acon" class="ttdiv apu" style="top: 5px;"><!-- appendix container START -->
+<header class="hcapx pBdC">
+<nav class="headerpopup"> <!-- headernav START   -->
+<div class="popupTitle">Appendix</div>
+<div class="sddcontainer"><!-- close START -->
+	<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
+</div><!-- close END -->
+<div class="sddcontainer"><!-- content START -->
+	<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+</div><!-- content END -->
+</nav><!-- headernav END -->
+</header>
+<iframe name="ai" src="about:blank" class="aif"></iframe>	
+</div><!-- appendix container END -->
+
+</div><!-- ttgroup END -->
+
+<main><!-- Main  ----------------------------   -->
+
+<div id="sddid" class="sddcontent"> <!-- sddcontent START -->
+	<div class="sfs settingstitle">
+		<div>
+			<span style="font-size: 1.5em;">Settings<sup><a class="ttbo" onclick="tdb('f2');">[2]</a></sup></span> 
+		</div>
+		<div>
+			<button class="srDefaults" onclick="restoreDefaults();">Restore Defaults</button> 
+		</div>
+	</div>
+	<div >
+		<div class="settingsnav sfs">
+			<button class="smenubtn" onclick="o('textsizessm');">Text Size</button>
+			<button class="smenubtn" onclick="o('fontssm');">Font Family</button>
+			<button class="smenubtn" onclick="o('themessm');">Themes</button>
+		</div>
+	</div>
+	<div id="textsizessm" class="ssm ssmc">
+		select text size 
+		<button onclick="sFS('calc(7px + 0.5vw)');" class="settingsbtn">07</button>
+		<button onclick="sFS('calc(8px + 0.5vw)');" class="settingsbtn">08</button>
+		<button onclick="sFS('calc(9px + 0.5vw)');" class="settingsbtn">09</button>
+		<button onclick="sFS('calc(10px + 0.5vw)');" class="settingsbtn">10</button>
+		<button onclick="sFS('calc(11px + 0.5vw)');" class="settingsbtn">11</button>
+		<button onclick="sFS('calc(12px + 0.5vw)');" class="settingsbtn">12</button>
+		<button onclick="sFS('calc(13px + 0.5vw)');" class="settingsbtn">13</button>
+		<button onclick="sFS('calc(14px + 0.5vw)');" class="settingsbtn">14</button>
+		<button onclick="sFS('calc(15px + 0.5vw)');" class="settingsbtn">15</button>
+		<button onclick="sFS('calc(16px + 0.5vw)');" class="settingsbtn">16</button>
+		<button onclick="sFS('calc(17px + 0.5vw)');" class="settingsbtn">17</button>
+		<button onclick="sFS('calc(18px + 0.5vw)');" class="settingsbtn">18</button>
+		<button onclick="sFS('calc(19px + 0.5vw)');" class="settingsbtn">19</button>
+		<button onclick="sFS('calc(20px + 0.5vw)');" class="settingsbtn">20</button>
+		<button onclick="sFS('calc(21px + 0.5vw)');" class="settingsbtn">21</button>
+		<button onclick="sFS('calc(22px + 0.5vw)');" class="settingsbtn">22</button>
+		<button onclick="sFS('calc(24px + 0.5vw)');" class="settingsbtn">24</button>
+		<button onclick="sFS('calc(26px + 0.5vw)');" class="settingsbtn">26</button>
+		<button onclick="sFS('calc(28px + 0.5vw)');" class="settingsbtn">28</button>
+		<button onclick="sFS('calc(30px + 0.5vw)');" class="settingsbtn">30</button>
+		<button onclick="sFS('calc(32px + 0.5vw)');" class="settingsbtn">32</button>
+		<button onclick="sFS('calc(34px + 0.5vw)');" class="settingsbtn">34</button>
+		<button onclick="sFS('calc(38px + 0.5vw)');" class="settingsbtn">38</button>
+	</div>
+	<div id="fontssm" class="ssm ssmc" style="font-family: Arial, Helvetica, sans-serif;">
+		Font Family
+		<button onclick="sFF('Arial');" class="settingsbtn">Arial</button>
+		<button onclick="sFF('Baskerville');" class="settingsbtn">Baskerville</button>
+		<button onclick="sFF('Bradley Hand');" class="settingsbtn">Bradley Hand</button>
+		<button onclick="sFF('Brush Script MT');" class="settingsbtn">Brush Script MT</button>
+		<button onclick="sFF('Comic Sans MS');" class="settingsbtn">Comic Sans MS</button>
+		<button onclick="sFF('Courier');" class="settingsbtn">Courier</button>
+		<button onclick="sFF('Cursive');" class="settingsbtn">Cursive</button>
+		<button onclick="sFF('Fira Sans');" class="settingsbtn">Fira Sans</button>
+		<button onclick="sFF('Georgia');" class="settingsbtn">Georgia</button>
+		<button onclick="sFF('Gill Sans');" class="settingsbtn">Gill Sans</button>
+		<button onclick="sFF('Helvetica');" class="settingsbtn">Helvetica</button>
+		<button onclick="sFF('Inter');" class="settingsbtn">Inter</button>
+		<button onclick="sFF('Libre Franklin');" class="settingsbtn">Libre Franklin</button>
+		<button onclick="sFF('Lora');" class="settingsbtn">Lora</button>
+		<button onclick="sFF('Lucida');" class="settingsbtn">Lucida</button>
+		<button onclick="sFF('Luminari');" class="settingsbtn">Luminari</button>
+		<button onclick="sFF('Montserrat');" class="settingsbtn">Montserrat</button>
+		<button onclick="sFF('Monaco');" class="settingsbtn">Monaco</button>
+		<button onclick="sFF('Palatino');" class="settingsbtn">Palatino</button>
+		<button onclick="sFF('Poppins');" class="settingsbtn">Poppins</button>
+		<button onclick="sFF('Raleway');" class="settingsbtn">Raleway</button>
+		<button onclick="sFF('Roboto');" class="settingsbtn">Roboto</button>
+		<button onclick="sFF('sans-serif');" class="settingsbtn">Sans Serif</button>
+		<button onclick="sFF('Segoe UI');" class="settingsbtn">Segoe UI</button>
+		<button onclick="sFF('Tahoma');" class="settingsbtn">Tahoma</button>
+		<button onclick="sFF('Times New Roman');" class="settingsbtn">Times New Roman</button>
+		<button onclick="sFF('Trebuchet MS');" class="settingsbtn">Trebuchet MS</button>
+		<button onclick="sFF('Verdana');" class="settingsbtn">Verdana</button>
+		
+	</div>
+	<div id="themessm" class="ssm ssmc">
+		<div>
+			Presets
+			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a'); sBdC('#ffc0cb'); changeBackground('https://yugioh99.github.io/Chia2/content/img/background/leopardprint.jpg');">Shadi</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a'); sBdC('rgb(146, 70, 8)'); changeBackground('https://yugioh99.github.io/Chia2/content/img/background/black.png');">Dark</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('#ffffff'); sBdC('rgb(146, 70, 8)'); changeBackground('https://yugioh99.github.io/Chia2/content/img/background/grey.png');">Light</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)'); sBdC('rgb(114, 114, 114)'); changeBackground('https://yugioh99.github.io/Chia2/content/img/background/grey.png');">Grey</button>
+		</div>
+		<hr>
+		<div>
+			Content
+			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a');">Dark</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('#ffffff');">Light</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)');">Grey</button>
+		</div>
+		<div>
+			Border
+			<button class="settingsbtn" type="button" onclick="sBdC('#ffc0cb');">Pink</button>
+			<button class="settingsbtn" type="button" onclick="sBdC('rgb(146, 70, 8)');">Brown</button>
+			<button class="settingsbtn" type="button" onclick="sBdC('rgb(114, 114, 114)');">Grey</button>
+		</div>
+		<div>
+			Background
+			<button onclick="changeBackground('https://yugioh99.github.io/Chia2/content/img/background/leopardprint.jpg');" class="settingsbtn">leopard</button>
+			<button onclick="changeBackground('https://yugioh99.github.io/Chia2/content/img/background/black.png');" class="settingsbtn">black</button>
+			<button onclick="changeBackground('https://yugioh99.github.io/Chia2/content/img/background/grey.png');" class="settingsbtn">grey</button>
+		</div>
+	</div>
+</div><!-- sddcontent END -->
+
+<section id="previewbm" class="pFS pFC pFF pBgC pBdC" >
+	<p>
+	This is a preview. <br>
+	the quick brown fox jumps over the lazy dog. <br>
+	THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG. <br>
+	1234567890!@#$%^&*()? <br>
+	uppercase i, lowercase L, one <br>
+	Il1
+	</p> <a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> <a href="settings.html">settings</a>
+	<a href="ap/content.html" target="ai" class="ttbo" onclick="tdb('acon');">content</a>
+</section>
+<section id="ilinksbm" class="pFS pFC pFF pBgC pBdC" >
+	<h3>Appendix Topics linked to this page in the (settings) category</h3>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br>
+		Link: test link to settings
+	</p>
+</section>
+
+</main>
+
+	</body>
+
+	
+</html>
