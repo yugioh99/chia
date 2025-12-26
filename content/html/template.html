@@ -32,20 +32,20 @@
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
-	<button  class="menubtn navdropbtn">Bookmarks</button>
+	<button  class="menubtn navdropbtn">Sections</button>
 	<div id="bmddid2" class="bmddcontent2 pBdC">
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
+		Sections
+		<a href="#top">top</a>
+		<a href="#sectitlebm">Section Title</a>
+		<a href="#ilinksbm">Indexed Links</a>
 		Bookmarks 
 		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
 		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
 		<a onclick="goToBm(); sp();">view #1</a>
 		<a onclick="goToBm2(); sp();">view #2</a>
-		Sections
-		<a href="#top">top</a>
-		<a href="#sectitlebm">Section Title</a>
-		<a href="#ilinksbm">Indexed Links</a>
 		bottom
 	</div>
 </div><!-- bm = bookmark END -->
@@ -120,13 +120,13 @@
 		<a href="#sectitlebm">Section Title&nbsp;#</a>: bookmark in the table of contents <br>
 	</p>
 </section>
-<section id="ilinksbm" class="pFS pFC pFF pBgC pBdC" ><!-- appendix topics -->
+<article id="ilinksbm" class="pFS pFC pFF pBgC" ><!-- appendix topics -->
 	<h3>Appendix Topics linked to this page in the (Introduction User Manual Tools Theories Strategies) category</h3>
 	<p>
 		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br>
 		Link: this text can be an exact copy from the appendix topic
 	</p>
-</section>
+</article>
 
 </main>
 
