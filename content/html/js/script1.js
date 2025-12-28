@@ -147,11 +147,11 @@ function apfilter() {
   }
 }
 /* update */
-function runSearch() {
+function apSearch() {
   // 1. Get query and split into keywords (AND logic)
-  const query = document.getElementById('searchBar').value.toLowerCase();
+  const query = document.getElementById('apsearchBar').value.toLowerCase();
   const keywords = query.split(' ').filter(word => word.length > 0);
-  const items = document.querySelectorAll('#itemList li');
+  const items = document.querySelectorAll('#apitemList li');
 
   items.forEach(item => {
   const text = item.getAttribute('data-tags').toLowerCase();
