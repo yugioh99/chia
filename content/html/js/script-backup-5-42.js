@@ -146,28 +146,6 @@ function apfilter() {
     }
   }
 }
-/* update */
-function runSearch() {
-  // 1. Get query and split into keywords (AND logic)
-  const query = document.getElementById('searchBar').value.toLowerCase();
-  const keywords = query.split(' ').filter(word => word.length > 0);
-  const items = document.querySelectorAll('#itemList li');
-
-  items.forEach(item => {
-  const text = item.getAttribute('data-tags').toLowerCase();
-  
-  // 2. Logic: Ensure EVERY keyword is found in the item's tags (AND)
-  // To change to OR, use keywords.some() instead of .every()
-  const isMatch = keywords.every(word => text.includes(word));
-
-  // 3. Update visibility
-  item.style.display = isMatch ? "list-item" : "none";
-  });
-}
-
-
-
-
 /* navigation END */
 
 /* lazyload START 

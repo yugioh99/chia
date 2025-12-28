@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<!--  Essentials -->
+	<meta charset="UTF-8">
+	<title>template - CTS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style1.css" rel="stylesheet">
+	<script src="js/script1.js" type="text/javascript" defer></script>
+	<!-- favicon -->
+	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
+	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
+	<link href="../img/favicons/favicon.ico" rel="icon">
+	<link href="../img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="../img/favicons/manifest.json" rel="manifest">
+	<meta name="apple-mobile-web-app-title" content="CTS">
+</head>
+
+	<body class="pFF pFS pFC">
+
+<header class="hcmain pFC pBgC pBdC">
+<nav class="headernav"> <!-- headernav START   -->
+<div class="smallScreenTitle">CTS</div>
+<div class="midScreenTitle">Template - CTS</div>
+<div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
+	<button class="navdropbtn menubtn">Navigation</button>
+	<div id="lddid" class="lddcontent pBdC"> 
+		Navigation <br>	
+		<a href="home.html">Home</a>
+		<span title="You are here.">Template</span> 
+	</div>
+</div><!-- navigation END -->
+<div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
+	<button  class="menubtn navdropbtn">Sections</button>
+	<div id="bmddid2" class="bmddcontent2 pBdC">
+		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
+	</div>
+	<div id="bmddid" class="bmddcontent pBdC"> 
+		Sections
+		<a href="#top">top</a>
+		<a href="#sectitlebm">Section Title</a>
+		<a href="#ilinksbm">Indexed Links</a>
+		Bookmarks 
+		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
+		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
+		<a onclick="goToBm(); sp();">view #1</a>
+		<a onclick="goToBm2(); sp();">view #2</a>
+		bottom
+	</div>
+</div><!-- bm = bookmark END -->
+<div class="wideScreenTitle">Template - CTS</div>
+<div class="sddcontainer"><!-- settings START -->
+	<a href="settings.html" onclick="sp();"><button class="menubtn">Settings</button></a>
+</div><!-- settings END -->
+
+</nav><!-- headernav END -->
+</header>
+
+<div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
+
+<!-- footnotes group START -->
+<div id="f0" class="ttdiv">
+	<button class="ttbc" onclick="tdb('f0');">Close</button>
+	<h2>Footnote 0</h2>
+	<p>Footnote text goes here.</p> 	
+	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
+</div>
+<!-- footnotes group END -->
+
+<div id="acon" class="ttdiv apu" ><!-- appendix container START -->
+	<header class="hcapx pBdC">
+	<nav class="headerpopup"> <!-- headernav START   -->
+	<div class="popupTitle">Appendix</div>
+	<div class="sddcontainer"><!-- close START -->
+		<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
+	</div><!-- close END -->
+	<div class="sddcontainer"><!-- content START -->
+		<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+	</div><!-- content END -->
+	</nav><!-- headernav END -->
+	</header>
+	<iframe name="ai" src="about:blank" class="aif"></iframe>	
+</div><!-- appendix container END -->
+
+</div><!-- ttgroup END -->
+
+<main><!-- Main  ----------------------------   -->
+<div class="pageTC"> <!-- Page Title -->
+	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Template</h1></div>
+</div>
+<!--   Section template. Don't use it, just make a copy.  -->
+<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
+	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
+	<p> 
+		Content in this section goes here.
+	</p>
+	<h3>Quotes</h3>
+	<p>
+		Below is a quote.
+		<span class="quote pBdC">quote</span>
+		Above is a quote.
+	</p>
+	<h3>Appendix and footnote buttons</h3>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
+		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
+	</p>
+	<h3>Inline images</h3>
+	<p>
+	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+		inline image
+	</p>
+	<h3>Links</h3>
+	<p>
+		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
+		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
+		<a href="#sectitlebm">Section Title&nbsp;#</a>: bookmark in the table of contents <br>
+	</p>
+</section>
+<article id="ilinksbm" class="pFS pFC pFF pBgC" ><!-- appendix topics -->
+	<h2>Indexed Links</h2>
+	<p>
+		Appendix topics linked to this page in the (Introduction User Manual Tools Theories Strategies) category
+	</p>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br>
+		Link: this text can be an exact copy from the appendix topic
+	</p>
+</article>
+
+</main>
+
+	</body>
+
+	
+</html>
