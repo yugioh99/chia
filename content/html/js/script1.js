@@ -114,6 +114,7 @@ function o(idToShow) {
 }
 
 // bookmark filter 
+/*
 function bmfilter() {
   var input, filter, ul, li, a, i;
   input = document.getElementById("bmInput");
@@ -129,8 +130,29 @@ function bmfilter() {
     }
   }
 }
+ */
+/* update */
+function bmfilter() {
+  // 1. Get query and split into keywords (AND logic)
+  const query = document.getElementById('bmInput').value.toLowerCase();
+  const keywords = query.split(' ').filter(word => word.length > 0);
+  const items = document.querySelectorAll('#bmddid li');
+
+  items.forEach(item => {
+  const text = item.getAttribute('data-tags').toLowerCase();
+  
+  // 2. Logic: Ensure EVERY keyword is found in the item's tags (AND)
+  // To change to OR, use keywords.some() instead of .every()
+  const isMatch = keywords.every(word => text.includes(word));
+
+  // 3. Update visibility
+  item.style.display = isMatch ? "list-item" : "none";
+  });
+}
+
 
 // appendix filter 
+/* 
 function apfilter() {
   var input, filter, ul, li, a, i;
   input = document.getElementById("apInput");
@@ -145,7 +167,8 @@ function apfilter() {
       a[i].style.display = "none";
     }
   }
-}
+} 
+*/
 /* update */
 function apSearch() {
   // 1. Get query and split into keywords (AND logic)
