@@ -561,10 +561,12 @@ article {
   padding: 0px;
   margin: 15px 2px;
   background-color: #1a1a1a;
-  border-radius: 10px;
+  border-radius: 0;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 40%;
   border-color: rgb(155, 0, 0);
   border-style: solid;
-  border-width: 10px 3px;
+  border-width: 20px 3px 10px 3px;
   overflow: auto;
   box-shadow: 
   0 0 0 2px rgb(0, 187, 187);
