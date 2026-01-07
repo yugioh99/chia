@@ -581,6 +581,11 @@ article {
   margin-right: 1em;
   font-style: italic;
 }
+/* table of contents */
+.toc {
+  font-weight: bold;
+  font-size: 1.08em;
+}
 img {
   max-width: 95%;  
   margin: 5px 5px 5px 5px;
