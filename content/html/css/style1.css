@@ -571,6 +571,28 @@ article {
   box-shadow: 
   0 0 0 2px rgb(0, 187, 187);
 }
+.atlist { 
+  /*  
+  min-width: 95vw;
+  max-width: 95vw;
+  max-height: 85vh;
+padding: 5px 1px 25px 1px;
+  color: inherit;
+  background-color: inherit;
+  margin: 5px 0px;
+  position: absolute;
+left: 10px;
+  top: -30px;
+border-width: 20px 10px;
+ flex-direction: column;
+  border-color: inherit;
+  border-style: solid;
+  border-radius: 20px;
+
+  */
+  display: none; 
+ 
+}
 .quote {
   border-left: 4px solid rgb(146, 70, 8);;
   display: block;
@@ -792,8 +814,10 @@ img:hover {color: darkred; background-color: rgb(172, 172, 172); text-decoration
 }
 /* tools, strategies, theories button END */
 
+/* use class hidediv for div that you want to toggle display */
+.hidediv {display: none;}
 
-/* toggle needs to be underneath the css that it acts upon */
+/* toggle needs to be underneath the class that it acts upon */
 .tdbs {display:block;}
 .tdibs {display:inline-block;}
 .tdfs {display:flex;}
