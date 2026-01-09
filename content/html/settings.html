@@ -22,7 +22,7 @@
 <header class="hcsettings pBdC"> 
 <nav class="headernav"><!-- headernav START   -->
 <div class="smallScreenTitle">CTS</div>
-<div class="midScreenTitle">CTS - Settings</div>
+<div class="midScreenTitle">Settings - CTS</div>
 <div class="lddcontainer lddsh"><!-- ldd = location drop down = Navigation START  -->
 	<button class="navdropbtn menubtn">Navigation</button>
 	<div id="lddid" class="lddcontent pBdC"> 
@@ -34,25 +34,23 @@
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
-	<button  class="menubtn navdropbtn">Sections</button>
+	<button  class="menubtn navdropbtn">Bookmarks</button>
 	<div id="bmddid2" class="bmddcontent2 pBdC">
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
-		Sections
-		<a href="#top">top</a>
-		<a href="#sddid">Settings</a>
-		<a href="#previewbm">Preview</a>
-		<a href="#ilinksbm">Indexed Links</a>
-		Bookmarks 
-		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
-		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
-		<a onclick="goToBm(); sp();">view #1</a>
-		<a onclick="goToBm2(); sp();">view #2</a>
+		Bookmarks
+		<li data-tags="settings"><a href="#top">Settings</a></li>
+		<li data-tags="previews"><a href="#previewbm">Preview</a></li>
+		<li data-tags="">Saved</li> 
+		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
 		bottom
 	</div>
 </div><!-- bm = bookmark END -->
-<div class="wideScreenTitle">PTC - Settings</div>
+<div class="wideScreenTitle">Settings - CTS</div>
 <div class="sddcontainer"><!-- settings START -->
 	<button class="menubtn" onclick="goBack();">Go Back</button>
 </div><!-- settings END -->
@@ -60,61 +58,23 @@
 </header>
 
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
-<!-- footnotes group START -->
- 	<div id="flinks" class="ttdiv" style="top: 5px;">
-		<button class="ttbc" onclick="tdb('flinks');">Close</button>
-		<h2>Appendix Topics with links to this page in settings category</h2>
-		<!-- 
-		<p> (hide this for notes) template
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br> 
-		Link: you can change the text size in settings
-		</p> -->
-		
-	</div>
-	<div id="f2" class="ttdiv" style="top: 5px;"> 
-		<button class="ttbc" onclick="tdb('f2');">Close</button>
-		<h2>Footnote 2</h2>
-	<h3>Restore Defualts</h3>
+<!-- footnotes group START --> 
+<div id="f1" class="ttdiv" style="top: 5px;">
+	<button class="ttbc" onclick="tdb('f1');">Close</button>
+	<h2>Footnote 1</h2>
+	<p>Below are descriptions of what the buttons do.</p> <hr>
 	<p>
-		This will reset the website to its default appearance. It will also clear saved links in the bookmarks menu.
+	<button class="srDefaults" style="float: none;">Restore Defaults</button><br>
+	This button will reset the website to its default appearance. It will also clear view # in the bookmarks menu. 
+	</p><hr>
+	<button class="smenubtn">Text Size</button> select text size. <hr>
+	<button class="smenubtn">Font Family</button> select font style. <hr>
+	<p>
+	<button class="smenubtn">Themes</button> select text, border, and background color. 
 	</p>
-	<h3>Text Size</h3>
-	<p>
-		Select text size.
-	</p>
-	<h3>Font Family</h3>
-	<p>
-		Select font style.
-	</p>
-	<h3>Themes</h3>
-	<p>
-		Select text color and background color.
-	</p>
-	<h3>BG Image</h3><button class="ttbc" onclick="tdb('f2');">Close</button>
-	<p>
-		Select background image.
-	</p>	
-
-
-	<p>Below are descriptions of what the buttons do.</p>
-	<p>
-		<button class="srDefaults" style="float: none;">Restore Defaults</button><br>
-		This button will reset the website to its default appearance. It will also clear view # in the bookmarks menu.
-	</p>
-	<p>
-		<button class="smenubtn">Text Size</button><br> select text size.
-	</p>
-	<p>
-		<button class="smenubtn">Font Family</button><br> select font style.
-	</p>
-	<p>
-		<button class="smenubtn">Themes</button><br> select text, border, and background color.
-	</p>
-	<button class="ttbc" onclick="tdb('f2');">Close</button>
-	</div>
-
+	<button class="ttbc" onclick="tdb('f1');">Close</button>
+</div>
 <!-- footnotes group END -->
-
 <div id="acon" class="ttdiv apu" style="top: 5px;"><!-- appendix container START -->
 <header class="hcapx pBdC">
 <nav class="headerpopup"> <!-- headernav START   -->
@@ -129,7 +89,6 @@
 </header>
 <iframe name="ai" src="about:blank" class="aif"></iframe>	
 </div><!-- appendix container END -->
-
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
@@ -137,7 +96,7 @@
 <div id="sddid" class="sddcontent"> <!-- sddcontent START -->
 	<div class="sfs settingstitle">
 		<div>
-			<span style="font-size: 1.5em;">Settings<sup><a class="ttbo" onclick="tdb('f2');">[2]</a></sup></span> 
+			<span style="font-size: 1.5em;">Settings<sup><a class="ttbo" onclick="tdb('f1');">[1]</a></sup></span> 
 		</div>
 		<div>
 			<button class="srDefaults" onclick="restoreDefaults();">Restore Defaults</button> 
@@ -146,7 +105,7 @@
 	<div >
 		<div class="settingsnav sfs">
 			<button class="smenubtn" onclick="o('textsizessm');">Text Size</button>
-			<button class="smenubtn" onclick="o('fontssm');">Font Family</button>
+			<button class="smenubtn" onclick="o('fontssm'); showFF();">Font Family</button>
 			<button class="smenubtn" onclick="o('themessm');">Themes</button>
 		</div>
 	</div>
@@ -178,91 +137,77 @@
 	</div>
 	<div id="fontssm" class="ssm ssmc" style="font-family: Arial, Helvetica, sans-serif;">
 		Font Family
-		<button onclick="sFF('Arial');" class="settingsbtn">Arial</button>
-		<button onclick="sFF('Baskerville');" class="settingsbtn">Baskerville</button>
-		<button onclick="sFF('Bradley Hand');" class="settingsbtn">Bradley Hand</button>
-		<button onclick="sFF('Brush Script MT');" class="settingsbtn">Brush Script MT</button>
+		<button onclick="sFF('Arial'); showFF();" class="settingsbtn">Arial</button>
+		<button onclick="sFF('Baskerville'); showFF();" class="settingsbtn">Baskerville</button>
+		<button onclick="sFF('Bradley Hand'); showFF();" class="settingsbtn">Bradley Hand</button>
+		<button onclick="sFF('Brush Script MT'); showFF();" class="settingsbtn">Brush Script MT</button>
+		<button onclick="sFF('Calibri'); showFF();" class="settingsbtn">Calibri</button>
 		<button onclick="sFF('Comic Sans MS');" class="settingsbtn">Comic Sans MS</button>
-		<button onclick="sFF('Courier');" class="settingsbtn">Courier</button>
-		<button onclick="sFF('Cursive');" class="settingsbtn">Cursive</button>
-		<button onclick="sFF('Fira Sans');" class="settingsbtn">Fira Sans</button>
-		<button onclick="sFF('Georgia');" class="settingsbtn">Georgia</button>
-		<button onclick="sFF('Gill Sans');" class="settingsbtn">Gill Sans</button>
-		<button onclick="sFF('Helvetica');" class="settingsbtn">Helvetica</button>
-		<button onclick="sFF('Inter');" class="settingsbtn">Inter</button>
-		<button onclick="sFF('Libre Franklin');" class="settingsbtn">Libre Franklin</button>
-		<button onclick="sFF('Lora');" class="settingsbtn">Lora</button>
-		<button onclick="sFF('Lucida');" class="settingsbtn">Lucida</button>
-		<button onclick="sFF('Luminari');" class="settingsbtn">Luminari</button>
-		<button onclick="sFF('Montserrat');" class="settingsbtn">Montserrat</button>
-		<button onclick="sFF('Monaco');" class="settingsbtn">Monaco</button>
-		<button onclick="sFF('Palatino');" class="settingsbtn">Palatino</button>
-		<button onclick="sFF('Poppins');" class="settingsbtn">Poppins</button>
-		<button onclick="sFF('Raleway');" class="settingsbtn">Raleway</button>
-		<button onclick="sFF('Roboto');" class="settingsbtn">Roboto</button>
-		<button onclick="sFF('sans-serif');" class="settingsbtn">Sans Serif</button>
-		<button onclick="sFF('Segoe UI');" class="settingsbtn">Segoe UI</button>
-		<button onclick="sFF('Tahoma');" class="settingsbtn">Tahoma</button>
-		<button onclick="sFF('Times New Roman');" class="settingsbtn">Times New Roman</button>
-		<button onclick="sFF('Trebuchet MS');" class="settingsbtn">Trebuchet MS</button>
-		<button onclick="sFF('Verdana');" class="settingsbtn">Verdana</button>
+		<button onclick="sFF('Courier'); showFF();" class="settingsbtn">Courier</button>
+		<button onclick="sFF('Cursive'); showFF();" class="settingsbtn">Cursive</button>
+		<button onclick="sFF('Fira Sans'); showFF();" class="settingsbtn">Fira Sans</button>
+		<button onclick="sFF('Georgia'); showFF();" class="settingsbtn">Georgia</button>
+		<button onclick="sFF('Gill Sans'); showFF();" class="settingsbtn">Gill Sans</button>
+		<button onclick="sFF('Helvetica'); showFF();" class="settingsbtn">Helvetica</button>
+		<button onclick="sFF('Inter'); showFF();" class="settingsbtn">Inter</button>
+		<button onclick="sFF('Libre Franklin'); showFF();" class="settingsbtn">Libre Franklin</button>
+		<button onclick="sFF('Lora'); showFF();" class="settingsbtn">Lora</button>
+		<button onclick="sFF('Lucida'); showFF();" class="settingsbtn">Lucida</button>
+		<button onclick="sFF('Luminari'); showFF();" class="settingsbtn">Luminari</button>
+		<button onclick="sFF('Montserrat'); showFF();" class="settingsbtn">Montserrat</button>
+		<button onclick="sFF('Monaco'); showFF();" class="settingsbtn">Monaco</button>
+		<button onclick="sFF('Palatino'); showFF();" class="settingsbtn">Palatino</button>
+		<button onclick="sFF('Poppins'); showFF();" class="settingsbtn">Poppins</button>
+		<button onclick="sFF('Raleway'); showFF();" class="settingsbtn">Raleway</button>
+		<button onclick="sFF('Roboto'); showFF();" class="settingsbtn">Roboto</button>
+		<button onclick="sFF('sans-serif'); showFF();" class="settingsbtn">Sans Serif</button>
+		<button onclick="sFF('Segoe UI'); showFF();" class="settingsbtn">Segoe UI</button>
+		<button onclick="sFF('Tahoma'); showFF();" class="settingsbtn">Tahoma</button>
+		<button onclick="sFF('Times New Roman'); showFF();" class="settingsbtn">Times New Roman</button>
+		<button onclick="sFF('Trebuchet MS'); showFF();" class="settingsbtn">Trebuchet MS</button>
+		<button onclick="sFF('Verdana'); showFF();" class="settingsbtn">Verdana</button>
 		
 	</div>
 	<div id="themessm" class="ssm ssmc">
 		<div>
 			Presets
-			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a'); sBdC('#ffc0cb'); changeBackground('https://yugioh99.github.io/chia/content/img/background/leopardprint.jpg');">Shadi</button>
-			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a'); sBdC('rgb(146, 70, 8)'); changeBackground('https://yugioh99.github.io/chia/content/img/background/black.png');">Dark</button>
-			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('#ffffff'); sBdC('rgb(146, 70, 8)'); changeBackground('https://yugioh99.github.io/chia/content/img/background/grey.png');">Light</button>
-			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)'); sBdC('rgb(114, 114, 114)'); changeBackground('https://yugioh99.github.io/chia/content/img/background/grey.png');">Grey</button>
-		</div>
-		<hr>
-		<div>
+			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a'); sBdC('#ffc0cb'); changeBackground('https://yugioh99.github.io/chia/perm/leopardprint.jpg');">Shadi</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a'); sBdC('rgb(146, 70, 8)'); changeBackground('https://yugioh99.github.io/chia/perm/black.png');">Dark</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('#ffffff'); sBdC('rgb(146, 70, 8)'); changeBackground('https://yugioh99.github.io/chia/perm/grey.png');">Light</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)'); sBdC('rgb(114, 114, 114)'); changeBackground('https://yugioh99.github.io/chia/perm/grey.png');">Grey</button>
+		<hr style="margin: 2px;">
 			Content
 			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a');">Dark</button>
 			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('#ffffff');">Light</button>
 			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)');">Grey</button>
-		</div>
-		<div>
+			<hr style="margin: 2px;">
 			Border
 			<button class="settingsbtn" type="button" onclick="sBdC('#ffc0cb');">Pink</button>
 			<button class="settingsbtn" type="button" onclick="sBdC('rgb(146, 70, 8)');">Brown</button>
 			<button class="settingsbtn" type="button" onclick="sBdC('rgb(114, 114, 114)');">Grey</button>
-		</div>
-		<div>
+		<hr style="margin: 2px;">
 			Background
-			<button onclick="changeBackground('https://yugioh99.github.io/chia/content/img/background/leopardprint.jpg');" class="settingsbtn">leopard</button>
-			<button onclick="changeBackground('https://yugioh99.github.io/chia/content/img/background/black.png');" class="settingsbtn">black</button>
-			<button onclick="changeBackground('https://yugioh99.github.io/chia/content/img/background/grey.png');" class="settingsbtn">grey</button>
+			<button onclick="changeBackground('https://yugioh99.github.io/chia/perm/leopardprint.jpg');" class="settingsbtn">leopard</button>
+			<button onclick="changeBackground('https://yugioh99.github.io/chia/perm/black.png');" class="settingsbtn">black</button>
+			<button onclick="changeBackground('https://yugioh99.github.io/chia/perm/grey.png');" class="settingsbtn">grey</button>
 		</div>
 	</div>
 </div><!-- sddcontent END -->
 
-<section id="previewbm" class="pFS pFC pFF pBgC pBdC" >
+<section id="previewbm" class="pFS pFC pFF pBgC pBdC"> <!-- preview -->
 	<p>
-	This is a preview. <br>
+	<span id="viewFF"></span><br>
 	the quick brown fox jumps over the lazy dog. <br>
 	THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG. <br>
 	1234567890!@#$%^&*()? <br>
 	uppercase i, lowercase L, one <br>
 	Il1
-	</p> <a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> <a href="settings.html">settings</a>
-	<a href="ap/content.html" target="ai" class="ttbo" onclick="tdb('acon');">content</a>
+	</p> 
+	<a href="test.html">Test</a>
 </section>
-<article id="ilinksbm" class="pFS pFC pFF pBgC" >
-	<h2>Indexed Links</h2>
-	<p>
-	Appendix topics linked to this page in the (Settings) category 
-	</p>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br>
-		Link: test link to settings
-	</p>
-</article>
 
 </main>
 
 	</body>
 
-	
 </html>

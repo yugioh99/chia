@@ -4,7 +4,7 @@
 	<meta name="robots" content="noindex">
 	<!--  Essentials -->
 	<meta charset="UTF-8">
-	<title>home page - CTS</title>
+	<title>Chia Trading System - Homepage - CTS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
 	<script src="js/script1.js" type="text/javascript" defer></script>
@@ -13,7 +13,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Chia Trading System">
 	<meta name="twitter:description" content="Conceptualize the continuum of price-time as analogous to space-time">
-	<meta name="twitter:image" content="https://yugioh99.github.io/Chia2/perm/ogbig.jpg">
+	<meta name="twitter:image" content="https://yugioh99.github.io/chia/perm/ogbig.jpg">
 	<meta name="twitter:image:alt" content="Chia Trading System">
 	<!-- Open Graph / Facebook -->
 	<meta property="og:title" content="Chia Trading System">
@@ -21,7 +21,7 @@
 	<meta name="description" content="Conceptualize the continuum of price-time as analogous to space-time">
 	<meta property="og:description" content="Conceptualize the continuum of price-time as analogous to space-time">
 	<meta property="og:site_name" content="CTS">
-	<meta property="og:image" content="https://yugioh99.github.io/Chia2/perm/ogbig.jpg">
+	<meta property="og:image" content="https://yugioh99.github.io/chia/perm/ogbig.jpg">
 	<meta property="og:image:alt" content="Chia Trading System">
 	<!-- favicon -->
 	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
@@ -46,20 +46,19 @@
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
-	<button  class="menubtn navdropbtn">Sections</button>
+	<button  class="menubtn navdropbtn">Bookmarks</button>
 	<div id="bmddid2" class="bmddcontent2 pBdC">
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter()">
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
-		Sections
-		<a href="#top">top</a>
-		<a href="#ptcbm">PTC</a>
-		<a href="#otherstuffbm">Other Stuff</a>
-		Bookmarks 
-		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
-		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
-		<a onclick="goToBm(); sp();">view #1</a>
-		<a onclick="goToBm2(); sp();">view #2</a>
+		Bookmarks
+		<li data-tags="cts chia trading systems"><a href="#ptcbm">CTS</a></li>
+		<li data-tags="other stuff"><a href="#otherstuffbm">Other Stuff</a></li>
+		<li data-tags="">Saved</li>
+		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
 		bottom
 	</div>
 </div><!-- bm = bookmark END -->
@@ -82,13 +81,20 @@
 </div>
 <!-- footnotes group END -->
 
-<div id="gcon" class="ttdiv gBdC"><!-- glossary container START -->
-	<button class="ttbc" onclick="tdb('gcon');">Close</button>
-	<h2>Glossary</h2>
-	<p id="glossary-description"></p> 
-	<div class="ssm" id="alex"><!-- example -->
-	<a href="appendix.html#exbm" onclick="sp(); tdb('gcon');">Appendix Link</a>: learn more</div>
-</div> <!-- glossary container END -->
+<div id="acon" class="ttdiv apu" ><!-- appendix container START -->
+	<header class="hcapx pBdC">
+	<nav class="headerpopup"> <!-- headernav START   -->
+	<div class="popupTitle">Appendix</div>
+	<div class="sddcontainer"><!-- close START -->
+		<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
+	</div><!-- close END -->
+	<div class="sddcontainer"><!-- content START -->
+		<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+	</div><!-- content END -->
+	</nav><!-- headernav END -->
+	</header>
+	<iframe name="ai" src="about:blank" class="aif"></iframe>	
+</div><!-- appendix container END -->
 
 </div><!-- ttgroup END -->
 
@@ -100,43 +106,53 @@
 </div>
 
 <!--   Section template. Don't use it, just make a copy.
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
-	<h2>Section Title<sup><a href="#sectitlebm">#</a></sup></h2>
+<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
+	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
 	<p> 
 		Content in this section goes here.
 	</p>
-	<a class="ttbo" onclick="tdb('gcon'); gk('ex'); o('alex');">Example</a> glossary button <br>
-	<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button <br>
-	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-	inline image 
-	<br>
-	<a href="../img/background/1.jpg">view&nbsp;image</a> big image in same window <br>
-	<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window
+	<h3>Quotes</h3>
+	<p>
+		Below is a quote.
+		<span class="quote pBdC">quote</span>
+		Above is a quote.
+	</p>
+	<h3>Appendix and footnote buttons</h3>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
+		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
+	</p>
+	<h3>Inline images</h3>
+	<p>
+	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+		inline image
+	</p>
+	<h3>Links</h3>
+	<p>
+		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
+		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
+		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
+	</p>
 </section>  -->
 <section id="ptcbm" class="pFF pFS pFC pBgC pBdC"> <!-- cts -->
 	<h2>Chia Trading System<sup><a href="#ptcbm">#</a></sup></h2>
 	<p><a href="intro.html">Introduction</a>: Conceptualize the continuum of price-time as analogous to space-time.</p>
 	<h3>CTS categories</h3>
-<div class="cores">
-	<a href="to/template.html">Tools</a>
-	<a href="">Theories</a>
-	<a href="">Strategies</a>
-</div>
+	<div class="cores">
+		<a href="to/template.html">Tools</a>
+		<a href="">Theories</a>
+		<a href="">Strategies</a>
+	</div>
 </section>
 <section id="otherstuffbm" class="pFF pFS pFC pBgC pBdC"><!-- other stuff -->
 	<h2>Other Stuff<sup><a href="#otherstuffbm">#</a></sup></h2>
-	<a href="user-manual.html">User Manual</a>: How to use this website and PTC. <br>
-	<a href="appendix.html" onclick="sp();">Appendix</a>: Glossary and Index <br>
+	<a href="ap/content.html" target="ai" class="ttbo" onclick="tdb('acon');">Appendix</a>: Glossary and Index <br><br>
 	<a href="updates.html">Updates</a>: Recent updates.<br>
-	<a href="template.html">Template</a>: Template experiment  <br>
-	<a href="searchx.html">search</a>: test search <br>
-	<a href="template-backup.html">template backup</a>: back up 
 </section>
 </main>
 
 	</body>
 
-	
 </html>

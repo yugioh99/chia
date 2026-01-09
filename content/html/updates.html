@@ -39,15 +39,13 @@
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
 		Bookmarks 
-		<a onclick="saveBm();"><button class="settingsbtn">save #1</button></a>
-		<a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a>
-		<a onclick="goToBm(); sp();">view #1</a>
-		<a onclick="goToBm2(); sp();">view #2</a>
-		Sections
-		<a href="#top">top</a>
-		<a href="#futurebm">Future Plans</a>
-		<a href="#recentbm">Recent Updates</a>
-		<a href="#oldbm">Old Updates</a>
+		<li data-tags="future plans"><a href="#futurebm">Future Plans</a></li>
+		<li data-tags="recent updates"><a href="#recentbm">Recent Updates</a></li>
+		Saved
+		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
 		bottom
 	</div>
 </div><!-- bm = bookmark END -->
@@ -85,20 +83,35 @@
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Updates</h1></div>
 </div>
 <!--   Section template. Don't use it, just make a copy.
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
-	<h2>Section Title<sup><a href="#sectitlebm">#</a></sup></h2>
+<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
+	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
 	<p> 
 		Content in this section goes here.
 	</p>
-	<a class="ttbo" onclick="tdb('gcon'); gk('ex'); o('alex');">Example</a> glossary button <br>
-	<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button <br>
-	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-	inline image 
-	<br>
-	<a href="../img/background/1.jpg">view&nbsp;image</a> big image in same window <br>
-	<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window
+	<h3>Quotes</h3>
+	<p>
+		Below is a quote.
+		<span class="quote pBdC">quote</span>
+		Above is a quote.
+	</p>
+	<h3>Appendix and footnote buttons</h3>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
+		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
+	</p>
+	<h3>Inline images</h3>
+	<p>
+	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+		inline image
+	</p>
+	<h3>Links</h3>
+	<p>
+		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
+		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
+		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
+	</p>
 </section>  -->
 <section id="futurebm" class="pFF pFS pFC pBgC pBdC"><!-- future -->
 	<h2>Future Plans<sup><a href="#futurebm">#</a></sup></h2>
@@ -119,12 +132,6 @@
 	</p>
 	<p>2025-06-02 10:15pm minor <br>
 		Various minor updates.
-	</p>
-</section>
-<section id="oldbm" class="pFF pFS pFC pBgC pBdC"><!-- old -->
-	<h2>Old Updates<sup><a href="#oldbm">#</a></sup></h2>
-	<p> 
-		
 	</p>
 </section>
 </main>

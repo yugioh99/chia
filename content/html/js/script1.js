@@ -3,33 +3,44 @@
 /* change font family */
 window.addEventListener('DOMContentLoaded', () => sFF());
 function sFF(fontFamily){
-    var elements = document.getElementsByClassName("pFF")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontFamily=fontFamily;}
-    // if provided color, set color to LS
-    if (fontFamily) window.localStorage.setItem('fontFamily', fontFamily);
-    // if no provided color, check LS for color, and if no color in LS, fail silently
-    else if (!(fontFamily = window.localStorage.getItem('fontFamily'))) return;
-    // update the page
-    var elements = document.getElementsByClassName("pFF")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontFamily=fontFamily;}
+  var elements = document.getElementsByClassName("pFF")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontFamily=fontFamily;}
+  // if provided color, set color to LS
+  if (fontFamily) window.localStorage.setItem('fontFamily', fontFamily);
+  // if no provided color, check LS for color, and if no color in LS, fail silently
+  else if (!(fontFamily = window.localStorage.getItem('fontFamily'))) return;
+  // update the page
+  var elements = document.getElementsByClassName("pFF")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontFamily=fontFamily;}
+}
+// show current font family
+function showFF() {
+  // 1. Select the target element
+  const target = document.getElementById("previewbm");
+  // 2. Get all computed styles for that element
+  const computedStyles = window.getComputedStyle(target);
+  // 3. Extract the 'font-family' property value
+  const fontFamily = computedStyles.getPropertyValue("font-family");
+  // 4. Display the result in the 'viewFF' element
+  document.getElementById("viewFF").textContent = "Font Family: " + fontFamily;
 }
 
 /* change font size */
 window.addEventListener('DOMContentLoaded', () => sFS());
 function sFS(fontSize){
-    var elements = document.getElementsByClassName("pFS")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontSize=fontSize;}
-    // if provided color, set color to LS
-    if (fontSize) window.localStorage.setItem('fontSize', fontSize);
-    // if no provided color, check LS for color, and if no color in LS, fail silently
-    else if (!(fontSize = window.localStorage.getItem('fontSize'))) return;
-    // update the page
-    var elements = document.getElementsByClassName("pFS")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontSize=fontSize;}
+  var elements = document.getElementsByClassName("pFS")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontSize=fontSize;}
+  // if provided color, set color to LS
+  if (fontSize) window.localStorage.setItem('fontSize', fontSize);
+  // if no provided color, check LS for color, and if no color in LS, fail silently
+  else if (!(fontSize = window.localStorage.getItem('fontSize'))) return;
+  // update the page
+  var elements = document.getElementsByClassName("pFS")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontSize=fontSize;}
 }
 
 /* change font color */
@@ -79,7 +90,6 @@ function sBdC(color){
   for (var i = 0; i < elements.length; i++) {
   elements[i].style.borderColor=color;}
 }
-
 /* settings END */
 
 /* navigation START */
@@ -114,24 +124,6 @@ function o(idToShow) {
 }
 
 // bookmark filter 
-/*
-function bmfilter() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("bmInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("bmddid");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-}
- */
-/* update */
 function bmfilter() {
   // 1. Get query and split into keywords (AND logic)
   const query = document.getElementById('bmInput').value.toLowerCase();
@@ -150,26 +142,7 @@ function bmfilter() {
   });
 }
 
-
 // appendix filter 
-/* 
-function apfilter() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("apInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("apddid");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-} 
-*/
-/* update */
 function apSearch() {
   // 1. Get query and split into keywords (AND logic)
   const query = document.getElementById('apsearchBar').value.toLowerCase();
@@ -187,10 +160,6 @@ function apSearch() {
   item.style.display = isMatch ? "list-item" : "none";
   });
 }
-
-
-
-
 /* navigation END */
 
 /* lazyload START 
@@ -228,6 +197,7 @@ function goToBm() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+
 // set bm 2
 function saveBm2() {
   localStorage.setItem("currenttwoUrl", window.location.href); 
@@ -262,5 +232,3 @@ function restoreDefaults() {
   localStorage.clear(); 
   window.location.reload();
 }
-
-
