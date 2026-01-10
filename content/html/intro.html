@@ -52,6 +52,7 @@
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
 		Bookmarks 
+		<li data-tags="section title"><a href="#sectitlebm">section title</a></li>
 		<li data-tags="what is cts"><a href="#wictsbm">What is CTS</a></li>
 		<li data-tags="">Saved</li>
 		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
@@ -78,56 +79,22 @@
 	<p>Footnote text goes here.</p> 	
 	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
 </div>
-<div id="f1" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f1');">Close</button>
-	<h2>Footnote 1</h2>
-	<p>A discretionary trading system is a trading approach where traders make decisions based on their judgment, experience, and intuition, rather than relying on pre-defined rules or algorithms. </p> footnote
-</div>
-<div id="f2" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f2');">Close</button>
-	<h2>Footnote 2</h2>
-	<p>The weak anthropic principle (WAP) posits that the universe must have properties that allow for the existence of observers, meaning the observed properties of the universe are compatible with our existence, rather than being a result of a specific, arbitrary selection. </p>
-</div>
-<div id="f3" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f3');">Close</button>
-	<h2>Footnote 3</h2>
-	<p>Chimpanzees and Bonobos: Studies show that chimpanzees and bonobos can learn to exchange items, like tokens or food, for other goods or services. <br><a href="https://link.springer.com/article/10.1007/s10539-022-09837-2#:~:text=While%20other%20animals%20also%20engage,2008;%20Parrish%20et%20al." rel="noreferrer">Tools of the trade: the human propensity to trade</a></p>
-	<p>Ants and Aphids: Ants protect aphids from predators, and in return, the aphids provide the ants with a sugary substance called honeydew. This is a classic example of a mutualistic relationship that can be viewed as a form of trade. <br><a href="https://arbortrue.com/ants-and-aphids/#:~:text=Aphids%20consume%20sap%20from%20plants,both%20benefit%20from%20the%20partnership." rel="noreferrer">Ants and Aphids</a></p>
-	<p>Cleaner fish: Cleaner fish quickly learn to treat their more choosy customers to a better service. <br><a href="https://theconversation.com/what-trade-deals-can-teach-us-about-the-animal-kingdom-68686#:~:text=Cleaner%20fish%20quickly%20learn" rel="noreferrer">What trade deals can teach us about the animal kingdom</a></p>
-</div>
-<div id="f4" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f4');">Close</button>
-	<h2>Footnote 4</h2>
-	<p><a href="https://royalsocietypublishing.org/doi/10.1098/rstb.2019.0663" rel="noreferrer">How animals do business</a> </p>
-</div>
-<div id="f5" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f5');">Close</button>
-	<h2>Footnote 5</h2>
-	<p> "the fungal network does not work as a simple pipeline for resource sharing among trees. This means that apparent resource sharing among trees is more likely to be a result of trading between fungi and trees rather than directed transfer from one tree to another."</p> 
-	<p>“We found that mycorrhizal networks are indeed essential for the stability of many forest ecosystems, but rarely through sharing and caring among trees. Rather, it works like a trading ground for individual trees and fungi, each trying to make the best deal to survive,” </p>
-	<p><a href="https://iiasa.ac.at/news/may-2023/exploring-underground-connections-between-trees" rel="noreferrer">Exploring the underground connections between trees</a></p>
-</div>
-<div id="f6" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f6');">Close</button>
-	<h2>Footnote 6</h2>
-	<p> mereological nihilist</p>
-</div>
-
 <!-- footnotes group END -->
 
-<div id="gcon" class="ttdiv gBdC"><!-- glossary container START -->
-	<button class="ttbc" onclick="tdb('gcon');">Close</button>
-	<h2>Glossary</h2>
-	<p id="glossary-description"></p> 
-	<div class="ssm" id="alex"><!-- example -->
-	<a href="appendix.html#exbm" onclick="sp(); tdb('gcon');">Appendix Link</a>: learn more</div>
-	<div class="ssm" id="alex"><!-- cvn -->
-	<a href="appendix.html#exbm" onclick="sp(); tdb('gcon');">Appendix Link</a>: learn more</div>
-	<div class="ssm" id="alfi"><!-- ftle -->
-	<a href="appendix.html#fibm" onclick="sp(); tdb('gcon');">Appendix Link</a>: learn more</div>
-	<div class="ssm" id="alla"><!-- lcs -->
-	<a href="appendix.html#labm" onclick="sp(); tdb('gcon');">Appendix Link</a>: learn more</div>
-</div> <!-- glossary container END -->
+<div id="acon" class="ttdiv apu" ><!-- appendix container START -->
+	<header class="hcapx pBdC">
+	<nav class="headerpopup"> <!-- headernav START   -->
+	<div class="popupTitle">Appendix</div>
+	<div class="sddcontainer"><!-- close START -->
+		<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
+	</div><!-- close END -->
+	<div class="sddcontainer"><!-- content START -->
+		<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+	</div><!-- content END -->
+	</nav><!-- headernav END -->
+	</header>
+	<iframe name="ai" src="about:blank" class="aif"></iframe>	
+</div><!-- appendix container END -->
 
 </div><!-- ttgroup END -->
 
@@ -137,21 +104,67 @@
 	<div class="seeddiv"><img class="seedimg"  src="../img/icons/chia-seed.jpg" alt="CTS Logo" decoding="async"></div>
 </div>
 <!--   Section template. Don't use it, just make a copy. 
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
-	<h2>Section Title<sup><a href="#sectitlebm">#</a></sup></h2>
+<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
+	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
 	<p> 
 		Content in this section goes here.
 	</p>
-	<a class="ttbo" onclick="tdb('gcon'); gk('ex'); o('alex');">Example</a> glossary button <br>
-	<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button <br>
-	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-	inline image 
-	<br>
-	<a href="../img/background/1.jpg">view&nbsp;image</a> big image in same window <br>
-	<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window
+	<h3>Quotes</h3>
+	<p>
+		Below is a quote.
+		<span class="quote pBdC">quote</span>
+		Above is a quote.
+	</p>
+	<h3>Appendix and footnote buttons</h3>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
+		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
+	</p>
+	<h3>Inline images</h3>
+	<p>
+	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+		inline image
+	</p>
+	<h3>Links</h3>
+	<p>
+		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
+		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
+		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
+	</p>
 </section> -->
+
+<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> <!-- section title --> 
+	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
+	<p> 
+		Content in this section goes here.
+	</p>
+	<h3>Quotes</h3>
+	<p>
+		Below is a quote.
+		<span class="quote pBdC">quote</span>
+		Above is a quote.
+	</p>
+	<h3>Appendix and footnote buttons</h3>
+	<p>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
+		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
+	</p>
+	<h3>Inline images</h3>
+	<p>
+	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+		inline image
+	</p>
+	<h3>Links</h3>
+	<p>
+		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
+		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
+		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
+	</p>
+</section>
 <section id="htubm" class="pFF pFS pFC pBgC pBdC"> <!-- how to use -->
 	<h2>How to use<sup><a href="#htubm">#</a></sup></h2>
 	<p> 
