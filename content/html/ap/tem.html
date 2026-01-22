@@ -72,10 +72,26 @@
 </section>   
 -->
 <section class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
-	<h2>Section Title</h2>
+	<h2>Appendix Topic title</h2>
+	<h3>TL;DR</h3>
 	<p> 
-		Content in this section goes here.
+		too long didnt read goes here.
 	</p>
+	<h3>Deep Dive</h3>
+	<button onclick="tdb('deepdive');" class="smenubtn">show/hide</button>
+	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
+	<p>
+		deep dive content
+	</p>
+	</div><!-- deep dive div END -->
+	<h3>Illustrations</h3>
+	
+	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view all</button> view multiple images in this section <hr>
+	image 1 <br>
+	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 1"> <hr>
+	image 2 <br>
+	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 2"> <hr>
+	
 	<h3>Quotes</h3>
 	<p>
 		Below is a quote.
@@ -86,12 +102,7 @@
 	<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
 	</p>
 	<h3>Inline images</h3>
-	<p>
-	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-	inline image 
-	</p>
+	
 	<h3>Links</h3> 
 	<p>
 	<a href="../../img/background/1.jpg" target="_blank">view&nbsp;image&nbsp;&nearr;</a> big image in new window <br>
