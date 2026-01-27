@@ -37,13 +37,15 @@
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
-		Bookmarks
+		Bookmarks 
+		<!-- <li data-tags=""><a href="#bm"></a></li> -->
 		<li data-tags="currently working on"><a href="#cur-wor-bm">currently working on</a></li>
 		<li data-tags="work on later"><a href="#wor-on-bm">work on later</a></li>
 		<li data-tags="Section Title"><a href="#sec-tit-bm">Section Title</a></li>
 		<li data-tags="Section Local"><a href="#section-local">Section Local</a></li>
 		<li data-tags="Section Universal"><a href="#sec-uni-bm">Section Universal</a></li>
 		<li data-tags="math formulas"><a href="#mat-for-bm">Math &amp; Formulas</a></li>
+		<li data-tags=""><a href="#bm"></a></li>
 		<li data-tags="appendix notes"><a href="#anotesbm">Appendix Notes</a></li>
 		<li data-tags="">Saved</li>
 		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
@@ -93,37 +95,6 @@
 <div class="pageTC"> <!-- Page Title -->
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Test</h1></div>
 </div>
-<!--   Section template. Don't use it, just make a copy. 
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
-	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
-	<p> 
-		Content in this section goes here.
-	</p>
-	<h3>Quotes</h3>
-	<p>
-		Below is a quote.
-		<span class="quote pBdC">quote</span>
-		Above is a quote.
-	</p>
-	<h3>Appendix and footnote buttons</h3>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
-		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
-	</p>
-	<h3>Inline images</h3>
-	<p>
-	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-		inline image
-	</p>
-	<h3>Links</h3>
-	<p>
-		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
-		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
-		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
-	</p>
-</section> -->
 
 <section id="cur-wor-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Currently working on -->
 	<h2>Currently working on<sup><a href="#cur-wor-bm" title="bookmark">#</a></sup></h2>
@@ -202,7 +173,7 @@
 	<button onclick="tdb('deccodes');" class="smenubtn">show/hide</button>
 	<div id="deccodes" class="hidediv"> <!-- hidethis START -->
 	<p>
-		Dot operator &#8901; <br>
+		Dot operator <span class="dot-o">&#8901;</span>  <br>
 		Equals sign &#61; <br>
 		Not equal to &#8800; <br>
 		less than &#60; <br>
@@ -221,7 +192,7 @@
 	</div><!-- hidethis END -->
 	
 	<h3>Example of Parenthesis</h3>
-	<div class="math-expression"> <!-- fraction example START -->
+	<div class="math-container"> <!-- fraction example START -->
 		48
 	<span class="paren">(</span><div class="fraction">
 		<div class="numerator mBdC">k</div>
@@ -230,18 +201,28 @@
 		852
 	</div><!-- fraction example END -->
 	<h3>Limit Order Uncertainty Conjecture</h3>
-	<div class="math-container"> <!-- limit order uncertainty conjecture  START -->
-		&#916;&#120591; &#8901; &#916;I &#8901;
-	<div class="fraction">
-		<div class="numerator mBdC">1</div>
-  		<div class="denominator">P<sub class="m-sub">&#402;</sub>(Q)</div>
-	</div>
-		&#8805; K (L, &#963;) 
-	</div><!-- limit order uncertainty conjecture END -->
+	
 	<h3>Market Order Uncertainty Conjecture</h3>
-	<div class="math-expression"> <!-- fraction example START -->
-		&#916;P &#8776; &#119890; &#8901; &#402;(V<sub>order</sub> , L<sub>market</sub>) &#8901; &#963;
-	</div><!-- fraction example END -->
+	<div class="math-container"> <!-- Market Order Uncertainty Conjecture START -->
+		&#916;P &#8776; &#119890; <span class="dot-o">&#8901;</span> &#402;(V, L) <span class="dot-o">&#8901;</span> &#963;
+	</div><!-- Market Order Uncertainty Conjecture END -->
+</section>
+<section id="lim-ord-bm" class="pFF pFS pFC pBgC pBdC"> <!-- limit order uncertainty conjecture -->
+	<h2>Limit Order Uncertainty Conjecture<sup><a href="#lim-ord-bm" title="bookmark">#</a></sup></h2>
+		<div class="math-container"> <!-- limit order uncertainty conjecture  START -->
+		&#916;&#120591; <span class="dot-o">&#8901;</span> &#916;I <span class="dot-o">&#8901;</span>
+			<div class="fraction">
+				<div class="numerator mBdC">1</div>
+  				<div class="denominator">P<sub class="m-sub">&#402;</sub>(Q)</div>
+			</div>
+		&#8805; K (L, &#963;) 
+		</div><!-- limit order uncertainty conjecture END -->
+</section>
+<section id="mar-ord-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Market Order Uncertainty Conjecture -->
+	<h2>Market Order Uncertainty Conjecture<sup><a href="#mar-ord-bm" title="bookmark">#</a></sup></h2>
+		<div class="math-container"> <!-- Market Order Uncertainty Conjecture START -->
+		&#916;P &#8776; &#119890; <span class="dot-o">&#8901;</span> &#402;(V, L) <span class="dot-o">&#8901;</span> &#963;
+		</div><!-- Market Order Uncertainty Conjecture END -->
 </section>
 <article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
 	<h2>Appendix Notes</h2>
