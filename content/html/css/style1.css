@@ -23,6 +23,8 @@ body{
 /* superscript & subscript START */
 sup {vertical-align: super; font-size: 0.75em;}
 sub {vertical-align: sub; font-size: 0.75em;}
+.m-sup {vertical-align: super; font-size: 1em}
+.m-sub {vertical-align: sub; font-size: 1em;}
 
 /* link START */
 a{border-style: solid; border-color: rgb(17, 17, 255); padding: 0px 1px; border-radius: 5px;}
@@ -542,14 +544,14 @@ article {
   font-style: italic;
 }
 /* math css */
-.math-expression {
+.math-container {
   display: inline-flex;
   align-items: center; /* Vertically centers parentheses with the fraction */
   font-family: serif;
 }
 .paren {
   font-size: 1.8em; /* Makes parentheses naturally larger */
-  padding: 0px 2px 0px 2px;
+  padding: 1px 1px 0px 1px;
 }
 .fraction {
   display: inline-flex;
@@ -557,14 +559,14 @@ article {
   vertical-align: middle;
   text-align: center;
   font-size: 0.8em;
-
+  padding: 1px 0.5em 1px 0.5em;
 }
 .numerator {
-  border-bottom: 1px solid #dddddd; /* fraction line */
-  padding: 5px 2px 0px 2px;
+  border-bottom: 2px solid #dddddd; /* fraction line */
+  padding: 2px 2px 0px 2px;
 }
 .denominator {
-  padding: 0 2px;
+  padding: 1px 2px 0px 2px;
 }
 /* table of contents */
 .toc {
