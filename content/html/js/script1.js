@@ -15,17 +15,6 @@ function sFF(fontFamily){
   for (var i = 0; i < elements.length; i++) {
   elements[i].style.fontFamily=fontFamily;}
 }
-// show current font family
-function showFF() {
-  // 1. Select the target element
-  const target = document.getElementById("previewbm");
-  // 2. Get all computed styles for that element
-  const computedStyles = window.getComputedStyle(target);
-  // 3. Extract the 'font-family' property value
-  const fontFamily = computedStyles.getPropertyValue("font-family");
-  // 4. Display the result in the 'viewFF' element
-  document.getElementById("viewFF").textContent = "Font Family: " + fontFamily;
-}
 
 /* change font size */
 window.addEventListener('DOMContentLoaded', () => sFS());
@@ -87,6 +76,22 @@ function sBdC(color){
   else if (!(color = window.localStorage.getItem('bdColor'))) return;
   // update the page
   var elements = document.getElementsByClassName("pBdC")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.borderColor=color;}
+}
+
+/* change math border color */
+window.addEventListener('DOMContentLoaded', () => smBdC());
+function smBdC(color){
+  var elements = document.getElementsByClassName("mBdC")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.borderColor=color;}
+  // if provided color, set color to LS
+  if (color) window.localStorage.setItem('mbdColor', color);
+  // if no provided color, check LS for color, and if no color in LS, fail silently
+  else if (!(color = window.localStorage.getItem('mbdColor'))) return;
+  // update the page
+  var elements = document.getElementsByClassName("mBdC")
   for (var i = 0; i < elements.length; i++) {
   elements[i].style.borderColor=color;}
 }

@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
 	<script src="js/script1.js" type="text/javascript" defer></script>
+	<script src="js/showff.js" type="text/javascript" defer></script>
 	<!-- favicon -->
 	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -105,7 +106,7 @@
 	<div >
 		<div class="settingsnav sfs">
 			<button class="smenubtn" onclick="o('textsizessm');">Text Size</button>
-			<button class="smenubtn" onclick="o('fontssm'); showFF();">Font Family</button>
+			<button class="smenubtn" onclick="o('fontssm');">Font Family</button>
 			<button class="smenubtn" onclick="o('themessm');">Themes</button>
 		</div>
 	</div>
@@ -177,9 +178,9 @@
 			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)'); sBdC('rgb(114, 114, 114)'); changeBackground('https://yugioh99.github.io/chia/perm/grey.png');">Grey</button>
 		<hr style="margin: 2px;">
 			Content
-			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); sBgC('#1a1a1a');">Dark</button>
-			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('#ffffff');">Light</button>
-			<button class="settingsbtn" type="button" onclick="sFC('#000000'); sBgC('rgb(221, 221, 221)');">Grey</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#dddddd'); smBdC('#dddddd'); sBgC('#1a1a1a');">Dark</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); smBdC('#000000'); sBgC('#ffffff');">Light</button>
+			<button class="settingsbtn" type="button" onclick="sFC('#000000'); smBdC('#000000'); sBgC('rgb(221, 221, 221)');">Grey</button>
 			<hr style="margin: 2px;">
 			Border
 			<button class="settingsbtn" type="button" onclick="sBdC('#ffc0cb');">Pink</button>
@@ -204,6 +205,24 @@
 	Il1
 	</p> 
 	<a href="test.html">Test</a>
+	<br>
+	the
+	<div class="math-expression">
+		<span class="paren">(</span>
+	<div class="fraction">
+		<div class="numerator mBdC">k</div>
+  		<div class="denominator">2</div>
+	</div>
+		<span class="paren">)</span>
+	</div>
+	<br><br>
+	<math>
+  <mrow>
+    <mo>(</mo>
+    <mfrac><mi>k</mi><mn>2</mn></mfrac>
+    <mo>)</mo>
+  </mrow>
+</math>
 </section>
 
 </main>
