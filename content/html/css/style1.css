@@ -20,8 +20,9 @@ body{
 @media screen and (min-width: 1001px) {body {width: auto; max-width: 60vw;}}
 /* body END */
 
-/* superscript START */
+/* superscript & subscript START */
 sup {vertical-align: super; font-size: 0.75em;}
+sub {vertical-align: sub; font-size: 0.75em;}
 
 /* link START */
 a{border-style: solid; border-color: rgb(17, 17, 255); padding: 0px 1px; border-radius: 5px;}

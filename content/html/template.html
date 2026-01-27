@@ -75,7 +75,7 @@
 		<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
-		<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+		<a href="ap/topics.html" target="ai"><button class="menubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
@@ -88,37 +88,29 @@
 <div class="pageTC"> <!-- Page Title -->
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Template</h1></div>
 </div>
-<!--   Section template. Don't use it, just make a copy.  -->
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
-	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
-	<p> 
-		Content in this section goes here.
-	</p>
-	<h3>Quotes</h3>
+<!-- Empty Section. Copy and Past
+<section id="sec-tit-bm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
+	<h2>Section Title<sup><a href="#sec-tit-bm" title="bookmark">#</a></sup></h2>
+</section> -->
+<!--  --><section id="section-local" class="pFF pFS pFC pBgC pBdC">
+	<h2>Section Local</h2>
+	 
+	<h3>Inline Images</h3>
 	<p>
-		Below is a quote.
-		<span class="quote pBdC">quote</span>
-		Above is a quote.
-	</p>
-	<h3>Appendix and footnote buttons</h3>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
-		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
-	</p>
-	<h3>Inline images</h3>
-	<p>
-	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+	 	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="si-sectit1" onclick="vi('si-sectit1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="si-sectit2" onclick="vi('si-sectit2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
 		inline image
 	</p>
-	<h3>Links</h3>
+	<h3>Full Screen Images</h3>
 	<p>
-		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
-		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
-		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
+		<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> big image in new window <br>
 	</p>
 </section>
+<section id="sec-tit-bm" class="pFF pFS pFC pBgC pBdC"> <!-- section title -->
+	<h2>Section Title<sup><a href="#sec-tit-bm" title="bookmark">#</a></sup></h2>
+</section>
+
 <article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
 	<h2>Appendix Notes</h2>
 	<p>
@@ -131,7 +123,7 @@
 		Appendix topics with indexed links to this page in the (Introduction User Manual Tools Theories Strategies) category
 	</p>
 	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');" title="appendix topic">template&nbsp;nbsp</a> <br>
 		Link: this text can be an exact copy from the appendix topic
 	</p>
 	</div><!-- list of app linked here END -->

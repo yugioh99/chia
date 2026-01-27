@@ -28,7 +28,7 @@
 	<div id="lddid" class="lddcontent pBdC"> 
 		Navigation <br>	
 		<a href="home.html">Home</a>
-		Test 
+		<span title="You are here">Test</span>  
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
@@ -38,8 +38,12 @@
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
 		Bookmarks
-		<li data-tags="currently working on"><a href="#currentwobm">currently working on</a></li>
-		<li data-tags="Section Title"><a href="#sectitlebm">Section Title</a></li>
+		<li data-tags="currently working on"><a href="#cur-wor-bm">currently working on</a></li>
+		<li data-tags="work on later"><a href="#wor-on-bm">work on later</a></li>
+		<li data-tags="Section Title"><a href="#sec-tit-bm">Section Title</a></li>
+		<li data-tags="Section Local"><a href="#section-local">Section Local</a></li>
+		<li data-tags="Section Universal"><a href="#sec-uni-bm">Section Universal</a></li>
+		<li data-tags="math formulas"><a href="#mat-for-bm">Math &amp; Formulas</a></li>
 		<li data-tags="appendix notes"><a href="#anotesbm">Appendix Notes</a></li>
 		<li data-tags="">Saved</li>
 		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
@@ -76,7 +80,7 @@
 		<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
-		<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+		<a href="ap/topics.html" target="ai"><button class="menubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
@@ -121,11 +125,19 @@
 	</p>
 </section> -->
 
-<section id="currentwobm" class="pFF pFS pFC pBgC pBdC"> <!-- Currently working on -->
-	<h2>Currently working on<sup><a href="#currentwobm" title="bookmark">#</a></sup></h2>
+<section id="cur-wor-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Currently working on -->
+	<h2>Currently working on<sup><a href="#cur-wor-bm" title="bookmark">#</a></sup></h2>
+	<h3>Page Template</h3>
+	<a href="template.html">Template</a>
+	<h3>Appendix Template</h3>
+	<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');" title="appendix topic">template</a>
+	
+</section> 
+<section id="wor-on-bm" class="pFF pFS pFC pBgC pBdC"> <!-- work on later -->
+	<h2>Work on later<sup><a href="#wor-on-bm" title="bookmark">#</a></sup></h2>
 	<h3>Intro</h3>
 	<p>
-		<a href="intro.html">intro</a> current project: update the appendix tooltip div. Update the section template. Start writing content for the intro.
+		<a href="intro.html">intro</a> current project: update the appendix tooltip div. Update the section template. Start writing content &#116; t &#120591; 	&#119905; T for <sub>test</sub> the <sup>test</sup> intro.
 	</p>
 	<h3>Old Intro</h3>
 	<p> 
@@ -139,11 +151,30 @@
 	<p>
 		Future project: make a list of youtube code for embeding. Stuff like time stamp start, and brackets and no promo videos at the end. Stuff like that.
 	</p>
+</section>
+<section id="sec-tit-bm" class="pFF pFS pFC pBgC pBdC"> <!-- section title -->
+	<h2>Section Title<sup><a href="#sec-tit-bm" title="bookmark">#</a></sup></h2>
+</section>
+<section id="section-local" class="pFF pFS pFC pBgC pBdC"> <!-- section local -->
+	<h2>Section Local<sup><a href="#section-local" title="bookmark">#</a></sup></h2>
+	
+	<h3>Inline Images</h3>
+	<p>
+	 	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> view multiple images in this section <br>
+		<img id="si-sectit1" onclick="vi('si-sectit1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
+		<img id="si-sectit2" onclick="vi('si-sectit2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
+		inline image
+	</p>
+	<h3>Full Screen Images</h3>
+	<p>
+		<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> big image in new window <br>
+	</p>
 </section> 
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> <!-- section title -->
-	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
-	<p> 
-		Content in this section goes here.
+<section id="sec-uni-bm" class="pFF pFS pFC pBgC pBdC"> <!-- section universal -->
+	<h2>Section Universal<sup><a href="#sec-uni-bm" title="bookmark">#</a></sup></h2>
+	<h3>Footnote Button</h3>
+	<p>
+		<sup><a class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</a></sup>
 	</p>
 	<h3>Quotes</h3>
 	<p>
@@ -151,25 +182,23 @@
 		<span class="quote pBdC">quote</span>
 		Above is a quote.
 	</p>
-	<h3>Appendix and footnote buttons</h3>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
-		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
-	</p>
-	<h3>Inline images</h3>
-	<p>
-	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-		inline image
-	</p>
+	
 	<h3>Links</h3>
 	<p>
-		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
-		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
-		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
+		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer"  title="external link">investopedia.com&nearr;</a> external link in new window <br>
+		<span class="toc">Section Title</span><a href="#sec-tit-bm" title="bookmark">#</a>: bookmark in the table of contents <br> 
 	</p>
+	<h3>Hide Div</h3>
+	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
+	<div id="hidethis" class="hidediv"> <!-- hidethis START -->
+	<p>
+		This is the hidden div.
+	</p>
+	</div><!-- hidethis END -->
 </section> 
+<section id="mat-for-bm" class="pFF pFS pFC pBgC pBdC"> <!-- math and formulas -->
+	<h2>Math and Formulas<sup><a href="#mat-for-bm" title="bookmark">#</a></sup></h2>
+</section>
 <article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
 	<h2>Appendix Notes</h2>
 	<p>
@@ -182,7 +211,7 @@
 		Appendix topics with indexed links to this page in the (Introduction User Manual Tools Theories Strategies) category
 	</p>
 	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a><br>
+		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template&nbsp;nbsp</a><br>
 		Link: this text can be an exact copy from the appendix topic
 	</p>
 	</div><!-- list of app linked here END -->

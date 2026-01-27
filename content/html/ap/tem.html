@@ -72,36 +72,18 @@
 </section>   
 -->
 <section class="pFF pFS pFC pBgC pBdC"> section title (hide for notes)
-	<h2>Appendix Topic title</h2>
-	<h3>TL;DR</h3>
-	<p> 
-		too long didnt read goes here.
-	</p>
-	<h3>Deep Dive</h3>
-	<button onclick="tdb('deepdive');" class="smenubtn">show/hide</button>
-	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
-	<p>
-		deep dive content
-	</p>
-	</div><!-- deep dive div END -->
-	<h3>Illustrations</h3>
-	
-	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view all</button> view multiple images in this section <hr>
-	image 1 <br>
-	<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 1"> <hr>
-	image 2 <br>
-	<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 2"> <hr>
-	
 	<h3>Quotes</h3>
 	<p>
 		Below is a quote.
 		<span class="quote pBdC">quote</span>
 		Above is a quote.
 	</p>
+
+	<h3>Appendix &amp; Footnote buttons</h3>
+	<p>
 	<a href="tem.html" class="ttbo">template</a> appendix button <br> 
 	<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
 	</p>
-	<h3>Inline images</h3>
 	
 	<h3>Links</h3> 
 	<p>
@@ -109,6 +91,31 @@
 	<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
 	<a href="../home.html" target="_top">Home</a> link with target top
 	</p>
+
+	<h2>Appendix Topic title</h2>
+	<h3>TL;DR</h3>
+	<p> 
+		too long didnt read goes here. Δ &Delta; 
+	</p>
+
+	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
+	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
+	<p>
+		deep dive content
+	</p>
+	</div><!-- deep dive div END -->
+
+	<h3>Illustrations <button onclick="tdb('illust');" class="smenubtn">show/hide</button></h3>
+	<div id="illust" class="hidediv"> <!-- illustration div START -->
+	<button onclick="vi('siap1'); vi('siap2');" class="smenubtn">view all</button> <hr>
+	image 1 <br>
+	<img id="siap1" onclick="vi('siap1');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 1"> <hr>
+	image 2 <br>
+	<img id="siap2" onclick="vi('siap2');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 2"> <hr>
+	</div><!-- illustration div END -->
+	
+	
+
 </section>
 
 <article class="pFF pFS pFC pBgC"><!-- Indexed Links -->
