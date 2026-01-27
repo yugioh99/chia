@@ -549,7 +549,6 @@ article {
 }
 .paren {
   font-size: 1.8em; /* Makes parentheses naturally larger */
-  transform: scaleY(1.3); /* Stretches them vertically to cover the fraction */
   padding: 0px 2px 0px 2px;
 }
 .fraction {
