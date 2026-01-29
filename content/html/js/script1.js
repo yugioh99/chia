@@ -233,6 +233,26 @@ function goBack() {
   alert('No saved page found!');}
 }
 
+/**
+ * Iframe Initialization Script
+ * Targets iframe 'ai' and sets to about:blank without affecting history count
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the iframe by ID for better performance
+    const iframe = document.getElementById('ai');
+
+    if (iframe) {
+        try {
+            // Using .replace() is the secret to keeping your 
+            // custom history variable accurate.
+            iframe.contentWindow.location.replace('about:blank');
+        } catch (e) {
+            // Fallback for edge cases where contentWindow isn't ready
+            iframe.src = 'about:blank';
+        }
+    }
+});
+
 function restoreDefaults() {
   localStorage.clear(); 
   window.location.reload();
