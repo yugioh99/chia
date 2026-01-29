@@ -28,10 +28,3 @@ window.addEventListener('pageshow', (event) => {
   // If we land on a new page that isn't from a back/forward action, 
   // you might want to reset backCount here depending on your app's logic.
 });
-
-
-
-
-
-
-
