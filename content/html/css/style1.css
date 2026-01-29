@@ -379,6 +379,9 @@ header {
   background-color: rgb(41, 41, 41);
   color: #dddddd;
 }
+.apmenubtn{
+  font-size: 18px;
+}
 /* top menu in settings */
 .smenubtn{
   font-size: 18px;
