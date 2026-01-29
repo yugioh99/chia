@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../css/style1.css" rel="stylesheet">
 	<script src="../js/script1.js" type="text/javascript" defer></script>
+	<script src="../js/apBackForward.js" type="text/javascript" defer></script>
 	<!-- favicon -->
 	<link href="../../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -24,10 +25,11 @@
 	
 	<div id="apddid2" class="apddcontent2 pBdC">
 		<input type="text" placeholder="Search (e.g. 'fruit red')" id="apsearchBar" onkeyup="apSearch()">
-	</div> <!--  
-	<div id="apddid2" class="apddcontent2 pBdC">
-		<input type="text" placeholder="Search..." id="apInput" onkeyup="apfilter()">
-	</div>-->
+	</div> 
+	<div>
+		<button class="menubtn" title="Back" onclick="safeIframeBack()">	&#9668;</button>
+		<button class="menubtn" title="Forward" onclick="safeIframeForward()">&#9658;</button>
+	</div>
 </div><!-- ap container END -->
 
 </div><!-- header -->
