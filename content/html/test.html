@@ -78,12 +78,18 @@
 <div id="acon" class="ttdiv apu" ><!-- appendix container START -->
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
-	<div class="popupTitle">Appendix</div>
+	<div class="popupTitle">
+		<button onclick="ai.history.back()">&#9668;</button>
+    	<button onclick="ai.history.forward()">&#9658;</button> &nbsp;
+		Appendix &nbsp;
+	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<a href="about:blank" target="ai"><button class="menubtn apmenubtn" onclick="tdb('acon');">Close </button></a>
+		<a href="about:blank" target="ai"><button class="menubtn apmenubtn" onclick="tdb('acon');">Close </button></a> &nbsp;
+		<button onclick="closeAcon()">oof</button>
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
 		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
+		<button class="menubtn apmenubtn" onclick="document.getElementById('ai').contentWindow.location.replace('ap/topics.html')">Topics</button>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
@@ -102,8 +108,24 @@
 	<h3>Page Template</h3>
 	<a href="template.html">Template</a>
 	<h3>Appendix Template</h3>
-	<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');" title="appendix topic">template</a>
-	
+	<a href="ap/tem.html" target="ai" class="ttbo" onclick="bTrap();" title="appendix topic">template</a>
+	<a class="ttbo" onclick="bTrap(); document.getElementById('ai').contentWindow.location.replace('ap/tem.html')">template</a>
+	template <br><br><br><br>
+
+	old too now
+	<button onclick="iframeBack()">&#9668;</button>
+    <button onclick="iframeForward()">&#9658;</button>
+    <!-- Manual close triggers history.back to keep your trap clean -->
+    <button onclick="history.back()">Close x</button>  
+	<a class="ttbo" onclick="openAndLoad('ap/tem.html');">template</a>
+	<br><br>
+		old
+	<button class="menubtn" onclick="iframeBack()">&#9668;</button>
+    <button class="menubtn" onclick="iframeForward()">&#9658;</button> <br><br><br>
+
+	new new
+	<a class="ttbo" onclick="apOpen('ap/tem.html');">template</a>
+
 </section> 
 <section id="wor-on-bm" class="pFF pFS pFC pBgC pBdC"> <!-- work on later -->
 	<h2>Work on later<sup><a href="#wor-on-bm" title="bookmark">#</a></sup></h2>

@@ -232,26 +232,44 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+// kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
-/**
- * Iframe Initialization Script
- * Targets iframe 'ai' and sets to about:blank without affecting history count
- */
-document.addEventListener('DOMContentLoaded', () => {
-    // Select the iframe by ID for better performance
-    const iframe = document.getElementById('ai');
-
-    if (iframe) {
-        try {
-            // Using .replace() is the secret to keeping your 
-            // custom history variable accurate.
-            iframe.contentWindow.location.replace('about:blank');
-        } catch (e) {
-            // Fallback for edge cases where contentWindow isn't ready
-            iframe.src = 'about:blank';
+function closeAcon() {
+    const acon = document.getElementById('acon');
+    // Only run if the div is currently visible
+    if (acon.classList.contains('tdbs')) {
+        tdb('acon'); // Toggle display: none
+        // Clear the iframe so it doesn't show old content next time
+        document.getElementById('ai').src = 'about:blank';
+        // Clean up history: If we are on the 'dummy' state we pushed, 
+        // move history back so the browser's back button stays accurate.
+        if (window.history.state && window.history.state.iframeOpen) {
+            window.history.back();
         }
     }
+}
+// Keep the popstate listener from before to catch physical back-button hits
+window.addEventListener('popstate', function(event) {
+    const acon = document.getElementById('acon');
+    if (acon.classList.contains('tdbs')) {
+        tdb('acon');
+        document.getElementById('ai').src = 'about:blank';
+    }
 });
+// open function
+function apOpen(url) {
+    tdb('acon');
+  //  document.getElementById('ai').src = url;
+    document.getElementById('ai').contentWindow.location.replace(url);
+    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
+    window.history.pushState({ iframeOpen: true }, "");
+}
+
+
+
+
+
+// kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
 function restoreDefaults() {
   localStorage.clear(); 

@@ -380,7 +380,7 @@ header {
   color: #dddddd;
 }
 .apmenubtn{
-  font-size: 18px;
+  font-size: 20px;
 }
 /* top menu in settings */
 .smenubtn{
@@ -688,6 +688,7 @@ img:hover {
   text-decoration-line: underline;
   text-decoration-style: double;
   text-decoration-color: red;
+  font-family: inherit;
   color: inherit;
   font-size: inherit;
   cursor: pointer;
