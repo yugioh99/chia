@@ -232,8 +232,8 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
-// kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
+// Appendix open and close
 function closeAcon() {
     const acon = document.getElementById('acon');
     // Only run if the div is currently visible
@@ -265,11 +265,6 @@ function apOpen(url) {
     window.history.pushState({ iframeOpen: true }, "");
 }
 
-
-
-
-
-// kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
 function restoreDefaults() {
   localStorage.clear(); 

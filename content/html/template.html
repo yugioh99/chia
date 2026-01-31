@@ -38,8 +38,8 @@
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
 		Bookmarks
-		<!-- <li data-tags=""><a href="#bm"></a></li> -->
-		<li data-tags="Section Title"><a href="#sectit-bm">SectionTitle</a></li>
+		<!-- <li data-tags=""><a href="#-bm"></a></li> -->
+		<li data-tags="SectionTitle"><a href="#sectit-bm">SectionTitle</a></li>
 		<li data-tags="appendix notes"><a href="#anotesbm">Appendix Notes</a></li>
 		<li data-tags="">Saved</li>
 		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
@@ -63,7 +63,7 @@
 <div id="f0" class="ttdiv">
 	<button class="ttbc" onclick="tdb('f0');">Close</button>
 	<h2>Footnote 0</h2>
-	<p>Footnote text goes here.</p> 	
+	<p>FootnoteTextGoesHere</p> 	
 	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
 </div>
 <!-- footnotes group END -->
@@ -71,27 +71,32 @@
 <div id="acon" class="ttdiv apu" ><!-- appendix container START -->
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
-	<div class="popupTitle">Appendix</div>
+	<div class="popupTitle">
+		<button class="menubtn" onclick="ai.history.back()">&#9668;</button>
+    	<button class="menubtn" onclick="ai.history.forward()">&#9658;</button> &nbsp;
+		Appendix &nbsp;
+	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<a href="about:blank" target="ai"><button class="menubtn apmenubtn" onclick="tdb('acon');">Close </button></a>
+		<button class="menubtn apmenubtn" onclick="closeAcon()">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
 		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
-	<iframe name="ai" src="about:blank" class="aif"></iframe>	
+	<iframe name="ai" id="ai" src="about:blank" class="aif"></iframe>	
 </div><!-- appendix container END -->
 
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
-<div class="pageTC"> <!-- Page Title -->
+<div class="pageTC"> <!-- PageTitle -->
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Template</h1></div>
 </div>
 <!-- Empty Section. Copy and Past
-<section id="SectionTitlebm" class="pFF pFS pFC pBgC pBdC"> SectionTitle (hide for notes)
-	<h2>SectionTitle<sup><a href="#sec-tit-bm" title="bookmark">#</a></sup></h2>
+<section id="SectionTitle-bm" class="pFF pFS pFC pBgC pBdC"> SectionTitle (hide for notes)
+	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
+
 </section> -->
 <!--  --><section id="section-local" class="pFF pFS pFC pBgC pBdC">
 	<h2>Section Local</h2>
@@ -100,16 +105,17 @@
 	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> <br><br>
 
 	inline image 1 <br>
-	<img id="si-sectit1" onclick="vi('si-sectit1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> <br><br>
+	<img id="si-sectit1" onclick="vi('si-sectit1');" alt="view image 1" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
 
 	inline image 2 <br>
-	<img id="si-sectit2" onclick="vi('si-sectit2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2"> <br><br>
+	<img id="si-sectit2" onclick="vi('si-sectit2');" alt="view image 2" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
 
 	big image in new window <br>
 	<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> 
 </section>
-<section id="sectit-bm" class="pFF pFS pFC pBgC pBdC"> <!-- section title -->
+<section id="sectit-bm" class="pFF pFS pFC pBgC pBdC"> <!-- SectionTitle -->
 	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
+
 </section>
 
 <article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
@@ -124,8 +130,10 @@
 		Appendix topics with indexed links to this page in the (Introduction User Manual Tools Theories Strategies) category
 	</p>
 	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');" title="appendix topic">template&nbsp;nbsp</a> <br>
-		Link: this text can be an exact copy from the appendix topic
+
+		<a class="ttbo" title="appendix topic" onclick="apOpen('ap/tem.html');">template&nbsp;nbsp</a> <br>
+		Link: this text can be an exact copy from the appendix topic <br>
+		<!--   -->
 	</p>
 	</div><!-- list of app linked here END -->
 </article>

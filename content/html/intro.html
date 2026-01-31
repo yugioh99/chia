@@ -8,20 +8,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
 	<script src="js/script1.js" type="text/javascript" defer></script>
+	<script src="js/glossary1.js" type="text/javascript" defer></script>
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Introduction to CTS">
+	<meta name="twitter:title" content="Chia Trading System">
 	<meta name="twitter:description" content="Conceptualize the continuum of price-time as analogous to space-time">
 	<meta name="twitter:image" content="https://yugioh99.github.io/chia/perm/ogbig.jpg">
-	<meta name="twitter:image:alt" content="Chia Trading Systems">
+	<meta name="twitter:image:alt" content="Chia Trading System">
 	<!-- Open Graph / Facebook -->
-	<meta property="og:title" content="Introduction to CTS">
+	<meta property="og:title" content="Chia Trading System">
 	<meta property="og:type" content="website">
 	<meta name="description" content="Conceptualize the continuum of price-time as analogous to space-time">
 	<meta property="og:description" content="Conceptualize the continuum of price-time as analogous to space-time">
 	<meta property="og:site_name" content="CTS">
 	<meta property="og:image" content="https://yugioh99.github.io/chia/perm/ogbig.jpg">
-	<meta property="og:image:alt" content="CTS Trading Systems">
+	<meta property="og:image:alt" content="Chia Trading System">
 	<!-- favicon -->
 	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -34,15 +35,15 @@
 	<body class="pFF pFS pFC">
 
 <header class="hcmain pFC pBgC pBdC">
-<nav class="headernav"> <!-- headernav START   -->
+<nav class="headernav"> <!-- headernav START -->
 <div class="smallScreenTitle">CTS</div>
-<div class="midScreenTitle">Introduction</div>
+<div class="midScreenTitle">Introduction - CTS</div>
 <div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
 	<button class="navdropbtn menubtn">Navigation</button>
 	<div id="lddid" class="lddcontent pBdC"> 
 		Navigation <br>	
 		<a href="home.html">Home</a>
-		Introduction
+		Introduction 
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
@@ -51,9 +52,10 @@
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC"> 
-		Bookmarks 
-		<li data-tags="section title"><a href="#sectitlebm">section title</a></li>
-		<li data-tags="what is cts"><a href="#wictsbm">What is CTS</a></li>
+		Bookmarks
+		<!-- <li data-tags=""><a href="#-bm"></a></li> -->
+		<li data-tags="getting started"><a href="#getsta-bm">Getting started</a></li>
+		<li data-tags="appendix notes"><a href="#anotesbm">Appendix Notes</a></li>
 		<li data-tags="">Saved</li>
 		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
 		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
@@ -62,7 +64,7 @@
 		bottom
 	</div>
 </div><!-- bm = bookmark END -->
-<div class="wideScreenTitle">Introduction</div>
+<div class="wideScreenTitle">Introduction - CTS</div>
 <div class="sddcontainer"><!-- settings START -->
 	<a href="settings.html" onclick="sp();"><button class="menubtn">Settings</button></a>
 </div><!-- settings END -->
@@ -76,7 +78,7 @@
 <div id="f0" class="ttdiv">
 	<button class="ttbc" onclick="tdb('f0');">Close</button>
 	<h2>Footnote 0</h2>
-	<p>Footnote text goes here.</p> 	
+	<p>FootnoteTextGoesHere</p> 	
 	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
 </div>
 <!-- footnotes group END -->
@@ -84,104 +86,75 @@
 <div id="acon" class="ttdiv apu" ><!-- appendix container START -->
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
-	<div class="popupTitle">Appendix</div>
+	<div class="popupTitle">
+		<button class="menubtn" onclick="ai.history.back()">&#9668;</button>
+    	<button class="menubtn" onclick="ai.history.forward()">&#9658;</button> &nbsp;
+		Appendix &nbsp;
+	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<a href="about:blank" target="ai"><button class="menubtn" onclick="tdb('acon');">Close </button></a>
+		<button class="menubtn apmenubtn" onclick="closeAcon()">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
-		<a href="ap/content.html" target="ai"><button class="menubtn">Content</button></a>
+		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
-	<iframe name="ai" src="about:blank" class="aif"></iframe>	
+	<iframe name="ai" id="ai" src="about:blank" class="aif"></iframe>	
 </div><!-- appendix container END -->
 
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
-<div class="flexse"> <!-- Page Title -->
+<div class="flexse"> <!-- Introduction -->
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Introduction</h1></div>
 	<div class="seeddiv"><img class="seedimg"  src="../img/icons/chia-seed.jpg" alt="CTS Logo" decoding="async"></div>
 </div>
-<!--   Section template. Don't use it, just make a copy. 
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
-	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
-	<p> 
-		Content in this section goes here.
-	</p>
-	<h3>Quotes</h3>
-	<p>
-		Below is a quote.
-		<span class="quote pBdC">quote</span>
-		Above is a quote.
-	</p>
-	<h3>Appendix and footnote buttons</h3>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
-		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
-	</p>
-	<h3>Inline images</h3>
-	<p>
-	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-		inline image
-	</p>
-	<h3>Links</h3>
-	<p>
-		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
-		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
-		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
-	</p>
+<!-- Empty Section. Copy and Past
+<section id="SectionTitle-bm" class="pFF pFS pFC pBgC pBdC"> SectionTitle (hide for notes)
+	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
+
 </section> -->
+<!--  --><section id="section-local" class="pFF pFS pFC pBgC pBdC">
+	<h2>Section Local</h2>
+	 
+	view multiple images in this section <br>
+	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> <br><br>
 
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> <!-- section title --> 
-	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
-	<p> 
-		Content in this section goes here.
-	</p>
-	<h3>Quotes</h3>
-	<p>
-		Below is a quote.
-		<span class="quote pBdC">quote</span>
-		Above is a quote.
-	</p>
-	<h3>Appendix and footnote buttons</h3>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
-		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
-	</p>
-	<h3>Inline images</h3>
-	<p>
-	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-		inline image
-	</p>
-	<h3>Links</h3>
-	<p>
-		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
-		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
-		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
-	</p>
+	inline image 1 <br>
+	<img id="si-sectit1" onclick="vi('si-sectit1');" alt="view image 1" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	inline image 2 <br>
+	<img id="si-sectit2" onclick="vi('si-sectit2');" alt="view image 2" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	big image in new window <br>
+	<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> 
+</section>
+<section id="getsta-bm" class="pFF pFS pFC pBgC pBdC"> <!-- SectionTitle -->
+	<h2>Getting Started<sup><a href="#getsta-bm" title="bookmark">#</a></sup></h2>
+
 </section>
 
-	<h3>Where to start?<sup><a href="#wtsbm">#</a></sup></h3>
-	
+<article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
+	<h2>Appendix Notes</h2>
 	<p>
-		We can start with the weak anthropic principle (WAP)<sup><a class="ttbo" onclick="tdb('f2');">[2]</a></sup>(need to add to glossary). Then apply WAP to markets and market-like social structures(add market to glossary). This can be done beyond human societies, including chimps, bonobos, ants, aphids, cleaner fish and others.<sup><a class="ttbo" onclick="tdb('f3');">[3]</a></sup> Even trees trade resources in market-like social structures.<sup><a class="ttbo" onclick="tdb('f5');">[5]</a></sup>
-	</p>
-	
-	<p>
-		The field of comparative behavioural economics investigates decisions about the acquisition and exchange of goods and services. It does so in both humans and other species.<sup><a class="ttbo" onclick="tdb('f4');">[4]</a></sup> PTC looks for patterns in the discisions of economic agents(probably should be glossary). 
-	</p>
-</section>
-<section id="hdymmbm" class="pFF pFS pFC pBgC pBdC"> <!-- how do you make money -->
-	<h3>How do you make money?<sup><a href="#hdymmbm">#</a></sup></h3>
-	<p> 
 		
-	</p> 
-</section>
+	</p>
+	<hr>
+	<button onclick="tdb('atlist');" class="smenubtn">Indexed</button>
+	<div id="atlist" class="hidediv"> <!-- list of app linked here START -->
+	<p>
+		Appendix topics with indexed links to this page in the (Introduction) category.
+	</p>
+	<p>
+		none
+		<!-- 
+		<a class="ttbo" title="appendix topic" onclick="apOpen('ap/tem.html');">template&nbsp;nbsp</a> <br>
+		Link: this text can be an exact copy from the appendix topic <br>
+		-->
+	</p>
+	</div><!-- list of app linked here END -->
+</article>
+
 </main>
 
 	</body>

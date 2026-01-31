@@ -7,8 +7,7 @@
 	<title>Appendix Template</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../css/style1.css" rel="stylesheet">
-	<script src="../js/script1.js" type="text/javascript" defer></script> <!--   
-	<script src="../js/apBackForward.js" type="text/javascript" defer></script>-->
+	<script src="../js/script1.js" type="text/javascript" defer></script>
 	<!-- favicon -->
 	<link href="../../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -22,10 +21,7 @@
 
 <header class="hcmain pFC pBgC pBdC">
 <nav class="headerpopup"> <!-- headernav START   -->
-<div class="popupTitle put2 pBgC">
-	<button class="menubtn" onclick="iframeBack()">&#9668;</button>
-    <button class="menubtn" onclick="iframeForward()">&#9658;</button> 
-	AppendixTemplate (tem)</div>
+<div class="popupTitle put2 pBgC">AppendixTemplate (tem)</div>
 </nav><!-- headernav END -->
 </header>
 
@@ -35,8 +31,8 @@
 <div id="f0" class="ttdiv">
 	<button class="ttbc" onclick="tdb('f0');">Close</button>
 	<h2>Footnote 0</h2>
-	<p>Footnote text goes here.</p> 	
-	<img id="fi0" data-src="../../img/icons/footnotes.png" decoding="async" alt="image">
+	<p>FootnoteTextGoesHere</p> 	
+	<img id="fi0" decoding="async" data-src="../../img/icons/footnotes.png" alt="image">
 </div>
 <!-- footnotes group END -->
 
@@ -53,25 +49,26 @@
 	<h2>Section Local</h2>
 
 	Appendix button <br>
-	<a href="tem.html" class="ttbo" title="appendix topic">template</a> <br><br>
+	<a class="ttbo" title="appendix topic" href="tem.html">template</a> <br><br>
 	 
 	link to big image in new window <br>
 	<a href="../../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> <br><br>
 	
 	link with target top <br>
 	<a href="../home.html" target="_top">Home</a> 
-</section> -->
+</section>  -->
 
 <section id="SectionTitle" class="pFF pFS pFC pBgC pBdC"> <!--  -->
-	<h2>Appendix Topic title</h2>
+	<h2>AppendixTopic</h2>
 	<h3>TL;DR</h3>
 	<p> 
-		too long didnt read goes here. 
+		TooLongDidntRead
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
 	<p>
-		deep dive content
+		DeepDive
+		<br> <button onclick="tdb('deepdive');" class="smenubtn">hide</button>
 	</p>
 	</div><!-- deep dive div END -->
 
@@ -79,9 +76,10 @@
 	<div id="illust" class="hidediv"> <!-- illustration div START -->
 	<button onclick="vi('si-ap1'); vi('si-ap2');" class="smenubtn">view all</button> <hr>
 	image 1 <br>
-	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 1"> <hr>
+	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 1"> <hr>
 	image 2 <br>
-	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" alt="view image 2"> <hr>
+	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 2"> <hr>
+	<button onclick="tdb('illust');" class="smenubtn">hide</button>
 	</div><!-- illustration div END -->
 </section>
 
