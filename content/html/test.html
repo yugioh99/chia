@@ -39,9 +39,9 @@
 	<div id="bmddid" class="bmddcontent pBdC"> 
 		Bookmarks 
 		<!-- <li data-tags=""><a href="#-bm"></a></li> -->
+		<li data-tags="Section Universal"><a href="#sec-uni-bm">Section Universal</a></li>
 		<li data-tags="currently working on"><a href="#cur-wor-bm">currently working on</a></li>
 		<li data-tags="work on later"><a href="#wor-on-bm">work on later</a></li>
-		<li data-tags="Section Universal"><a href="#sec-uni-bm">Section Universal</a></li>
 		<li data-tags="math formulas"><a href="#mat-for-bm">Math &amp; Formulas</a></li>
 		<li data-tags="limit order uncertianty formula"><a href="#lim-ord-bm">limit order uncertianty formula</a></li>
 		<li data-tags="market order uncertianty formula"><a href="#mar-ord-bm">market order uncertianty formula</a></li>
@@ -99,31 +99,17 @@
 <div class="pageTC"> <!-- Page Title -->
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Test</h1></div>
 </div>
+<!-- Empty Section. Copy and Past
+<section id="SectionTitle-bm" class="pFF pFS pFC pBgC pBdC"> SectionTitle (hide for notes)
+	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
 
-<section id="cur-wor-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Currently working on -->
-	<h2>Currently working on<sup><a href="#cur-wor-bm" title="bookmark">#</a></sup></h2>
-	<h3>Intro</h3>
-	<p>
-		<a href="intro.html">intro</a> make a intro page.
-	</p>
-	
-
-</section> 
-<section id="wor-on-bm" class="pFF pFS pFC pBgC pBdC"> <!-- work on later -->
-	<h2>Work on later<sup><a href="#wor-on-bm" title="bookmark">#</a></sup></h2>
-	
-	<h3>Old Intro</h3>
-	<p> 
-		<a href="intro-get-info.html">intro-get-info</a>: get info to put in now intro or for other pages.
-	</p>
-	<h3>Salvage Old Tools Tradingview Setup</h3>
-	<p>
-		Future project: get info from tools for tradingview. It's in the old files
-	</p>
-	
-</section>
+</section> --> <!--    -->
 <section id="sec-uni-bm" class="pFF pFS pFC pBgC pBdC"> <!-- section universal -->
-	<h2>Section Universal<sup><a href="#sec-uni-bm" title="bookmark">#</a></sup></h2>
+<h2>Section Universal<sup><a href="#sec-uni-bm" title="bookmark">#</a></sup></h2>
+<button onclick="tdb('secuni-hide');" class="smenubtn">Section Universal</button>
+<div id="secuni-hide" class="hidediv"> <!-- section universal hide START --> <hr>
+<!-- to hide section -->
+
 	<h3>Footnote Button</h3>
 	<p>
 		<sup><a class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</a></sup>
@@ -147,10 +133,42 @@
 	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
 	<div id="hidethis" class="hidediv"> <!-- hidethis START -->
 	<p>
-		This is the hidden div.
+		This is the hidden div. <br>
+		<button onclick="tdb('hidethis');" class="smenubtn">hide</button>
 	</p>
 	</div><!-- hidethis END -->
+
+
+<!-- to hide section -->
+<br><br><br><hr><button onclick="tdb('secuni-hide');" class="smenubtn">Section Universal hide</button>
+</div><!-- section universal hide END -->
 </section> 
+<section id="cur-wor-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Currently working on -->
+	<h2>Currently working on<sup><a href="#cur-wor-bm" title="bookmark">#</a></sup></h2>
+	<h3>Intro</h3>
+	<p>
+		<a href="intro.html">intro</a> make a intro page.
+	</p>
+	<h3>Develop Test Folders</h3>
+	<p>
+		Make a template for different levels of relative folder depth. <br><br>
+		<a href="test/template1.html">template1</a>: if it's template1 then its one level deeper then the homepage. Template2 is 2 levels deep. The homepage can be level 0.
+	</p>
+</section> 
+<section id="wor-on-bm" class="pFF pFS pFC pBgC pBdC"> <!-- work on later -->
+	<h2>Work on later<sup><a href="#wor-on-bm" title="bookmark">#</a></sup></h2>
+	
+	<h3>Old Intro</h3>
+	<p> 
+		<a href="intro-get-info.html">intro-get-info</a>: get info to put in now intro or for other pages.
+	</p>
+	<h3>Salvage Old Tools Tradingview Setup</h3>
+	<p>
+		Future project: get info from tools for tradingview. It's in the old files
+	</p>
+	
+</section>
+
 <section id="mat-for-bm" class="pFF pFS pFC pBgC pBdC"> <!-- math and formulas -->
 	<h2>Math and Formulas<sup><a href="#mat-for-bm" title="bookmark">#</a></sup></h2>
 	<h3>List of Decimal Codes</h3>
