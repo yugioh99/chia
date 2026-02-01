@@ -460,11 +460,14 @@ header {
   justify-content: space-evenly;
 }
 /* setting hr */
-.settingsHr{
-  height: 1px;
-  background-color: rgb(0, 0, 0); 
-  margin: 2px 10px 2px 10px;
-  border: 2px outset rgb(209, 212, 233);
+.settingsHr {
+  /* 1. Reset all default browser behaviors */
+  border: 0;
+  height: 2px; /* Set your desired thickness here */
+  /* 2. Apply the gradient (Left: Light -> Right: Dark) */
+  background-image: linear-gradient(to right, rgb(192, 192, 255), rgb(101, 101, 233));
+  /* 3. Spacing */
+  margin: 2px 10px;
 }
 /* nav misc END */
 
