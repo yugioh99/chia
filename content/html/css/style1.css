@@ -459,6 +459,13 @@ header {
   display: flex;
   justify-content: space-evenly;
 }
+/* setting hr */
+.settingsHr{
+  height: 1px;
+  background-color: rgb(0, 0, 0); 
+  margin: 2px 10px 2px 10px;
+  border: 2px outset rgb(209, 212, 233);
+}
 /* nav misc END */
 
 /* main, page title, flexs, section START */
