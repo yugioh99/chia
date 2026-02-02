@@ -288,6 +288,28 @@ function closeAcon() {
 
 
 
+// Close footnote if user clicks outside the box
+window.addEventListener('click', function(event) {
+    const openFn = document.querySelector('.fn.tdbs');
+    // If a footnote is open and the user clicked the dark area (not the footnote itself)
+    if (openFn && event.target.classList.contains('fn')) {
+        window.history.back();
+    }
+});
+
+
+// escape key exit
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        // If the appendix is open OR a footnote is open, go back
+        const acon = document.getElementById('acon');
+        const anyFn = document.querySelector('.fn.tdbs');
+        
+        if (acon.classList.contains('tdbs') || anyFn) {
+            window.history.back();
+        }
+    }
+});
 
 
 // 888888888888888888888

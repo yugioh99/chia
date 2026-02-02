@@ -29,11 +29,9 @@
 
 <!-- footnotes group START -->
 <div id="fa0" class="ttdiv fn">
-	<button class="ttbc" onclick="tdb('fa0');">Close</button>
+	<button class="ttbc" onclick="parent.history.back();">Close</button>
 	<h2>Footnote 0</h2>
-	<p>FootnoteTextGoesHere
-		<br><br>
-		<button type="button" onclick="parent.history.back()">Close Footnote</button>
+	<p>FootnoteTextGoesHere appendix
 	</p> 	
 	<img id="fai0" decoding="async" data-src="../../img/icons/footnotes.png" alt="image">
 </div>
@@ -66,10 +64,7 @@
 	<h3>TL;DR</h3>
 	<p> 
 		TooLongDidntRead 
-		<sup><a class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[0a]</a></sup> <br><br>
-		<a href="javascript:void(0)" onclick="openFootnote('fa0');">
-    	View Footnote
-		</a>
+		<sup><a href="javascript:void(0);" class="ttbo" title="footnote" onclick="openFootnote('fa0'); vi('fai0');">[0a]</a></sup> 
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
