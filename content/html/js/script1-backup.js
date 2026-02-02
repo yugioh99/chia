@@ -3,33 +3,33 @@
 /* change font family */
 window.addEventListener('DOMContentLoaded', () => sFF());
 function sFF(fontFamily){
-    var elements = document.getElementsByClassName("pFF")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontFamily=fontFamily;}
-    // if provided color, set color to LS
-    if (fontFamily) window.localStorage.setItem('fontFamily', fontFamily);
-    // if no provided color, check LS for color, and if no color in LS, fail silently
-    else if (!(fontFamily = window.localStorage.getItem('fontFamily'))) return;
-    // update the page
-    var elements = document.getElementsByClassName("pFF")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontFamily=fontFamily;}
+  var elements = document.getElementsByClassName("pFF")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontFamily=fontFamily;}
+  // if provided color, set color to LS
+  if (fontFamily) window.localStorage.setItem('fontFamily', fontFamily);
+  // if no provided color, check LS for color, and if no color in LS, fail silently
+  else if (!(fontFamily = window.localStorage.getItem('fontFamily'))) return;
+  // update the page
+  var elements = document.getElementsByClassName("pFF")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontFamily=fontFamily;}
 }
 
 /* change font size */
 window.addEventListener('DOMContentLoaded', () => sFS());
 function sFS(fontSize){
-    var elements = document.getElementsByClassName("pFS")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontSize=fontSize;}
-    // if provided color, set color to LS
-    if (fontSize) window.localStorage.setItem('fontSize', fontSize);
-    // if no provided color, check LS for color, and if no color in LS, fail silently
-    else if (!(fontSize = window.localStorage.getItem('fontSize'))) return;
-    // update the page
-    var elements = document.getElementsByClassName("pFS")
-    for (var i = 0; i < elements.length; i++) {
-    elements[i].style.fontSize=fontSize;}
+  var elements = document.getElementsByClassName("pFS")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontSize=fontSize;}
+  // if provided color, set color to LS
+  if (fontSize) window.localStorage.setItem('fontSize', fontSize);
+  // if no provided color, check LS for color, and if no color in LS, fail silently
+  else if (!(fontSize = window.localStorage.getItem('fontSize'))) return;
+  // update the page
+  var elements = document.getElementsByClassName("pFS")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.fontSize=fontSize;}
 }
 
 /* change font color */
@@ -80,6 +80,21 @@ function sBdC(color){
   elements[i].style.borderColor=color;}
 }
 
+/* change math border color */
+window.addEventListener('DOMContentLoaded', () => smBdC());
+function smBdC(color){
+  var elements = document.getElementsByClassName("mBdC")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.borderColor=color;}
+  // if provided color, set color to LS
+  if (color) window.localStorage.setItem('mbdColor', color);
+  // if no provided color, check LS for color, and if no color in LS, fail silently
+  else if (!(color = window.localStorage.getItem('mbdColor'))) return;
+  // update the page
+  var elements = document.getElementsByClassName("mBdC")
+  for (var i = 0; i < elements.length; i++) {
+  elements[i].style.borderColor=color;}
+}
 /* settings END */
 
 /* navigation START */
@@ -115,38 +130,24 @@ function o(idToShow) {
 
 // bookmark filter 
 function bmfilter() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("bmInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("bmddid");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
+  // 1. Get query and split into keywords (AND logic)
+  const query = document.getElementById('bmInput').value.toLowerCase();
+  const keywords = query.split(' ').filter(word => word.length > 0);
+  const items = document.querySelectorAll('#bmddid li');
+
+  items.forEach(item => {
+  const text = item.getAttribute('data-tags').toLowerCase();
+  
+  // 2. Logic: Ensure EVERY keyword is found in the item's tags (AND)
+  // To change to OR, use keywords.some() instead of .every()
+  const isMatch = keywords.every(word => text.includes(word));
+
+  // 3. Update visibility
+  item.style.display = isMatch ? "list-item" : "none";
+  });
 }
 
 // appendix filter 
-function apfilter() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("apInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("apddid");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
-    }
-  }
-}
-/* update */
 function apSearch() {
   // 1. Get query and split into keywords (AND logic)
   const query = document.getElementById('apsearchBar').value.toLowerCase();
@@ -164,10 +165,6 @@ function apSearch() {
   item.style.display = isMatch ? "list-item" : "none";
   });
 }
-
-
-
-
 /* navigation END */
 
 /* lazyload START 
@@ -205,6 +202,7 @@ function goToBm() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+
 // set bm 2
 function saveBm2() {
   localStorage.setItem("currenttwoUrl", window.location.href); 
@@ -235,9 +233,40 @@ function goBack() {
   alert('No saved page found!');}
 }
 
+// Appendix open and close
+function closeAcon() {
+    const acon = document.getElementById('acon');
+    // Only run if the div is currently visible
+    if (acon.classList.contains('tdbs')) {
+        tdb('acon'); // Toggle display: none
+        // Clear the iframe so it doesn't show old content next time
+        document.getElementById('ai').src = 'about:blank';
+        // Clean up history: If we are on the 'dummy' state we pushed, 
+        // move history back so the browser's back button stays accurate.
+        if (window.history.state && window.history.state.iframeOpen) {
+            window.history.back();
+        }
+    }
+}
+// Keep the popstate listener from before to catch physical back-button hits
+window.addEventListener('popstate', function(event) {
+    const acon = document.getElementById('acon');
+    if (acon.classList.contains('tdbs')) {
+        tdb('acon');
+        document.getElementById('ai').src = 'about:blank';
+    }
+});
+// open function
+function apOpen(url) {
+    tdb('acon');
+  //  document.getElementById('ai').src = url;
+    document.getElementById('ai').contentWindow.location.replace(url);
+    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
+    window.history.pushState({ iframeOpen: true }, "");
+}
+
+
 function restoreDefaults() {
   localStorage.clear(); 
   window.location.reload();
 }
-
-

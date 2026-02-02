@@ -575,7 +575,7 @@ article {
   font-family: serif;
 }
 .numerator {
-  border-bottom: 2px solid #dddddd; /* fraction line */
+  border-bottom: 1px solid #dddddd; /* fraction line */
   padding: 2px 2px 0px 2px;
   font-family: serif;
 }

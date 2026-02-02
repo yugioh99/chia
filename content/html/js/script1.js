@@ -232,40 +232,65 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+// 8888888888888888888888888888
 
-// Appendix open and close
-function closeAcon() {
+
+// Function to handle opening an Appendix Topic
+function apOpen(url) {
     const acon = document.getElementById('acon');
-    // Only run if the div is currently visible
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon'); // Toggle display: none
-        // Clear the iframe so it doesn't show old content next time
-        document.getElementById('ai').src = 'about:blank';
-        // Clean up history: If we are on the 'dummy' state we pushed, 
-        // move history back so the browser's back button stays accurate.
-        if (window.history.state && window.history.state.iframeOpen) {
-            window.history.back();
+    
+    if (!acon.classList.contains('tdbs')) {
+        tdb('acon'); // Show the div
+        // Push a "Base" state for the Appendix
+        window.history.pushState({ type: 'appendix' }, "");
+    }
+    
+    // Set iframe src (adds to browser history naturally)
+    document.getElementById('ai').src = url;
+}
+
+// Function to handle Footnotes (Can be called by parent OR iframe)
+function openFootnote(id) {
+    const fn = document.getElementById(id);
+    if (fn) {
+        fn.classList.add('tdbs');
+        // Push a state so Back button hides this specific footnote
+        window.history.pushState({ type: 'footnote', targetId: id }, "");
+    }
+}
+
+// The "Brain": Handles the browser's Back button
+window.addEventListener('popstate', function(event) {
+    const state = event.state;
+    const acon = document.getElementById('acon');
+
+    // 1. Hide Footnotes: If we are no longer in a 'footnote' state
+    if (!state || state.type !== 'footnote') {
+        document.querySelectorAll('.fn').forEach(el => el.classList.remove('tdbs'));
+    }
+
+    // 2. Hide Appendix: If we are no longer in an 'appendix' state
+    // We only hide acon if the history state has moved back past the 'appendix' entry
+    if (!state || (state.type !== 'appendix' && state.type !== 'footnote')) {
+        if (acon.classList.contains('tdbs')) {
+            tdb('acon');
+            document.getElementById('ai').src = 'about:blank';
         }
     }
-}
-// Keep the popstate listener from before to catch physical back-button hits
-window.addEventListener('popstate', function(event) {
-    const acon = document.getElementById('acon');
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon');
-        document.getElementById('ai').src = 'about:blank';
-    }
 });
-// open function
-function apOpen(url) {
-    tdb('acon');
-  //  document.getElementById('ai').src = url;
-    document.getElementById('ai').contentWindow.location.replace(url);
-    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
-    window.history.pushState({ iframeOpen: true }, "");
+
+// Manual Close Sync
+function closeAcon() {
+    // Calling history.back() triggers the popstate listener automatically
+    window.history.back(); 
 }
 
 
+
+
+
+
+// 888888888888888888888
 function restoreDefaults() {
   localStorage.clear(); 
   window.location.reload();
