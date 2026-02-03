@@ -100,10 +100,29 @@ function smBdC(color){
 /* navigation START */
 
 // toggle display block, inline-block & flex by id 
+/* old before recent update 10:06am
 function tdb(id) {
-  const el = document.getElementById(id); 
-  el.classList.toggle("tdbs");
+   const el = document.getElementById(id); 
+  el.classList.toggle("tdbs"); 
+}*/
+function tdb(id) {
+    // 1. Try to find the element on the parent page
+    let el = document.getElementById(id);
+
+    // 2. If not found, look inside the ai iframe
+    if (!el) {
+        const iframe = document.getElementById('ai');
+        if (iframe && iframe.contentDocument) {
+            el = iframe.contentDocument.getElementById(id);
+        }
+    }
+
+    // 3. Toggle the class if the element was found
+    if (el) {
+        el.classList.toggle('tdbs');
+    }
 }
+
 function tdib(id) {
   const el = document.getElementById(id); 
   el.classList.toggle("tdibs");
