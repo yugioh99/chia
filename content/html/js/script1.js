@@ -259,25 +259,25 @@ function openFootnote(id) {
     }
 }
 
-// The "Brain": Handles the browser's Back button
 window.addEventListener('popstate', function(event) {
     const state = event.state;
     const acon = document.getElementById('acon');
 
-    // 1. Hide Footnotes: If we are no longer in a 'footnote' state
+    // 1. Handle Footnotes
     if (!state || state.type !== 'footnote') {
         document.querySelectorAll('.fn').forEach(el => el.classList.remove('tdbs'));
     }
 
-    // 2. Hide Appendix: If we are no longer in an 'appendix' state
-    // We only hide acon if the history state has moved back past the 'appendix' entry
+    // 2. Handle Appendix
     if (!state || (state.type !== 'appendix' && state.type !== 'footnote')) {
         if (acon.classList.contains('tdbs')) {
             tdb('acon');
-            document.getElementById('ai').src = 'about:blank';
+            // FIX: Use replace so 'about:blank' doesn't create a ghost history step
+            document.getElementById('ai').contentWindow.location.replace('about:blank');
         }
     }
 });
+
 
 // Manual Close Sync
 function closeAcon() {
