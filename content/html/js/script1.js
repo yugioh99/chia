@@ -234,7 +234,6 @@ function goBack() {
 }
 // 8888888888888888888888888888
 
-
 // Function to handle opening an Appendix Topic
 function apOpen(url) {
     const acon = document.getElementById('acon');
@@ -245,8 +244,8 @@ function apOpen(url) {
         window.history.pushState({ type: 'appendix' }, "");
     }
     
-    // Set iframe src (adds to browser history naturally) edit: changed it to replace to avoid double back
-    document.getElementById('ai').contentWindow.location.replace(url);
+    // Set iframe src (allows history to build naturally for Back/Forward buttons)
+    document.getElementById('ai').src = url;
 }
 
 // Function to handle Footnotes (Can be called by parent OR iframe)
@@ -259,57 +258,60 @@ function openFootnote(id) {
     }
 }
 
+// THE BRAIN: Handles Browser Back Button
 window.addEventListener('popstate', function(event) {
     const state = event.state;
     const acon = document.getElementById('acon');
 
-    // 1. Handle Footnotes
+    // 1. Handle Footnotes: If we aren't in a footnote state, hide all .fn
     if (!state || state.type !== 'footnote') {
         document.querySelectorAll('.fn').forEach(el => el.classList.remove('tdbs'));
     }
 
-    // 2. Handle Appendix
+    // 2. Handle Appendix: If we aren't in appendix or footnote state, hide panel
     if (!state || (state.type !== 'appendix' && state.type !== 'footnote')) {
         if (acon.classList.contains('tdbs')) {
             tdb('acon');
-            // FIX: Use replace so 'about:blank' doesn't create a ghost history step
+            // Use replace so closing doesn't add a 'blank' page to history
             document.getElementById('ai').contentWindow.location.replace('about:blank');
         }
     }
 });
 
-
-// Manual Close Sync
+// Manual Close Button (for the Appendix 'Close' button)
 function closeAcon() {
-    // Calling history.back() triggers the popstate listener automatically
-    window.history.back(); 
+    // If you want it to close in ONE click regardless of iframe history:
+    // We just hide it and clean up. History will stay 'dirty' but it's reliable.
+    const acon = document.getElementById('acon');
+    if (acon.classList.contains('tdbs')) {
+        tdb('acon');
+        document.getElementById('ai').contentWindow.location.replace('about:blank');
+        // We go back once to clear the {type: 'appendix'} state we pushed
+        window.history.back();
+    }
 }
 
-
-
-
-// Close footnote if user clicks outside the box
+// Click-away for footnotes
 window.addEventListener('click', function(event) {
     const openFn = document.querySelector('.fn.tdbs');
-    // If a footnote is open and the user clicked the dark area (not the footnote itself)
-    if (openFn && event.target.classList.contains('fn')) {
-        window.history.back();
+    if (openFn) {
+        if (!openFn.contains(event.target) && !event.target.closest('[onclick*="openFootnote"]')) {
+            window.history.back();
+        }
     }
 });
 
-
-// escape key exit
+// Escape key exit
 document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") {
-        // If the appendix is open OR a footnote is open, go back
         const acon = document.getElementById('acon');
         const anyFn = document.querySelector('.fn.tdbs');
-        
         if (acon.classList.contains('tdbs') || anyFn) {
             window.history.back();
         }
     }
 });
+
 
 
 // 888888888888888888888
