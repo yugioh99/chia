@@ -379,12 +379,6 @@ header {
   background-color: rgb(41, 41, 41);
   color: #dddddd;
 }
-/* Faded style for ap nav button */
-.menubtn.disabled {
-    opacity: 0.3;
-    pointer-events: none; /* Prevents clicks while faded */
-    cursor: default;
-}
 .apmenubtn{
   font-size: 20px;
 }
@@ -655,8 +649,8 @@ img:hover {
   border-style: solid;
   border-radius: 20px;
   box-shadow: 
-    0 0 0 3px rgb(0, 255, 255),
-    0 0 0 80vmax rgba(0, 0, 0, 0.8)
+    0 0 0 4px rgb(0, 255, 255),
+    0 0 0 80vmax rgba(0, 0, 0, 0.2)
     ;
   overflow-y: auto;
 }

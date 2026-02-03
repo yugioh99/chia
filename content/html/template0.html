@@ -60,7 +60,7 @@
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
 
 <!-- footnotes group START -->
-<div id="f0" class="ttdiv fn">
+<div id="f0" class="ttdiv tn">
 	<button class="ttbc" onclick="tdb('f0');">Close</button>
 	<h2>Footnote 0</h2>
 	<p>FootnoteTextGoesHere</p> 	
@@ -78,12 +78,12 @@
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
 	<div class="popupTitle">
-		<button class="menubtn" onclick="ai.history.back()">&#9668;</button>
-    	<button class="menubtn" onclick="ai.history.forward()">&#9658;</button> &nbsp;
+		<button class="menubtn" onclick="document.getElementById('ai').contentWindow.history.back();">&#9668;</button>
+    	<button class="menubtn" onclick="document.getElementById('ai').contentWindow.history.forward();">&#9658;</button> &nbsp;
 		Appendix &nbsp;
 	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<button class="menubtn apmenubtn" onclick="closeAcon()">Close</button> &nbsp;
+		<button class="menubtn apmenubtn" onclick="closeAcon();">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
 		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
@@ -121,7 +121,9 @@
 </section>
 <section id="sectit-bm" class="pFF pFS pFC pBgC pBdC"> <!-- SectionTitle -->
 	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
-
+	<p>
+		<sup><a class="ttbo" title="footnote" onclick="tdbFootnote('f0'); vi('fi0');">[0]</a></sup>
+	</p>
 </section>
 
 <article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->

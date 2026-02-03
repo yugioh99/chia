@@ -233,38 +233,69 @@ function goBack() {
   alert('No saved page found!');}
 }
 
-// Appendix open and close
+// 8888888 88888888888 88888888888888888 888888888 888888 88888888
+
+// Appendix and footnote sync
+let appendixStartIndex = 0;
+
+// 1. Open Appendix
+function apOpen(url) {
+    // Close any open parent footnotes first
+    const openFootnotes = document.querySelectorAll('.tn.tdbs');
+    openFootnotes.forEach(fn => tdb(fn.id));
+
+    // Mark the history length BEFORE we add the appendix state
+    appendixStartIndex = window.history.length;
+
+    tdb('acon');
+    
+    // Use replace for the first load to keep history clean
+    document.getElementById('ai').contentWindow.location.replace(url);
+    
+    // Push the state that the hardware back button will eventually "hit" to close the div
+    window.history.pushState({ iframeOpen: true }, "");
+}
+
+// 2. Close Button (One-click "Leap" to Parent)
 function closeAcon() {
     const acon = document.getElementById('acon');
-    // Only run if the div is currently visible
     if (acon.classList.contains('tdbs')) {
-        tdb('acon'); // Toggle display: none
-        // Clear the iframe so it doesn't show old content next time
-        document.getElementById('ai').src = 'about:blank';
-        // Clean up history: If we are on the 'dummy' state we pushed, 
-        // move history back so the browser's back button stays accurate.
-        if (window.history.state && window.history.state.iframeOpen) {
-            window.history.back();
-        }
+        // Calculate the jump to skip all iframe sub-pages
+        const currentLength = window.history.length;
+        const delta = (currentLength - appendixStartIndex + 1) * -1;
+        
+        // This jumps past all iframe history directly to the parent state
+        window.history.go(delta);
     }
 }
-// Keep the popstate listener from before to catch physical back-button hits
+
+// 3. Footnote Toggle (Back button support)
+function tdbFootnote(id) {
+    const el = document.getElementById(id);
+    tdb(id);
+    if (el.classList.contains('tdbs')) {
+        window.history.pushState({ footnoteOpen: true }, "");
+    }
+}
+
+// 4. Global Popstate (The hardware back button "Watcher")
 window.addEventListener('popstate', function(event) {
     const acon = document.getElementById('acon');
+    
+    // This executes when the hardware back button exhausts the iframe history
+    // OR when closeAcon() forces the jump.
     if (acon.classList.contains('tdbs')) {
         tdb('acon');
         document.getElementById('ai').src = 'about:blank';
     }
-});
-// open function
-function apOpen(url) {
-    tdb('acon');
-  //  document.getElementById('ai').src = url;
-    document.getElementById('ai').contentWindow.location.replace(url);
-    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
-    window.history.pushState({ iframeOpen: true }, "");
-}
 
+    // Always close parent footnotes on back
+    const openFootnotes = document.querySelectorAll('.tn.tdbs');
+    openFootnotes.forEach(fn => tdb(fn.id));
+});
+
+
+// 8888888  888888888888888888 88888888888888888 88888888888 8888
 
 function restoreDefaults() {
   localStorage.clear(); 
