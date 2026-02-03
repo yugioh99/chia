@@ -245,8 +245,8 @@ function apOpen(url) {
         window.history.pushState({ type: 'appendix' }, "");
     }
     
-    // Set iframe src (adds to browser history naturally)
-    document.getElementById('ai').src = url;
+    // Set iframe src (adds to browser history naturally) edit: changed it to replace to avoid double back
+    document.getElementById('ai').contentWindow.location.replace(url);
 }
 
 // Function to handle Footnotes (Can be called by parent OR iframe)
