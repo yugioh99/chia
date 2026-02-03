@@ -25,10 +25,10 @@
 <div class="midScreenTitle">Template - CTS</div>
 <div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
 	<button class="navdropbtn menubtn">Navigation</button>
-	<div id="lddid" class="lddcontent pBdC"> 
-		Navigation <br>	
+	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu">Navigation</span><br>	
 		<a href="home.html">Home</a>
-		Template 
+		<span class="ddnavmenu pBdC" title="You are here">Template</span>
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
@@ -36,17 +36,19 @@
 	<div id="bmddid2" class="bmddcontent2 pBdC">
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
-	<div id="bmddid" class="bmddcontent pBdC"> 
-		Bookmarks
+	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC">Bookmarks</span>
 		<!-- <li data-tags=""><a href="#-bm"></a></li> -->
 		<li data-tags="SectionTitle"><a href="#sectit-bm">SectionTitle</a></li>
 		<li data-tags="appendix notes"><a href="#anotesbm">Appendix Notes</a></li>
-		<li data-tags="">Saved</li>
+		<li data-tags=""><span class="ddnavmenu pBdC">Saved</span></li>
 		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
 		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
-		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
-		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
-		bottom
+		<li data-tags=""><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
+		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
+		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
+		<span class="ddnavmenu pBdC">bottom</span>
 	</div>
 </div><!-- bm = bookmark END -->
 <div class="wideScreenTitle">Template - CTS</div>

@@ -100,11 +100,6 @@ function smBdC(color){
 /* navigation START */
 
 // toggle display block, inline-block & flex by id 
-/* old before recent update 10:06am
-function tdb(id) {
-   const el = document.getElementById(id); 
-  el.classList.toggle("tdbs"); 
-}*/
 function tdb(id) {
     // 1. Try to find the element on the parent page
     let el = document.getElementById(id);
@@ -208,9 +203,10 @@ window.onload = function() {
 };
 
 /* save and view bookmarks START */
-// set bm 1
+// save bm 1
 function saveBm() {
   localStorage.setItem("currentUrl", window.location.href); 
+  updateLabels(); // Refresh text immediately
 }
 // go to bm1
 function goToBm() {
@@ -221,10 +217,10 @@ function goToBm() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
-
-// set bm 2
+// save bm 2
 function saveBm2() {
   localStorage.setItem("currenttwoUrl", window.location.href); 
+  updateLabels(); // Refresh text immediately
 }
 // go to bm2
 function goToBm2() {
@@ -235,6 +231,54 @@ function goToBm2() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+// save bm 3
+function saveBm3() {
+    localStorage.setItem("currentthreeUrl", window.location.href); 
+    updateLabels(); // Refresh text immediately
+}
+// go to bm 3
+function goToBm3() {
+    let savedBmthree = localStorage.getItem('currentthreeUrl');
+    if (savedBmthree) {
+        window.location.href = savedBmthree;
+    } else {
+        alert('No saved page found!');
+    }
+}
+// get file and anchor name
+function getCleanLabel(url) {
+    if (!url) return "Empty Slot";
+    try {
+        const u = new URL(url);
+        // 1. Get filename and remove '.html'
+        let filename = u.pathname.split('/').pop().replace('.html', '');
+        
+        // 2. If there is an anchor, add a space before it
+        let anchor = u.hash ? ' ' + u.hash : '';
+        
+        return filename + anchor;
+    } catch (e) {
+        return "Invalid Link";
+    }
+}
+// Function to update all 3 dropdown labels
+function updateLabels() {
+    const bmMap = {
+        'label-bm1': 'currentUrl',
+        'label-bm2': 'currenttwoUrl',
+        'label-bm3': 'currentthreeUrl'
+    };
+
+    for (let [id, storageKey] of Object.entries(bmMap)) {
+        const url = localStorage.getItem(storageKey);
+        const element = document.getElementById(id);
+        if (url && element) {
+            element.textContent = getCleanLabel(url);
+        }
+    }
+}
+// Update labels when page loads
+window.addEventListener('DOMContentLoaded', updateLabels);
 /* save and view bookmarks END */
 
 /* for go back button in appendix and settings */
@@ -252,7 +296,6 @@ function goBack() {
   alert('No saved page found!');}
 }
 
-// 8888888 88888888888 88888888888888888 888888888 888888 88888888
 
 // Appendix and footnote sync
 let appendixStartIndex = 0;
@@ -313,8 +356,6 @@ window.addEventListener('popstate', function(event) {
     openFootnotes.forEach(fn => tdb(fn.id));
 });
 
-
-// 8888888  888888888888888888 88888888888888888 88888888888 8888
 
 function restoreDefaults() {
   localStorage.clear(); 
