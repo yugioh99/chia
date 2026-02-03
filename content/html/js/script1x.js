@@ -232,40 +232,81 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+// 8888888888888888888888888888
 
-// Appendix open and close
-function closeAcon() {
+
+// appendix and footnotes
+let appendixSteps = 0;
+
+// 1. Open Appendix
+function apOpen(url) {
     const acon = document.getElementById('acon');
-    // Only run if the div is currently visible
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon'); // Toggle display: none
-        // Clear the iframe so it doesn't show old content next time
-        document.getElementById('ai').src = 'about:blank';
-        // Clean up history: If we are on the 'dummy' state we pushed, 
-        // move history back so the browser's back button stays accurate.
-        if (window.history.state && window.history.state.iframeOpen) {
+    if (!acon.classList.contains('tdbs')) {
+        tdb('acon');
+        window.history.pushState({ type: 'appendix' }, "");
+        appendixSteps = 1; // 1 for the panel state
+    }
+    document.getElementById('ai').src = url;
+}
+
+// 2. Track internal iframe navigation
+document.getElementById('ai').onload = function() {
+    const acon = document.getElementById('acon');
+    // Only increment if we are navigating inside an ALREADY open appendix
+    if (acon.classList.contains('tdbs') && appendixSteps > 0) {
+        appendixSteps++;
+    }
+};
+
+// 3. The Smart Popstate Listener (Handles Browser Back)
+window.addEventListener('popstate', function(event) {
+    const state = event.state;
+    const acon = document.getElementById('acon');
+
+    // Handle Footnotes
+    if (!state || state.type !== 'footnote') {
+        document.querySelectorAll('.fn').forEach(el => el.classList.remove('tdbs'));
+    }
+
+    // Handle Appendix: Only hide if we have backed out of the 'appendix' state
+    if (!state || (state.type !== 'appendix' && state.type !== 'footnote')) {
+        if (acon.classList.contains('tdbs')) {
+            tdb('acon');
+            document.getElementById('ai').contentWindow.location.replace('about:blank');
+            appendixSteps = 0; // Reset counter
+        }
+    } else if (state.type === 'appendix') {
+        // If the user used the physical back button to navigate iframe history,
+        // we decrement our counter so the "Close" button remains accurate.
+        if (appendixSteps > 1) appendixSteps--;
+    }
+});
+
+// 4. THE ONE-CLICK CLOSE (For your "Close" Button)
+function closeAcon() {
+    if (appendixSteps > 0) {
+        // Jump back the exact number of steps to skip all iframe history
+        window.history.go(-appendixSteps);
+        // Note: popstate will fire after this and handle the tdb('acon') hiding
+    }
+}
+
+
+// Escape key exit
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        const acon = document.getElementById('acon');
+        const anyFn = document.querySelector('.fn.tdbs');
+        if (acon.classList.contains('tdbs') || anyFn) {
             window.history.back();
         }
     }
-}
-// Keep the popstate listener from before to catch physical back-button hits
-window.addEventListener('popstate', function(event) {
-    const acon = document.getElementById('acon');
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon');
-        document.getElementById('ai').src = 'about:blank';
-    }
 });
-// open function
-function apOpen(url) {
-    tdb('acon');
-  //  document.getElementById('ai').src = url;
-    document.getElementById('ai').contentWindow.location.replace(url);
-    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
-    window.history.pushState({ iframeOpen: true }, "");
-}
 
 
+
+
+// 888888888888888888888
 function restoreDefaults() {
   localStorage.clear(); 
   window.location.reload();

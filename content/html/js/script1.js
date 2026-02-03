@@ -232,89 +232,40 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
-// 8888888888888888888888888888
 
-// Function to handle opening an Appendix Topic
-function apOpen(url) {
+// Appendix open and close
+function closeAcon() {
     const acon = document.getElementById('acon');
-    
-    if (!acon.classList.contains('tdbs')) {
-        tdb('acon'); // Show the div
-        // Push a "Base" state for the Appendix
-        window.history.pushState({ type: 'appendix' }, "");
-    }
-    
-    // Set iframe src (allows history to build naturally for Back/Forward buttons)
-    document.getElementById('ai').src = url;
-}
-
-// Function to handle Footnotes (Can be called by parent OR iframe)
-function openFootnote(id) {
-    const fn = document.getElementById(id);
-    if (fn) {
-        fn.classList.add('tdbs');
-        // Push a state so Back button hides this specific footnote
-        window.history.pushState({ type: 'footnote', targetId: id }, "");
-    }
-}
-
-// THE BRAIN: Handles Browser Back Button
-window.addEventListener('popstate', function(event) {
-    const state = event.state;
-    const acon = document.getElementById('acon');
-
-    // 1. Handle Footnotes: If we aren't in a footnote state, hide all .fn
-    if (!state || state.type !== 'footnote') {
-        document.querySelectorAll('.fn').forEach(el => el.classList.remove('tdbs'));
-    }
-
-    // 2. Handle Appendix: If we aren't in appendix or footnote state, hide panel
-    if (!state || (state.type !== 'appendix' && state.type !== 'footnote')) {
-        if (acon.classList.contains('tdbs')) {
-            tdb('acon');
-            // Use replace so closing doesn't add a 'blank' page to history
-            document.getElementById('ai').contentWindow.location.replace('about:blank');
+    // Only run if the div is currently visible
+    if (acon.classList.contains('tdbs')) {
+        tdb('acon'); // Toggle display: none
+        // Clear the iframe so it doesn't show old content next time
+        document.getElementById('ai').src = 'about:blank';
+        // Clean up history: If we are on the 'dummy' state we pushed, 
+        // move history back so the browser's back button stays accurate.
+        if (window.history.state && window.history.state.iframeOpen) {
+            window.history.back();
         }
     }
-});
-
-// Manual Close Button (for the Appendix 'Close' button)
-function closeAcon() {
-    // If you want it to close in ONE click regardless of iframe history:
-    // We just hide it and clean up. History will stay 'dirty' but it's reliable.
+}
+// Keep the popstate listener from before to catch physical back-button hits
+window.addEventListener('popstate', function(event) {
     const acon = document.getElementById('acon');
     if (acon.classList.contains('tdbs')) {
         tdb('acon');
-        document.getElementById('ai').contentWindow.location.replace('about:blank');
-        // We go back once to clear the {type: 'appendix'} state we pushed
-        window.history.back();
+        document.getElementById('ai').src = 'about:blank';
     }
+});
+// open function
+function apOpen(url) {
+    tdb('acon');
+  //  document.getElementById('ai').src = url;
+    document.getElementById('ai').contentWindow.location.replace(url);
+    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
+    window.history.pushState({ iframeOpen: true }, "");
 }
 
-// Click-away for footnotes
-window.addEventListener('click', function(event) {
-    const openFn = document.querySelector('.fn.tdbs');
-    if (openFn) {
-        if (!openFn.contains(event.target) && !event.target.closest('[onclick*="openFootnote"]')) {
-            window.history.back();
-        }
-    }
-});
 
-// Escape key exit
-document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") {
-        const acon = document.getElementById('acon');
-        const anyFn = document.querySelector('.fn.tdbs');
-        if (acon.classList.contains('tdbs') || anyFn) {
-            window.history.back();
-        }
-    }
-});
-
-
-
-// 888888888888888888888
 function restoreDefaults() {
   localStorage.clear(); 
   window.location.reload();

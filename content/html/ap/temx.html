@@ -28,10 +28,11 @@
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
 
 <!-- footnotes group START -->
-<div id="fa0" class="ttdiv">
-	<button class="ttbc" onclick="tdb('fa0');">Close</button>
+<div id="fa0" class="ttdiv fn">
+	<button class="ttbc" onclick="parent.history.back();">Close</button>
 	<h2>Footnote 0</h2>
-	<p>FootnoteTextGoesHere</p> 	
+	<p>FootnoteTextGoesHere appendix
+	</p> 	
 	<img id="fai0" decoding="async" data-src="../../img/icons/footnotes.png" alt="image">
 </div>
 <!-- footnotes group END -->
@@ -62,7 +63,8 @@
 	<h2>AppendixTopic</h2>
 	<h3>TL;DR</h3>
 	<p> 
-		TooLongDidntRead
+		TooLongDidntRead 
+		<sup><a href="javascript:void(0);" class="ttbo" title="footnote" onclick="openFootnote('fa0'); vi('fai0');">[0a]</a></sup> 
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
@@ -99,12 +101,12 @@
 	<p> 
 		
 	</p>
-	<!--
+	<!--  -->
 	<h3>Settings</h3>
 	<p>
 		<a href="../settings.html" target="_top">Link:</a> test link to settings
 	</p>
-	 -->
+	
 </article>
 </main>
 
