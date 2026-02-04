@@ -17,15 +17,13 @@ function closeLocalFootnote() {
 
 // indexed link open in top and clean appendix history
 function escapeAndClean(url) {
-    // 1. Tell the parent to handle its own UI closing logic via popstate
-    window.top.history.back();
-
-    // 2. Wait for the popstate cleanup to finish before redirecting
-    // A 200ms delay is usually enough to let the browser process the history change.
-    setTimeout(() => {
-        window.top.location.href = url;
-    }, 200);
+    // 1. Set a flag that tells the parent to clean itself up later
+    sessionStorage.setItem('pending_acon_cleanup', 'true');
+    
+    // 2. Navigate away immediately
+    window.top.location.href = url;
 }
+
 
 
 

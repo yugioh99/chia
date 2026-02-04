@@ -1,3 +1,23 @@
+
+// Add this at the top of your parent script
+(function() {
+    if (sessionStorage.getItem('pending_acon_cleanup') === 'true') {
+        // 1. Remove the flag so this only runs once
+        sessionStorage.removeItem('pending_acon_cleanup');
+        
+        // 2. If we are currently in an 'acon' history state, pop it
+        if (history.state?.view === 'acon') {
+            history.back();
+        }
+        
+        // 3. Ensure the UI is hidden
+        window.addEventListener('load', () => {
+            cleanUpUI(); // Use your existing cleanup function
+        });
+    }
+})();
+
+
 /* settings START */
 
 /* change font family */
