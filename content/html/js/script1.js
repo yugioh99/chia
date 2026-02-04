@@ -1,3 +1,19 @@
+// At the top of your parent script
+(function() {
+    console.log("Checking for cleanup flag...");
+    if (sessionStorage.getItem('pending_acon_cleanup') === 'true') {
+        console.log("Flag found! Cleaning up history...");
+        sessionStorage.removeItem('pending_acon_cleanup');
+        
+        if (history.state?.view === 'acon') {
+            console.log("Popping history state...");
+            history.back();
+        }
+    } else {
+        console.log("No cleanup flag found.");
+    }
+})();
+// above is temporary
 
 /**
  * --- PHASE 1: IMMEDIATE CLEANUP ---
