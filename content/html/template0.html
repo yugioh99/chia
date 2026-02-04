@@ -81,7 +81,7 @@
 		<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
-		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
+		<a href="ap/topics.html" onclick="document.getElementById('ai').contentWindow.location.replace(this.href); return false;"><button class="menubtn apmenubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>

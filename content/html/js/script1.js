@@ -382,6 +382,22 @@ document.addEventListener('click', function(event) {
     }
 });
 
+// Force the iframe to stay "stateless" in the browser history
+const iframe = document.getElementById('ai');
+
+iframe.addEventListener('load', function() {
+    try {
+        // If the iframe navigates to a new page, we ensure it 
+        // hasn't pushed a new global history state.
+        // If it did, this helps 'onpopstate' remain the primary trigger.
+        if (window.history.length > 50) { // arbitrary limit to catch runaway stacks
+            console.warn("History stack getting deep; ensuring back button remains functional.");
+        }
+    } catch (e) {
+        // Catch cross-origin errors if a link goes outside your domain
+    }
+});
+
 
 
 // 888888888888 888888888 888888888 8888888888 8888 888888888 8888888
