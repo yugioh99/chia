@@ -15,16 +15,17 @@ function closeLocalFootnote() {
     document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
 }
 
-
-// indexed links escape to the main page
+// indexed link open in top and clean appendix history
 function escapeAndClean(url) {
-    // 1. Move the parent back one step to remove the 'acon' history entry
+    // 1. Tell the parent to handle its own UI closing logic via popstate
     window.top.history.back();
 
-    // 2. Use a tiny delay to ensure the history clears before navigating away
+    // 2. Wait for the popstate cleanup to finish before redirecting
+    // A 200ms delay is usually enough to let the browser process the history change.
     setTimeout(() => {
         window.top.location.href = url;
-    }, 100);
+    }, 200);
 }
+
 
 
