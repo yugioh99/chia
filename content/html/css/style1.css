@@ -77,10 +77,12 @@ header {
   width: max-content;  /* Shrinks the span to fit its text/content */
   margin-left: auto;   /* Pushes from the left */
   margin-right: auto;  /* Pushes from the right */
+  margin-bottom: 2px;
+  margin-top: 2px;
   text-align: center;  /* Centers the text inside the span itself */
   padding-left: 7px;
   padding-right: 7px;
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 15px 15px 15px 15px;
   border: solid rgb(146, 70, 8);
   border-width: 2px 10px 2px 10px;
 }
@@ -127,7 +129,6 @@ header {
   display: block;
   border-width: 1px;
 }
-.lddcontent a:visited{color: rgb(25, 21, 230);}
 .lddcontent a:hover {background-color: #eeb79e}
 /* nav Locations END */
 
@@ -159,8 +160,8 @@ header {
   display: none;
   position: absolute;
   margin-top: 50px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 2px;
+  margin-right: 2px;
   margin-bottom: 0px;
   left: -0px;
   background-color: #1a1a1a;

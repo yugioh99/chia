@@ -1,20 +1,4 @@
 // At the top of your parent script
-(function() {
-    console.log("Checking for cleanup flag...");
-    if (sessionStorage.getItem('pending_acon_cleanup') === 'true') {
-        console.log("Flag found! Cleaning up history...");
-        sessionStorage.removeItem('pending_acon_cleanup');
-        
-        if (history.state?.view === 'acon') {
-            console.log("Popping history state...");
-            history.back();
-        }
-    } else {
-        console.log("No cleanup flag found.");
-    }
-})();
-// above is temporary
-
 /**
  * --- PHASE 1: IMMEDIATE CLEANUP ---
  * This runs before the rest of the page logic to clear any "ghost" states
@@ -151,28 +135,8 @@ function smBdC(color){
 
 /* navigation START */
 
-// toggle display block, inline-block & flex by id 
-// 2. REFINED tdb FUNCTION (with History Guard)
-/*
-function tdb(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    // Close any other open footnotes first
-    document.querySelectorAll('.tn.tdbs').forEach(fn => {
-        if (fn !== el) fn.classList.remove('tdbs');
-    });
-
-    el.classList.toggle('tdbs');
-
-    if (el.classList.contains('tdbs')) {
-        if (history.state?.view !== 'footnote' && history.state?.view !== 'acon') {
-            history.pushState({ view: 'footnote' }, "");
-        }
-    } else {
-        if (history.state?.view === 'footnote') history.back();
-    }
-}
+/* toggle display block, inline-block & flex by id 
+tdb was moved near the bottom with appendix and footnote sync
 */
 function tdib(id) {
   const el = document.getElementById(id); 
@@ -351,8 +315,6 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
-
-// 88888888888888 88888888 888888888888 8888888 88888888 8888 8888888
 
 /**
  * --- PHASE 2: UI MANAGEMENT ---
