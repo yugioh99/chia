@@ -15,14 +15,21 @@ function closeLocalFootnote() {
     document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
 }
 
-// indexed link open in top and clean appendix history
 function escapeAndClean(url) {
-    // 1. Set a flag that tells the parent to clean itself up later
+    // 1. Safety Check: Stop if the URL is empty, null, or just spaces
+    if (!url || url.trim() === "" || url === "undefined") {
+        console.error("Navigation failed: No URL provided.");
+        return false;
+    }
+
+    // 2. Set the cleanup flag for the Parent Page
     sessionStorage.setItem('pending_acon_cleanup', 'true');
     
-    // 2. Navigate away immediately
+    // 3. Navigate the parent window immediately
     window.top.location.href = url;
 }
+
+
 
 
 

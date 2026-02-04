@@ -1,19 +1,16 @@
 
-// Add this at the top of your parent script
+/**
+ * --- PHASE 1: IMMEDIATE CLEANUP ---
+ * This runs before the rest of the page logic to clear any "ghost" states
+ */
 (function() {
     if (sessionStorage.getItem('pending_acon_cleanup') === 'true') {
-        // 1. Remove the flag so this only runs once
         sessionStorage.removeItem('pending_acon_cleanup');
         
-        // 2. If we are currently in an 'acon' history state, pop it
-        if (history.state?.view === 'acon') {
+        // If the browser history is stuck on 'acon', move it back one
+        if (history.state?.view === 'acon' || history.state?.view === 'footnote') {
             history.back();
         }
-        
-        // 3. Ensure the UI is hidden
-        window.addEventListener('load', () => {
-            cleanUpUI(); // Use your existing cleanup function
-        });
     }
 })();
 
@@ -323,13 +320,40 @@ function goBack() {
 // 88888888888888 88888888 888888888888 8888888 88888888 8888 8888888
 
 /**
- * CORE TOGGLE LOGIC
+ * --- PHASE 2: UI MANAGEMENT ---
  */
+
+// Central function to wipe all temporary UI
+function cleanUpUI() {
+    // 1. Hide the appendix div
+    const acon = document.getElementById('acon');
+    if (acon) acon.classList.remove('tdbs');
+
+    // 2. Hide all parent footnotes
+    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
+
+    // 3. Reset the iframe to about:blank via replace (keeps history clean)
+    const iframe = document.getElementById('ai');
+    if (iframe) {
+        iframe.contentWindow.location.replace("about:blank");
+    }
+}
+
+// Global listener for Browser Back button and history.back() calls
+window.onpopstate = function() {
+    cleanUpUI();
+};
+
+/**
+ * --- PHASE 3: INTERACTION LOGIC ---
+ */
+
+// Toggle parent footnotes with History Guard
 function tdb(id) {
     const el = document.getElementById(id);
     if (!el) return;
 
-    // Close any other open footnotes first
+    // Close other open footnotes
     document.querySelectorAll('.tn.tdbs').forEach(fn => {
         if (fn !== el) fn.classList.remove('tdbs');
     });
@@ -337,7 +361,7 @@ function tdb(id) {
     el.classList.toggle('tdbs');
 
     if (el.classList.contains('tdbs')) {
-        // Push state if not already in a menu state
+        // Only push history if we aren't already in a menu state
         if (history.state?.view !== 'footnote' && history.state?.view !== 'acon') {
             history.pushState({ view: 'footnote' }, "");
         }
@@ -346,14 +370,15 @@ function tdb(id) {
     }
 }
 
+// Open Appendix with specialized iframe loading
 function openAcon(url) {
-    // Close parent footnotes before opening appendix
+    // Hide parent footnotes first
     document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
 
     const acon = document.getElementById('acon');
     const iframe = document.getElementById('ai');
 
-    // Load content without adding history entries
+    // Overwrite iframe history so one-back always works
     if (iframe) iframe.contentWindow.location.replace(url);
     if (acon) acon.classList.add('tdbs');
 
@@ -362,34 +387,11 @@ function openAcon(url) {
     }
 }
 
-/**
- * HISTORY & CLEANUP ENGINE
- */
-function cleanUpUI() {
-    // Hide all containers
-    document.getElementById('acon')?.classList.remove('tdbs');
-    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
-
-    // Reset iframe to about:blank via replace
-    const iframe = document.getElementById('ai');
-    if (iframe) {
-        iframe.contentWindow.location.replace("about:blank");
-    }
-}
-
-// Global listener for Browser Back and history.back()
-window.onpopstate = function() {
-    cleanUpUI();
-};
-
-/**
- * CLICK OUTSIDE TO CLOSE
- */
+// Click Outside to Close Logic
 document.addEventListener('click', function(event) {
     const openFootnote = document.querySelector('.tn.tdbs');
     if (!openFootnote) return;
 
-    // Check if click is outside footnote and not on a trigger
     const isInside = openFootnote.contains(event.target);
     const isTrigger = event.target.closest('[onclick*="tdb"]');
 
@@ -402,21 +404,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Force the iframe to stay "stateless" in the browser history
-const iframe = document.getElementById('ai');
 
-iframe.addEventListener('load', function() {
-    try {
-        // If the iframe navigates to a new page, we ensure it 
-        // hasn't pushed a new global history state.
-        // If it did, this helps 'onpopstate' remain the primary trigger.
-        if (window.history.length > 50) { // arbitrary limit to catch runaway stacks
-            console.warn("History stack getting deep; ensuring back button remains functional.");
-        }
-    } catch (e) {
-        // Catch cross-origin errors if a link goes outside your domain
-    }
-});
 
 
 
