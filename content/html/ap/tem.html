@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../css/style1.css" rel="stylesheet">
 	<script src="../js/script1.js" type="text/javascript" defer></script>
+	<script src="../js/ap.js" type="text/javascript" defer></script>
 	<!-- favicon -->
 	<link href="../../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -29,7 +30,7 @@
 
 <!-- footnotes group START -->
 <div id="fa0" class="ttdiv tn">
-	<button class="ttbc" onclick="window.parent.tdb('fa0');">Close</button>
+	<button class="ttbc" onclick="closeLocalFootnote();">Close</button>
 	<h2>Footnote 0</h2>
 	<p>FootnoteTextGoesHere</p> 	
 	<img id="fai0" decoding="async" onclick="vi('fai0');" data-src="../../img/icons/footnotes.png" alt="view image 1">
@@ -63,7 +64,9 @@
 	<h3>TL;DR</h3>
 	<p> 
 		TooLongDidntRead
-		<sup><a class="ttbo" title="footnote" onclick="window.parent.tdbFootnote('fa0'); vi('fai0');">[a0]</a></sup>
+		<sup><button class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[a0]</button></sup> 
+		<br><br>
+		<a href="javascript:void(0)" onclick="escapeAndClean('main_site_page.html')">Exit to Main Page&nearr;</a>
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->

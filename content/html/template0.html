@@ -26,7 +26,7 @@
 <div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
 	<button class="navdropbtn menubtn">Navigation</button>
 	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
-		<span class="ddnavmenu">Navigation</span><br>	
+		<span class="ddnavmenu pBdC">Navigation</span><br>	
 		<a href="home.html">Home</a>
 		<span class="ddnavmenu pBdC" title="You are here">Template</span>
 	</div>
@@ -63,28 +63,22 @@
 
 <!-- footnotes group START -->
 <div id="f0" class="ttdiv tn">
-	<button class="ttbc" onclick="tdb('f0');">Close</button>
+	<button class="ttbc" onclick="history.back();">Close</button>
 	<h2>Footnote 0</h2>
 	<p>FootnoteTextGoesHere</p> 	
 	<img id="fi0" onclick="vi('fi0');" data-src="../img/icons/footnotes.png" decoding="async" alt="view image 1">
 </div>
-<div id="f1" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f1');">Close</button>
-	<h2>Footnote 0</h2>
-	<p>FootnoteTextGoesHere</p> 	
-	<img id="fi1" data-src="../img/icons/footnotes.png" decoding="async" alt="view image 1">
-</div>
+
 <!-- footnotes group END -->
 
 <div id="acon" class="ttdiv apu" ><!-- appendix container START -->
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
 	<div class="popupTitle">
-		<button class="menubtn" onclick="document.getElementById('ai').contentWindow.history.back();">&#9668;</button>
-		&nbsp;Appendix &nbsp;
+		Appendix &nbsp;
 	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<button class="menubtn apmenubtn" onclick="closeAcon();">Close</button> &nbsp;
+		<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
 		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
@@ -124,7 +118,9 @@
 	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
 	<p>
 		time stamp 10:21am
-		<sup><a class="ttbo" title="footnote" onclick="tdbFootnote('f0'); vi('fi0');">[0]</a></sup>
+		<sup><a class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</a></sup>
+		<br><br>
+		<a class="ttbo" title="appendix topic" onclick="openAcon('ap/tem.html');">template&nbsp;nbsp</a> 
 	</p>
 </section>
 
@@ -141,7 +137,7 @@
 	</p>
 	<p>
 
-		<a class="ttbo" title="appendix topic" onclick="apOpen('ap/tem.html');">template&nbsp;nbsp</a> <br>
+		<a class="ttbo" title="appendix topic" onclick="openAcon('ap/tem.html');">template&nbsp;nbsp</a> <br>
 		Link: this text can be an exact copy from the appendix topic <br>
 		<!--   -->
 	</p>

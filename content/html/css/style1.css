@@ -77,7 +77,7 @@ header {
   margin: 2px 2px 2px 0px;
   border-radius: 0px 0px 0px 0px;
   border: solid rgb(146, 70, 8);
-  border-width: 1px 5px 1px 5px;
+  border-width: 2px 5px 2px 5px;
 }
 /* nav Locations START */
 /* The container <div> - needed to position the dropdown content */
@@ -116,10 +116,11 @@ header {
 }}
 /* Links inside the dropdown */
 .lddcontent a {
-  padding: 7px 5px;
+  padding: 7px 3px;
   text-decoration: none;
   font-size: 20px;
   display: block;
+  border-width: 1px;
 }
 .lddcontent a:visited{color: rgb(25, 21, 230);}
 .lddcontent a:hover {background-color: #eeb79e}

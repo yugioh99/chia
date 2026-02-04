@@ -100,24 +100,28 @@ function smBdC(color){
 /* navigation START */
 
 // toggle display block, inline-block & flex by id 
+// 2. REFINED tdb FUNCTION (with History Guard)
+/*
 function tdb(id) {
-    // 1. Try to find the element on the parent page
-    let el = document.getElementById(id);
+    const el = document.getElementById(id);
+    if (!el) return;
 
-    // 2. If not found, look inside the ai iframe
-    if (!el) {
-        const iframe = document.getElementById('ai');
-        if (iframe && iframe.contentDocument) {
-            el = iframe.contentDocument.getElementById(id);
+    // Close any other open footnotes first
+    document.querySelectorAll('.tn.tdbs').forEach(fn => {
+        if (fn !== el) fn.classList.remove('tdbs');
+    });
+
+    el.classList.toggle('tdbs');
+
+    if (el.classList.contains('tdbs')) {
+        if (history.state?.view !== 'footnote' && history.state?.view !== 'acon') {
+            history.pushState({ view: 'footnote' }, "");
         }
-    }
-
-    // 3. Toggle the class if the element was found
-    if (el) {
-        el.classList.toggle('tdbs');
+    } else {
+        if (history.state?.view === 'footnote') history.back();
     }
 }
-
+*/
 function tdib(id) {
   const el = document.getElementById(id); 
   el.classList.toggle("tdibs");
@@ -296,66 +300,91 @@ function goBack() {
   alert('No saved page found!');}
 }
 
+// 88888888888888 88888888 888888888888 8888888 88888888 8888 8888888
 
-// Appendix and footnote sync
-let appendixStartIndex = 0;
-
-// 1. Open Appendix
-function apOpen(url) {
-    // Close any open parent footnotes first
-    const openFootnotes = document.querySelectorAll('.tn.tdbs');
-    openFootnotes.forEach(fn => tdb(fn.id));
-
-    // Mark the history length BEFORE we add the appendix state
-    appendixStartIndex = window.history.length;
-
-    tdb('acon');
-    
-    // Use replace for the first load to keep history clean
-    document.getElementById('ai').contentWindow.location.replace(url);
-    
-    // Push the state that the hardware back button will eventually "hit" to close the div
-    window.history.pushState({ iframeOpen: true }, "");
-}
-
-// 2. Close Button (One-click "Leap" to Parent)
-function closeAcon() {
-    const acon = document.getElementById('acon');
-    if (acon.classList.contains('tdbs')) {
-        // Calculate the jump to skip all iframe sub-pages
-        const currentLength = window.history.length;
-        const delta = (currentLength - appendixStartIndex + 1) * -1;
-        
-        // This jumps past all iframe history directly to the parent state
-        window.history.go(delta);
-    }
-}
-
-// 3. Footnote Toggle (Back button support)
-function tdbFootnote(id) {
+/**
+ * CORE TOGGLE LOGIC
+ */
+function tdb(id) {
     const el = document.getElementById(id);
-    tdb(id);
+    if (!el) return;
+
+    // Close any other open footnotes first
+    document.querySelectorAll('.tn.tdbs').forEach(fn => {
+        if (fn !== el) fn.classList.remove('tdbs');
+    });
+
+    el.classList.toggle('tdbs');
+
     if (el.classList.contains('tdbs')) {
-        window.history.pushState({ footnoteOpen: true }, "");
+        // Push state if not already in a menu state
+        if (history.state?.view !== 'footnote' && history.state?.view !== 'acon') {
+            history.pushState({ view: 'footnote' }, "");
+        }
+    } else if (history.state?.view === 'footnote') {
+        history.back();
     }
 }
 
-// 4. Global Popstate (The hardware back button "Watcher")
-window.addEventListener('popstate', function(event) {
-    const acon = document.getElementById('acon');
-    
-    // This executes when the hardware back button exhausts the iframe history
-    // OR when closeAcon() forces the jump.
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon');
-        document.getElementById('ai').src = 'about:blank';
-    }
+function openAcon(url) {
+    // Close parent footnotes before opening appendix
+    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
 
-    // Always close parent footnotes on back
-    const openFootnotes = document.querySelectorAll('.tn.tdbs');
-    openFootnotes.forEach(fn => tdb(fn.id));
+    const acon = document.getElementById('acon');
+    const iframe = document.getElementById('ai');
+
+    // Load content without adding history entries
+    if (iframe) iframe.contentWindow.location.replace(url);
+    if (acon) acon.classList.add('tdbs');
+
+    if (history.state?.view !== 'acon') {
+        history.pushState({ view: 'acon' }, "");
+    }
+}
+
+/**
+ * HISTORY & CLEANUP ENGINE
+ */
+function cleanUpUI() {
+    // Hide all containers
+    document.getElementById('acon')?.classList.remove('tdbs');
+    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
+
+    // Reset iframe to about:blank via replace
+    const iframe = document.getElementById('ai');
+    if (iframe) {
+        iframe.contentWindow.location.replace("about:blank");
+    }
+}
+
+// Global listener for Browser Back and history.back()
+window.onpopstate = function() {
+    cleanUpUI();
+};
+
+/**
+ * CLICK OUTSIDE TO CLOSE
+ */
+document.addEventListener('click', function(event) {
+    const openFootnote = document.querySelector('.tn.tdbs');
+    if (!openFootnote) return;
+
+    // Check if click is outside footnote and not on a trigger
+    const isInside = openFootnote.contains(event.target);
+    const isTrigger = event.target.closest('[onclick*="tdb"]');
+
+    if (!isInside && !isTrigger) {
+        if (history.state?.view === 'footnote') {
+            history.back();
+        } else {
+            cleanUpUI();
+        }
+    }
 });
 
+
+
+// 888888888888 888888888 888888888 8888888888 8888 888888888 8888888
 
 function restoreDefaults() {
   localStorage.clear(); 
