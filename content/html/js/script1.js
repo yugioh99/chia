@@ -20,15 +20,34 @@
  * This runs before the rest of the page logic to clear any "ghost" states
  */
 (function() {
-    if (sessionStorage.getItem('pending_acon_cleanup') === 'true') {
-        sessionStorage.removeItem('pending_acon_cleanup');
-        
-        // If the browser history is stuck on 'acon', move it back one
-        if (history.state?.view === 'acon' || history.state?.view === 'footnote') {
-            history.back();
+    const cleanupTime = localStorage.getItem('pending_acon_cleanup');
+    
+    if (cleanupTime) {
+        const now = Date.now();
+        const sixtySeconds = 60000;
+
+        // 1. Check if the flag is "fresh" (less than 60 seconds old)
+        if (now - cleanupTime < sixtySeconds) {
+            // 2. Clear the flag immediately
+            localStorage.removeItem('pending_acon_cleanup');
+
+            // 3. Sync history state
+            if (history.state?.view === 'acon' || history.state?.view === 'footnote') {
+                history.back();
+            }
+
+            // 4. Force UI reset once elements exist
+            window.addEventListener('DOMContentLoaded', () => {
+                if (typeof cleanUpUI === "function") cleanUpUI();
+            });
+        } else {
+            // 5. Delete stale flag if it's over a minute old
+            localStorage.removeItem('pending_acon_cleanup');
         }
     }
 })();
+
+
 
 
 /* settings START */
