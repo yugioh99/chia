@@ -73,11 +73,16 @@ header {
 }
 /* nav menu titles */
 .ddnavmenu {
-  padding: 2px 10px 2px 10px;
-  margin: 2px 2px 2px 0px;
+  display: block;      /* Allows the span to take up width and respect margins */
+  width: max-content;  /* Shrinks the span to fit its text/content */
+  margin-left: auto;   /* Pushes from the left */
+  margin-right: auto;  /* Pushes from the right */
+  text-align: center;  /* Centers the text inside the span itself */
+  padding-left: 7px;
+  padding-right: 7px;
   border-radius: 0px 0px 0px 0px;
   border: solid rgb(146, 70, 8);
-  border-width: 2px 5px 2px 5px;
+  border-width: 2px 10px 2px 10px;
 }
 /* nav Locations START */
 /* The container <div> - needed to position the dropdown content */
