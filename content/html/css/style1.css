@@ -124,6 +124,7 @@ header {
 /* Links inside the dropdown */
 .lddcontent a {
   padding: 7px 3px;
+  margin: 1px 2px 1px 2px;
   text-decoration: none;
   font-size: 20px;
   display: block;
@@ -713,6 +714,9 @@ img:hover {
 .ttbo {
   background-color: inherit;
   border: none;
+  border-radius: 0.3em;
+  padding: 0em 0.1em 0em 0.1em;
+  margin: 0em;
   text-decoration-line: underline;
   text-decoration-style: double;
   text-decoration-color: red;
@@ -724,6 +728,7 @@ img:hover {
 .ttbo:hover  {
   color: black;
   text-decoration-line: underline;
+  text-decoration-style: solid;
   text-decoration-color: rgb(2, 59, 2);
   background-color: rgb(187, 253, 253);
 }

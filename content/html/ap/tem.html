@@ -66,10 +66,15 @@
 		TooLongDidntRead
 		<sup><button class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[a0]</button></sup> 
 		<br><br>
-		<a href="javascript:void(0)" onclick="escapeAndClean('../home.html')">Exit to home Page&nearr;</a>
-
+		<a href="javascript:void(0)" onclick="escapeAndClean('../home.html');">Exit to home Page&nearr;</a>
+		<br>
 		<br><br>
-		<a href="topics.html" onclick="location.replace(this.href); return false;">topics</a> links inside appendix
+		<a href="javascript:void(0)" onclick="escapeAndClean('../home.html');">no auto complete</a>
+		<a href="../home.html" onclick="event.preventDefault(); escapeAndClean(this.href);">yes auto complete</a> <br>
+		<a href="topics.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">topics</a> auto complete
+
+		
+
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
