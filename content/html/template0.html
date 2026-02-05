@@ -38,8 +38,8 @@
 	</div>
 	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
 		<span class="ddnavmenu pBdC" title="Bookmarks on this page">Bookmarks</span>
-		<!-- <li data-tags=""><a href="#-bm"></a></li> -->
-		<li data-tags="SectionTitle"><a href="#sectit-bm">SectionTitle</a></li>
+		<!-- <li data-tags=""><a href="#"></a></li> -->
+		<li data-tags="SectionTitle"><a href="#SectionTitle">SectionTitle</a></li>
 		<li data-tags="appendix notes"><a href="#anotesbm">Appendix Notes</a></li>
 		<li data-tags=""><span class="ddnavmenu pBdC" title="View saved bookmarks"><button onclick="tdb('savedBookmark');" class="smenubtn">Saved</button></span></li>
 		<span id="savedBookmark" class="hidediv"> <!-- saved bm START -->
@@ -94,19 +94,19 @@
 
 <main><!-- Main  ----------------------------   -->
 <div class="pageTC"> <!-- PageTitle -->
-	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Template</h1></div>
+	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Template0</h1></div>
 </div>
 <!-- Empty Section. Copy and Past
 <section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
 	<h2>SectionTitle<sup><a href="#SectionTitle" title="bookmark">#</a></sup></h2>
 
 </section> -->
-<!-- Universal Content -->
+<!-- Universal Content
 <section id="Universal-Content" class="pFF pFS pFC pBgC pBdC"> 
 	<h3>Universal Content</h3>
 	<button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content show/hide</button>
-	<div id="secuni-hide" class="hidediv"> <!-- Universal Content hide START --> <hr>
-<!-- to hide section -->
+	<div id="secuni-hide" class="hidediv"> 
+	<hr>
 	
 	Below is a quote.
 	<span class="quote pBdC">quote</span>
@@ -114,31 +114,30 @@
 
 	Hide Div
 	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
-	<div id="hidethis" class="hidediv"> <!-- hidethis START -->
+	<div id="hidethis" class="hidediv"> 
 	This is the hidden div. <br>
 	<button onclick="tdb('hidethis');" class="smenubtn">hide</button>
-	</div><!-- hidethis END -->
-	<br><br> 
+	</div> <br><br> 
 
 	Footnote Button <br>
-	<sup><a class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> <br><br>
+	<sup><button class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</button></sup> <br><br>
 	
 	external link in new window <br>
 	<a target="_blank" rel="noopener noreferrer"  title="external link" href="https://www.investopedia.com/">investopedia.com&nearr;</a> <br><br>
 
 	bookmark in the table of contents <br> 
-	<span class="toc">Section Title</span><a href="#sectit-bm" title="bookmark">#</a>: 
+	<span class="toc">Section Title</span><a href="#SectionTitle" title="bookmark">#</a>: <br>
 
-<!-- to hide section -->
-	<br><br><br><hr><button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content hide</button>
-	</div><!-- Universal Content hide END -->
-</section> 
+	<hr>
+	<button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content hide</button>
+	</div>
+</section>  -->
 <!-- Local Content. Adjusted relative links -->
 <section id="Local-Content" class="pFF pFS pFC pBgC pBdC">
 	<h3>Local Content</h3>
 	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content show/hide</button>
-	<div id="secloc-hide" class="hidediv"> <!-- Local Content hide START --> <hr>
-<!-- to hide section -->
+	<div id="secloc-hide" class="hidediv">
+	<hr>
 	 
 	view multiple images in this section <br>
 	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> <br><br>
@@ -152,23 +151,16 @@
 	big image in new window <br>
 	<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> 
 
-<!-- to hide section -->
-	<br><br><hr><button onclick="tdb('secloc-hide');" class="smenubtn">Local Content hide</button>
-	</div><!-- Local Content hide END -->
+	<hr>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content hide</button>
+	</div>
 </section>
-<section id="sectit-bm" class="pFF pFS pFC pBgC pBdC"> <!-- SectionTitle -->
-	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
-	<p>
-		time stamp 9:27amam
-		<sup><button class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</button></sup>
-		<br><br>
-		<button class="ttbo" title="appendix topic" onclick="openAcon('ap/tem.html');">template&nbsp;nbsp</button> no auto complete
-		<br><br><br>
-		<a href="ap/tem.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">template&nbsp;nbsp</a> auto complete
-	</p>
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC"> <!-- SectionTitle -->
+	<h2>SectionTitle<sup><a href="#SectionTitle" title="bookmark">#</a></sup></h2>
+
 </section>
 
-<article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
+<article id="appendix-notes" class="pFS pFC pFF pBgC" >
 	<h2>Appendix Notes</h2>
 	<p>
 		
@@ -179,14 +171,11 @@
 	<p>
 		Appendix topics with indexed links to this page in the (Introduction User Manual Tools Theories Strategies) category
 	</p>
-	<p>
-
-		<a class="ttbo" title="appendix topic" onclick="openAcon('ap/tem.html');">template&nbsp;nbsp</a> 
-		<button class="ttbo" title="appendix topic" onclick="openAcon('ap/tem.html');">template&nbsp;nbsp</button>
-		<br>
-		Link: this text can be an exact copy from the appendix topic <br>
-		<!--   -->
+	<p><!-- template  -->
+		<a href="ap/tem.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">template</a> <br>
+		Link: copy &amp; past from appendix topic <br>
 	</p>
+	<button onclick="tdb('atlist');" class="smenubtn">hide</button>
 	</div><!-- list of app linked here END -->
 </article>
 

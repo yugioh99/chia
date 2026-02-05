@@ -45,43 +45,43 @@
 	<h2>SectionTitle</h2>
 
 </section> -->
-<!-- section local 
-<section id="section-local" class="pFF pFS pFC pBgC pBdC">
-	<h2>Section Local</h2>
+<!-- Section Content. Same for every topic -->
+<section id="Section-Content" class="pFF pFS pFC pBgC pBdC">
+	<h3>Section Content</h3>
+	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
+	<div id="hidethis" class="hidediv"> 
+	<hr>
 
-	Appendix button <br>
-	<a class="ttbo" title="appendix topic" href="tem.html">template</a> <br><br>
+	Below is a quote.
+	<span class="quote pBdC">quote</span>
+	Above is a quote. <br><br>
+	
+	Footnote button <br>
+	<sup><button class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[0]</button></sup>  <br><br>
 	 
 	link to big image in new window <br>
-	<a href="../../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> <br><br>
+	<a href="../../img/background/1.jpg" target="_blank" rel="noopener" title="new window">view&nbsp;image&nearr;</a> <br><br>
 	
-	link with target top <br>
-	<a href="../home.html" target="_top">Home</a> 
-</section>  -->
+	Appendix Topic <br>
+	<a href="" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic"></a>
 
-<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC"> <!--  -->
+	<hr>
+	<button onclick="tdb('hidethis');" class="smenubtn">hide</button>
+	</div>
+</section> 
+
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
 	<h2>AppendixTopic</h2>
 	<h3>TL;DR</h3>
 	<p> 
 		TooLongDidntRead
-		<sup><button class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[a0]</button></sup> 
-		<br><br>
-		<a href="javascript:void(0)" onclick="escapeAndClean('../home.html');">Exit to home Page&nearr;</a>
-		<br>
-		<br><br>
-		<a href="javascript:void(0)" onclick="escapeAndClean('../home.html');">no auto complete</a>
-		<a href="../home.html" onclick="event.preventDefault(); escapeAndClean(this.href);">yes auto complete</a> <br>
-		<a href="topics.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">topics</a> auto complete
-
-		
-
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
 	<p>
 		DeepDive
-		<br> <button onclick="tdb('deepdive');" class="smenubtn">hide</button>
 	</p>
+	<button onclick="tdb('deepdive');" class="smenubtn">hide</button>
 	</div><!-- deep dive div END -->
 
 	<h3>Illustrations <button onclick="tdb('illust');" class="smenubtn">show/hide</button></h3>
@@ -111,12 +111,12 @@
 	<p> 
 		
 	</p>
-	<!--
+	<!--  
 	<h3>Settings</h3>
 	<p>
-		<a href="../settings.html" target="_top">Link:</a> test link to settings
+		<a href="../settings.html" onclick="event.preventDefault(); escapeAndClean(this.href);">Link</a>: test link to settings
 	</p>
-	 -->
+	-->
 </article>
 </main>
 
