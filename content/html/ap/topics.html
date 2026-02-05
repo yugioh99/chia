@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../css/style1.css" rel="stylesheet">
 	<script src="../js/script1.js" type="text/javascript" defer></script>
-	<script src="../js/apBackForward.js" type="text/javascript" defer></script>
+	<script src="../js/ap.js" type="text/javascript" defer></script>
 	<!-- favicon -->
 	<link href="../../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -44,36 +44,40 @@
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
+<!-- <a href="" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic"></a> 
+onclick="event.preventDefault(); location.replace(this.href);"
+onclick="location.replace(this.href); return false;"
+-->
 
 <section class="pFF pFS pFC pBgC pBdC"> <br>
 <ul id="apitemList" class="apddcontent"> 
-	<li data-tags="algo computer algorithm"><a href="alg.html">algo - computer algorithm</a></li>
-	<li data-tags="Behavioral Economics psychology"><a href="beh.html">Behavioral Economics</a></li>
-	<li data-tags="bid ask spread"><a href="bid.html">bid-ask spread</a></li>
-	<li data-tags="Channels tools"><a href="cha.html">Channel</a></li>
-	<li data-tags="cognitive bias psychology"><a href="cog.html">cognitive bias</a></li>
-	<li data-tags="cts"><a href="cts.html">CTS</a></li>
-	<li data-tags="DOM depth of market price ladder tools"><a href="dom.html">DOM - depth of market / price ladder </a></li>
-	<li data-tags="economic agents psychology"><a href="eco.html">economic agents</a></li>
-	<li data-tags="Epistemology psychology"><a href="epi.html">Epistemology</a></li>
-	<li data-tags="Fluid dynamics"><a href="flu.html">Fluid dynamics</a></li>
-	<li data-tags="FTLE Finite Time Lyapunov Exponent"><a href="ftl.html">FTLE - Finite Time Lyapunov Exponent</a></li>
-	<li data-tags="indicator"><a href="ind.html">indicator</a></li>
-	<li data-tags="intersubjective psychology"><a href="int.html">intersubjective</a></li>
-	<li data-tags="LCS Lagrangian Coherent Structures"><a href="lcs.html">LCS - Lagrangian Coherent Structures</a></li>
-	<li data-tags="market"><a href="mar.html">market</a></li>
-	<li data-tags="market sentiment psychology"><a href="mar2.html">market sentiment</a></li>
-	<li data-tags="order book"><a href="ord.html">order book</a></li>
-	<li data-tags="Order Flow"><a href="ord2.html">Order Flow</a></li>
-	<li data-tags="order type"><a href="ord3.html">order type</a></li>
-	<li data-tags="pitchforks channels tools"><a href="pit.html">pitchforks</a></li>
-	<li data-tags="price action"><a href="pri.html">Price Action</a></li>
-	<li data-tags="price chart tools"><a href="pri2.html">Price Chart</a></li>
-	<li data-tags="ptc price time continuum"><a href="ptc.html">PTC - Price Time Continuum</a></li>
-	<li data-tags="qft Quantum Field Theory"><a href="qft.html">QFT - Quantum Field Theory</a></li>
-	<li data-tags="Technical Analysis"><a href="tec.html">Technical Analysis</a></li>
-	<li data-tags="template"><a href="tem.html">template</a></li>
-	<li data-tags="Transactions"><a href="tra.html">Transactions</a></li>
+	<li data-tags="algo computer algorithm"><a href="alg.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">algo - computer algorithm</a></li>
+	<li data-tags="Behavioral Economics psychology"><a href="beh.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Behavioral Economics</a></li>
+	<li data-tags="bid ask spread"><a href="bid.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">bid-ask spread</a></li>
+	<li data-tags="Channels tools"><a href="cha.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Channel</a></li>
+	<li data-tags="cognitive bias psychology"><a href="cog.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">cognitive bias</a></li>
+	<li data-tags="cts"><a href="cts.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">CTS - Chia Trading System</a></li>
+	<li data-tags="DOM depth of market price ladder tools"><a href="dom.html" onclick="location.replace(this.href); return false;" class="ttbo" title="appendix topic">DOM - depth of market / price ladder </a></li>
+	<li data-tags="economic agents psychology"><a href="eco.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">economic agents</a></li>
+	<li data-tags="Epistemology psychology"><a href="epi.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Epistemology</a></li>
+	<li data-tags="Fluid dynamics"><a href="flu.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Fluid dynamics</a></li>
+	<li data-tags="FTLE Finite Time Lyapunov Exponent"><a href="ftl.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">FTLE - Finite Time Lyapunov Exponent</a></li>
+	<li data-tags="indicator"><a href="ind.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">indicator</a></li>
+	<li data-tags="intersubjective psychology"><a href="int.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">intersubjective</a></li>
+	<li data-tags="LCS Lagrangian Coherent Structures"><a href="lcs.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">LCS - Lagrangian Coherent Structures</a></li>
+	<li data-tags="market"><a href="mar.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">market</a></li>
+	<li data-tags="market sentiment psychology"><a href="mar2.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">market sentiment</a></li>
+	<li data-tags="order book"><a href="ord.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">order book</a></li>
+	<li data-tags="Order Flow"><a href="ord2.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Order Flow</a></li>
+	<li data-tags="order type"><a href="ord3.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">order type</a></li>
+	<li data-tags="pitchforks channels tools"><a href="pit.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">pitchforks</a></li>
+	<li data-tags="price action"><a href="pri.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Price Action</a></li>
+	<li data-tags="price chart tools"><a href="pri2.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Price Chart</a></li>
+	<li data-tags="ptc price time continuum"><a href="ptc.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">PTC - Price Time Continuum</a></li>
+	<li data-tags="qft Quantum Field Theory"><a href="qft.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">QFT - Quantum Field Theory</a></li>
+	<li data-tags="Technical Analysis"><a href="tec.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Technical Analysis</a></li>
+	<li data-tags="template"><a href="tem.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">template</a></li>
+	<li data-tags="Transactions"><a href="tra.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">Transactions</a></li>
 </ul>
 	End of List
 	<br><br>
