@@ -4,11 +4,10 @@
 	<meta name="robots" content="noindex">
 	<!--  Essentials -->
 	<meta charset="UTF-8">
-	<title>Chia Trading System - Homepage - CTS</title>
+	<title>Chia Trading System - Home - CTS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
 	<script src="js/script1.js" type="text/javascript" defer></script>
-	<script src="js/glossary1.js" type="text/javascript" defer></script>
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Chia Trading System">
@@ -35,31 +34,36 @@
 	<body class="pFF pFS pFC">
 
 <header class="hcmain pFC pBgC pBdC">
-<nav class="headernav"> <!-- headernav START   -->
+<nav class="headernav"> <!-- headernav START -->
 <div class="smallScreenTitle">CTS</div>
-<div class="midScreenTitle">Chia Trading System</div>
+<div class="midScreenTitle">Chia Trading System - CTS</div>
 <div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
 	<button class="navdropbtn menubtn">Navigation</button>
-	<div id="lddid" class="lddcontent pBdC"> 
-		Navigation <br>	
-		Home
+	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Navigation Menu">Navigation</span>	
+		<span class="ddnavmenu pBdC" title="You are here">Home</span>
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
 	<button  class="menubtn navdropbtn">Bookmarks</button>
 	<div id="bmddid2" class="bmddcontent2 pBdC">
-		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter()">
+		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
-	<div id="bmddid" class="bmddcontent pBdC"> 
-		Bookmarks
-		<li data-tags="cts chia trading systems"><a href="#ctsbm">CTS</a></li>
-		<li data-tags="other stuff"><a href="#otherstuffbm">Other Stuff</a></li>
-		<li data-tags="">Saved</li>
-		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
-		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
-		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
-		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
-		bottom
+	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Bookmarks on this page">Bookmarks</span>
+		<!-- <li data-tags=""><a href="#"></a></li> -->
+		<li data-tags="cts chia trading systems"><a href="#cts">CTS</a></li>
+		<li data-tags="other stuff"><a href="#other-stuff">Other Stuff</a></li>
+		<li data-tags=""><span class="ddnavmenu pBdC" title="View saved bookmarks"><button onclick="tdb('savedBookmark');" class="smenubtn">Saved</button></span></li>
+		<span id="savedBookmark" class="hidediv"> <!-- saved bm START -->
+		<li data-tags="" title="click to save"><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
+		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
+		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
+		</span><!-- saved bm END -->
+		<span class="ddnavmenu pBdC" title="Bottom of bookmark menu">bottom</span>
 	</div>
 </div><!-- bm = bookmark END -->
 <div class="wideScreenTitle">Chia Trading System</div>
@@ -73,71 +77,102 @@
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
 
 <!-- footnotes group START -->
-<div id="f0" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f0');">Close</button>
+<div id="f0" class="ttdiv tn">
+	<button class="ttbc" onclick="history.back();">Close</button>
 	<h2>Footnote 0</h2>
-	<p>Footnote text goes here.</p> 	
-	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
+	<p>FootnoteTextGoesHere</p> 	
+	<img id="fi0" onclick="vi('fi0');" data-src="../img/icons/footnotes.png" decoding="async" alt="view image 1">
 </div>
+
 <!-- footnotes group END -->
 
 <div id="acon" class="ttdiv apu" ><!-- appendix container START -->
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
-	<div class="popupTitle">Appendix</div>
+	<div class="popupTitle">
+		Appendix &nbsp;
+	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<a href="about:blank" target="ai"><button class="menubtn apmenubtn" onclick="tdb('acon');">Close </button></a>
+		<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
-		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
+		<a href="ap/topics.html" onclick="event.preventDefault(); document.getElementById('ai').contentWindow.location.replace(this.href);"><button class="menubtn apmenubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
-	<iframe name="ai" src="about:blank" class="aif"></iframe>	
+	<iframe name="ai" id="ai" src="about:blank" class="aif"></iframe>	
 </div><!-- appendix container END -->
 
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
-
 <div class="flexse"> <!-- Page Title -->
 	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Home</h1></div>
 	<div class="seeddiv"><img class="seedimg" src="../img/icons/chia-seed.jpg" alt="CTS Logo" decoding="async"></div>
 </div>
+<!-- Empty Section. Copy and Past
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
+	<h2>SectionTitle<sup><a href="#SectionTitle" title="bookmark">#</a></sup></h2>
 
-<!--   Section template. Don't use it, just make a copy.
-<section id="sectitlebm" class="pFF pFS pFC pBgC pBdC"> section title (hide for notes) 
-	<h2>Section Title<sup><a href="#sectitlebm" title="bookmark">#</a></sup></h2>
-	<p> 
-		Content in this section goes here.
-	</p>
-	<h3>Quotes</h3>
-	<p>
-		Below is a quote.
-		<span class="quote pBdC">quote</span>
-		Above is a quote.
-	</p>
-	<h3>Appendix and footnote buttons</h3>
-	<p>
-		<a href="ap/tem.html" target="ai" class="ttbo" onclick="tdb('acon');">template</a> appendix button <br> 
-		<sup><a class="ttbo" onclick="tdb('f0'); vi('fi0');">[0]</a></sup> footnote button 
-	</p>
-	<h3>Inline images</h3>
-	<p>
-	 	<button onclick="vi('sisectitle1'); vi('sisectitle2');" class="smenubtn">view multi</button> view multiple images in this section <br>
-		<img id="sisectitle1" onclick="vi('sisectitle1');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 1"> 
-		<img id="sisectitle2" onclick="vi('sisectitle2');" data-src="../img/tooltips/example.PNG" decoding="async" alt="view image 2">
-		inline image
-	</p>
-	<h3>Links</h3>
-	<p>
-		<a href="../img/background/1.jpg" target="_blank">view&nbsp;image&nearr;</a> big image in new window <br>
-		<a href="https://www.investopedia.com/" target="_blank" rel="noopener noreferrer">investopedia&nearr;</a> external link in new window <br>
-		<span class="toc">Section Title</span><a href="#sectitlebm">#</a>: bookmark in the table of contents <br> 
-	</p>
-</section>  -->
-<section id="ctsbm" class="pFF pFS pFC pBgC pBdC"> <!-- cts -->
-	<h2>Chia Trading System<sup><a href="#ptcbm">#</a></sup></h2>
+</section> -->
+<!-- Universal Content 
+<section id="Universal-Content" class="pFF pFS pFC pBgC pBdC"> 
+	<h3>Universal Content</h3>
+	<button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content show/hide</button>
+	<div id="secuni-hide" class="hidediv"> 
+	<hr>
+	
+	Below is a quote.
+	<span class="quote pBdC">quote</span>
+	Above is a quote. <br><br>
+
+	Hide Div
+	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
+	<div id="hidethis" class="hidediv"> 
+	<hr>
+	This is the hidden div.
+	<hr>
+	<button onclick="tdb('hidethis');" class="smenubtn">hide</button>
+	</div> <br><br> 
+
+	Footnote Button <br>
+	<sup><button class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</button></sup> <br><br>
+	
+	external link in new window <br>
+	<a target="_blank" rel="noopener noreferrer"  title="external link" href="https://www.investopedia.com/">investopedia.com&nearr;</a> <br><br>
+
+	bookmark in the table of contents <br> 
+	<span class="toc">Section Title</span><a href="#SectionTitle" title="bookmark">#</a>: <br>
+
+	<hr>
+	<button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content hide</button>
+	</div>
+</section> -->
+<!-- Local Content. Adjusted relative links
+<section id="Local-Content" class="pFF pFS pFC pBgC pBdC">
+	<h3>Local Content</h3>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content show/hide</button>
+	<div id="secloc-hide" class="hidediv">
+	<hr>
+	 
+	view multiple images in this section <br>
+	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> <br><br>
+
+	inline image 1 <br>
+	<img id="si-sectit1" onclick="vi('si-sectit1');" alt="view image 1" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	inline image 2 <br>
+	<img id="si-sectit2" onclick="vi('si-sectit2');" alt="view image 2" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	big image in new window <br>
+	<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> 
+
+	<hr>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content hide</button>
+	</div>
+</section> -->
+<section id="cts" class="pFF pFS pFC pBgC pBdC">
+	<h2>Chia Trading System<sup><a href="#cts" title="bookmark">#</a></sup></h2>
 	<p><a href="intro.html">Introduction</a>: Conceptualize the continuum of price-time as analogous to space-time.</p>
 	<h3>CTS categories</h3>
 	<div class="cores">
@@ -146,13 +181,15 @@
 		<a href="">Strategies</a>
 	</div>
 </section>
-<section id="otherstuffbm" class="pFF pFS pFC pBgC pBdC"><!-- other stuff -->
-	<h2>Other Stuff<sup><a href="#otherstuffbm">#</a></sup></h2>
-	<a href="ap/app.html" target="ai" class="ttbo" onclick="tdb('acon');">Appendix</a>: Glossary, Illustration, and Index <br><br>
-	<a href="updates.html">Updates</a>: Recent updates.<br>
+<section id="other-stuff" class="pFF pFS pFC pBgC pBdC">
+	<h2>Other Stuff<sup><a href="#other-stuff" title="bookmark">#</a></sup></h2>
+	<a href="ap/tem.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">Appendix</a>: Glossary, Illustration, and Index <br><br>
+	<a href="updates.html">Updates</a>: Recent updates.
 </section>
+
 </main>
 
 	</body>
 
+	
 </html>
