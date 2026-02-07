@@ -69,7 +69,7 @@ header {
 .headerpopup {
   display: flex;
   justify-content: center;
-  padding: 2px 2px;
+  padding: 1px 2px;
 }
 /* nav menu titles */
 .ddnavmenu {
@@ -384,7 +384,11 @@ header {
   display: inline-flex; 
   justify-content: center;
 }
-.put2{ background-color: #1a1a1a;}
+.put2{ 
+  background-color: #1a1a1a;
+  font-size: 20px;
+  border: none;
+}
 /* navigation, bookmarks and settings buttons in header */
 .menubtn{
   font-size: 16px;
