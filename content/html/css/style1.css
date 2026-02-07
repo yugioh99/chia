@@ -128,7 +128,7 @@ header {
   text-decoration: none;
   font-size: 20px;
   display: block;
-  border-width: 1px;
+  border-width: 2px;
 }
 .lddcontent a:hover {background-color: #eeb79e}
 /* nav Locations END */
@@ -216,7 +216,7 @@ header {
   font-size: 20px;
   text-decoration: none;
   display: block;
-  border-width: 1px;
+  border-width: 2px;
 }
 /* Change color of dropdown links on hover */
 .bmddcontent a:hover {background-color: #eeb79e}

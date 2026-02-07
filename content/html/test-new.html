@@ -25,10 +25,10 @@
 <div class="midScreenTitle">Test - CTS</div>
 <div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
 	<button class="navdropbtn menubtn">Navigation</button>
-	<div id="lddid" class="lddcontent pBdC"> 
-		Navigation <br>	
+	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Navigation Menu">Navigation</span>	
 		<a href="home.html">Home</a>
-		<span title="You are here">Test</span>  
+		<span class="ddnavmenu pBdC" title="You are here">Test</span>
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
@@ -36,16 +36,27 @@
 	<div id="bmddid2" class="bmddcontent2 pBdC">
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
-	<div id="bmddid" class="bmddcontent pBdC"> 
-		Bookmarks 
-		<!-- <li data-tags=""><a href="#-bm"></a></li> -->
-		
-		<li data-tags="">Saved</li>
-		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
-		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
-		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
-		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
-		bottom
+	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Bookmarks on this page">Bookmarks</span>
+		<!-- <li data-tags=""><a href="#"></a></li> -->
+		<li data-tags="currently working on"><a href="#current-work">currently working on</a></li>
+		<li data-tags="work on later"><a href="#work-later">work on later</a></li>
+		<li data-tags="math formulas"><a href="#math-formulas">Math &amp; Formulas</a></li>
+		<li data-tags="louf limit order uncertianty formula"><a href="#louf">limit order uncertianty formula</a></li>
+		<li data-tags="mouf market order uncertianty formula"><a href="#mouf">market order uncertianty formula</a></li>
+		<li data-tags="youtube how to"><a href="#youtube-how-to">Youtube how to</a></li>
+		<li data-tags="levels"><a href="#levels">Levels</a></li>
+		<li data-tags="appendix notes"><a href="#appendix-notes">Appendix Notes</a></li>
+		<li data-tags=""><span class="ddnavmenu pBdC" title="View saved bookmarks"><button onclick="tdb('savedBookmark');" class="smenubtn">Saved</button></span></li>
+		<span id="savedBookmark" class="hidediv"> <!-- saved bm START -->
+		<li data-tags="" title="click to save"><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
+		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
+		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
+		</span><!-- saved bm END -->
+		<span class="ddnavmenu pBdC" title="Bottom of bookmark menu">bottom</span>
 	</div>
 </div><!-- bm = bookmark END -->
 <div class="wideScreenTitle">Test - CTS</div>
@@ -59,27 +70,26 @@
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
 
 <!-- footnotes group START -->
-<div id="f0" class="ttdiv">
-	<button class="ttbc" onclick="tdb('f0');">Close</button>
+<div id="f0" class="ttdiv tn">
+	<button class="ttbc" onclick="history.back();">Close</button>
 	<h2>Footnote 0</h2>
-	<p>Footnote text goes here.</p> 	
-	<img id="fi0" data-src="../img/icons/footnotes.png" decoding="async" alt="image">
+	<p>FootnoteTextGoesHere</p> 	
+	<img id="fi0" onclick="vi('fi0');" data-src="../img/icons/footnotes.png" decoding="async" alt="view image 1">
 </div>
+
 <!-- footnotes group END -->
 
 <div id="acon" class="ttdiv apu" ><!-- appendix container START -->
 	<header class="hcapx pBdC">
 	<nav class="headerpopup"> <!-- headernav START   -->
 	<div class="popupTitle">
-		<button class="menubtn" onclick="ai.history.back()">&#9668;</button>
-    	<button class="menubtn" onclick="ai.history.forward()">&#9658;</button> &nbsp;
 		Appendix &nbsp;
 	</div>
 	<div class="sddcontainer"><!-- close START -->
-		<button class="menubtn apmenubtn" onclick="closeAcon()">Close</button> &nbsp;
+		<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
 	</div><!-- close END -->
 	<div class="sddcontainer"><!-- content START -->
-		<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">Topics</button></a>
+		<a href="ap/topics.html" onclick="event.preventDefault(); document.getElementById('ai').contentWindow.location.replace(this.href);"><button class="menubtn apmenubtn">Topics</button></a>
 	</div><!-- content END -->
 	</nav><!-- headernav END -->
 	</header>
@@ -89,16 +99,72 @@
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
-<div class="pageTC"> <!-- Page Title -->
-	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Test</h1></div>
+<div class="pageTC"> <!-- PageTitle -->
+	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Test new</h1></div>
 </div>
 <!-- Empty Section. Copy and Past
-<section id="SectionTitle-bm" class="pFF pFS pFC pBgC pBdC"> SectionTitle (hide for notes)
-	<h2>SectionTitle<sup><a href="#sectit-bm" title="bookmark">#</a></sup></h2>
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
+	<h2>SectionTitle<sup><a href="#SectionTitle" title="bookmark">#</a></sup></h2>
 
-</section> --> <!--    -->
-<section id="cur-wor-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Currently working on -->
-	<h2>Currently working on<sup><a href="#cur-wor-bm" title="bookmark">#</a></sup></h2>
+</section> -->
+<!-- Universal Content  -->
+<section id="Universal-Content" class="pFF pFS pFC pBgC pBdC"> 
+	<h3>Universal Content</h3>
+	<button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content show/hide</button>
+	<div id="secuni-hide" class="hidediv"> 
+	<hr>
+	
+	Below is a quote.
+	<span class="quote pBdC">quote</span>
+	Above is a quote. <br><br>
+
+	Hide Div
+	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
+	<div id="hidethis" class="hidediv"> 
+	<hr>
+	This is the hidden div.
+	<hr>
+	<button onclick="tdb('hidethis');" class="smenubtn">hide</button>
+	</div> <br><br> 
+
+	Footnote Button <br>
+	<sup><button class="ttbo" title="footnote" onclick="tdb('f0'); vi('fi0');">[0]</button></sup> <br><br>
+	
+	external link in new window <br>
+	<a target="_blank" rel="noopener noreferrer"  title="external link" href="https://www.investopedia.com/">investopedia.com&nearr;</a> <br><br>
+
+	bookmark in the table of contents <br> 
+	<span class="toc">Section Title</span><a href="#SectionTitle" title="bookmark">#</a>: <br>
+
+	<hr>
+	<button onclick="tdb('secuni-hide');" class="smenubtn">Universal Content hide</button>
+	</div>
+</section>
+<!-- Local Content. Adjusted relative links -->
+<section id="Local-Content" class="pFF pFS pFC pBgC pBdC">
+	<h3>Local Content</h3>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content show/hide</button>
+	<div id="secloc-hide" class="hidediv">
+	<hr>
+	 
+	view multiple images in this section <br>
+	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> <br><br>
+
+	inline image 1 <br>
+	<img id="si-sectit1" onclick="vi('si-sectit1');" alt="view image 1" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	inline image 2 <br>
+	<img id="si-sectit2" onclick="vi('si-sectit2');" alt="view image 2" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	big image in new window <br>
+	<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> 
+
+	<hr>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content hide</button>
+	</div>
+</section>
+<section id="current-work" class="pFF pFS pFC pBgC pBdC">
+	<h2>Currently working on<sup><a href="#current-work" title="bookmark">#</a></sup></h2>
 	<h3>change appendix and footnote javascript</h3>
 	<p>
 		<a href="template0.html">template0</a><br>
@@ -115,8 +181,8 @@
 		<a href="test/template1.html">template1</a>: if it's template1 then its one level deeper then the homepage. Template2 is 2 levels deep. The homepage can be level 0.
 	</p>
 </section> 
-<section id="wor-on-bm" class="pFF pFS pFC pBgC pBdC"> <!-- work on later -->
-	<h2>Work on later<sup><a href="#wor-on-bm" title="bookmark">#</a></sup></h2>
+<section id="work-later" class="pFF pFS pFC pBgC pBdC">
+	<h2>Work on later<sup><a href="#work-later" title="bookmark">#</a></sup></h2>
 	
 	<h3>Old Intro</h3>
 	<p> 
@@ -128,9 +194,8 @@
 	</p>
 	
 </section>
-
-<section id="mat-for-bm" class="pFF pFS pFC pBgC pBdC"> <!-- math and formulas -->
-	<h2>Math and Formulas<sup><a href="#mat-for-bm" title="bookmark">#</a></sup></h2>
+<section id="math-formulas" class="pFF pFS pFC pBgC pBdC">
+	<h2>Math and Formulas<sup><a href="#math-formulas" title="bookmark">#</a></sup></h2>
 	<h3>List of Decimal Codes</h3>
 	<button onclick="tdb('deccodes');" class="smenubtn">show/hide</button>
 	<div id="deccodes" class="hidediv"> <!-- hidethis START -->
@@ -165,8 +230,8 @@
 	</div><!-- fraction example END -->
 	
 </section>
-<section id="lim-ord-bm" class="pFF pFS pFC pBgC pBdC"> <!-- limit order uncertainty Formula -->
-	<h2>Limit Order Uncertainty Formula<sup><a href="#lim-ord-bm" title="bookmark">#</a></sup></h2>
+<section id="louf" class="pFF pFS pFC pBgC pBdC"> 
+	<h2>Limit Order Uncertainty Formula<sup><a href="#louf" title="bookmark">#</a></sup></h2>
 		<div class="math-container"> <!-- limit order uncertainty Formula  START -->
 		&#916;&#120591; <span class="dot-o">&#8901;</span> &#916;I <span class="dot-o">&#8901;</span>
 			<div class="fraction">
@@ -176,17 +241,18 @@
 		&#8805; K (L, &#963;) 
 		</div><!-- limit order uncertainty Formula END -->
 </section>
-<section id="mar-ord-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Market Order Uncertainty formula -->
-	<h2>Market Order Uncertainty Formula<sup><a href="#mar-ord-bm" title="bookmark">#</a></sup></h2>
+<section id="mouf" class="pFF pFS pFC pBgC pBdC">
+	<h2>Market Order Uncertainty Formula<sup><a href="#mouf" title="bookmark">#</a></sup></h2>
 		<div class="math-container"> <!-- Market Order Uncertainty Formula START -->
 		&#916;P &#8776; &#119890; <span class="dot-o">&#8901;</span> &#402;(V, L) <span class="dot-o">&#8901;</span> &#963;
 		</div><!-- Market Order Uncertainty Formula END -->
 </section>
-<section id="youhowto-bm" class="pFF pFS pFC pBgC pBdC"> <!-- Youtube how to -->
-	<h2>Youtube how to<sup><a href="#youhowto-bm" title="bookmark">#</a></sup></h2>
+<section id="youtube-how-to" class="pFF pFS pFC pBgC pBdC">
+	<h2>Youtube how to<sup><a href="#youtube-how-to" title="bookmark">#</a></sup></h2>
 	<h3>How To For Youtube Video Embed</h3>
 	<p>
 		<b>?rel=0</b>  to limit relative links to that channel. <br><br>
+		<!-- Important if viewing with an editor, use &amp; not &amp;amp; -->
 		If no other parameters exist: Append <b>?start=XXX&amp;amp;end=YYY</b>  <br><br>
 		If parameters (like rel=0) already exist: Append <b>&amp;amp;start=XXX&amp;amp;end=YYY</b>  <br><br>
 		If embedding into a html, escape the &amp; with &amp;amp;
@@ -208,8 +274,9 @@
 
 	</p>
 </section> 
-<article id="anotesbm" class="pFS pFC pFF pBgC" ><!-- appendix notes -->
-	<h2>Appendix Notes</h2>
+
+<article id="appendix-notes" class="pFS pFC pFF pBgC" >
+	<h2>Appendix Notes<sup><a href="#appendix-notes" title="bookmark">#</a></sup></h2>
 	<p>
 		
 	</p>
@@ -219,10 +286,11 @@
 	<p>
 		Appendix topics with indexed links to this page in the (Introduction User Manual Tools Theories Strategies) category
 	</p>
-	<p>
-		<a class="ttbo" title="appendix topic" onclick="apOpen('ap/tem.html');">template&nbsp;nbsp</a><br>
-		Link: this text can be an exact copy from the appendix topic
+	<p><!-- template  -->
+		<a href="ap/tem.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">template</a> <br>
+		Link: copy &amp; past from appendix topic <br>
 	</p>
+	<button onclick="tdb('atlist');" class="smenubtn">hide</button>
 	</div><!-- list of app linked here END -->
 </article>
 
