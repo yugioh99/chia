@@ -105,9 +105,20 @@
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
 	<hr>
-		DeepDive
+		<p>
+			TL;DR means Too Long; Didn’t Read.  There you will see a brief description of an appendix topic. The appendix does not close the current page, it's a pop-up window. Clicking the browser back or back on your phone will close the appendix. The design goal is to make it quick and easy to get in and out of the appendix.
+
+		</p>
+		<p>
+			The deep dive will give a more in-depth description of the appendix topic. Illustration will have pictures and videos.
+
+		</p>
+		<p>
+			Index links will have a list of links for where you can read more about this appendix topic. It's grouped by category.
+
+		</p>
 	<hr>
-	<button onclick="tdb('deepdive');" class="smenubtn">hide</button>
+	<button onclick="tdb('deepdive');" class="smenubtn">hide Deep Dive</button>
 	</div><!-- deep dive div END -->
 
 	<h3>Illustrations <button onclick="tdb('illust');" class="smenubtn">show/hide</button></h3>
@@ -123,20 +134,21 @@
 
 <section id="RelatedTopics" class="pFF pFS pFC pBgC pBdC">
 	<h2>Related Topics</h2>
-
+	<a href="topics.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">topics</a>: a list of appendix topics
 </section>
 
 <article class="pFF pFS pFC pBgC"><!-- Indexed Links -->
 	<h2>Indexed Links</h2>
 	by category
-	<h3>Tools</h3>
+	<h3>Home</h3>
 	<p>
-	
+		<a href="../home.html" onclick="event.preventDefault(); escapeAndClean(this.href);">Link</a>: on the home page
 	</p>
+	<!-- 
 	<h3>Theories</h3>
 	<p> 
 		
-	</p>
+	</p> -->
 	<!--  
 	<h3>Settings</h3>
 	<p>
