@@ -1,9 +1,43 @@
+(function() {
+    let settingsChanged = false;
+
+    // 1. Function to activate the "trap"
+    function activateTrap() {
+        if (!settingsChanged) {
+            settingsChanged = true;
+            
+            // Push the trap state so the back button is intercepted
+            history.pushState({ page: 'settings_active' }, '');
+
+            // 2. Clean up: Stop listening for interactions since the trap is now set
+            document.removeEventListener('click', activateTrap);
+            document.removeEventListener('keydown', activateTrap);
+        }
+    }
+
+    // 3. Listen for the FIRST click OR keypress
+    document.addEventListener('click', activateTrap);
+    document.addEventListener('keydown', activateTrap);
+
+    // 4. Handle the back button (popstate)
+    window.addEventListener('popstate', function(event) {
+        if (settingsChanged) {
+            // Run your UI cleanup
+            if (typeof cleanUpUI === "function") cleanUpUI();
+            
+            // Force the fresh reload to the previous page
+            goBack(); 
+        }
+    });
+})();
+
+
 
 window.addEventListener('DOMContentLoaded', () => showFF());
 // show current font family
 function showFF() {
   // 1. Select the target element
-  const target = document.getElementById("previewbm");
+  const target = document.getElementById("preview");
   // 2. Get all computed styles for that element
   const computedStyles = window.getComputedStyle(target);
   // 3. Extract the 'font-family' property value
@@ -31,6 +65,6 @@ function detectFont(fontName) {
   if (testWidth !== baselineWidth) {
     target.textContent = `available.`;
   } else {
-    target.textContent = ` - NOT AVAILABLE - -`;
+    target.textContent = `NOT AVAILABLE`;
   }
 }

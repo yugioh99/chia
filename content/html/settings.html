@@ -7,8 +7,8 @@
 	<title>settings - CTS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
-	<script src="js/script1.js" type="text/javascript" defer></script>
 	<script src="js/showff.js" type="text/javascript" defer></script>
+	<script src="js/script1.js" type="text/javascript" defer></script>
 	<!-- favicon -->
 	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
 	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
@@ -28,10 +28,9 @@
 	<button class="navdropbtn menubtn">Navigation</button>
 	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
 		<span class="ddnavmenu pBdC" title="Navigation Menu">Navigation</span>
-		<a href="home.html">Home</a>
-		<a onclick="goBack();">Return to previous page</a>	
+		<a href="home.html">Home</a>	
+		<a href="#" onclick="event.preventDefault(); goBack();">Return to previous page</a>
 		<span class="ddnavmenu pBdC" title="You are here.">Settings</span>
-		
 	</div>
 </div><!-- navigation END -->
 <div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
@@ -39,16 +38,21 @@
 	<div id="bmddid2" class="bmddcontent2 pBdC">
 		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
 	</div>
-	<div id="bmddid" class="bmddcontent pBdC"> 
-		Bookmarks
+	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Bookmarks on this page">Bookmarks</span>
+		<!-- <li data-tags=""><a href="#"></a></li> -->
 		<li data-tags="settings"><a href="#top">Settings</a></li>
-		<li data-tags="previews"><a href="#previewbm">Preview</a></li>
-		<li data-tags="">Saved</li> 
-		<li data-tags=""><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
-		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
-		<li data-tags=""><a onclick="goToBm(); sp();">view #1</a></li>
-		<li data-tags=""><a onclick="goToBm2(); sp();">view #2</a></li>
-		bottom
+		<li data-tags="previews"><a href="#preview">Preview</a></li>
+		<li data-tags=""><span class="ddnavmenu pBdC" title="View saved bookmarks"><button onclick="tdb('savedBookmark');" class="smenubtn">Saved</button></span></li>
+		<span id="savedBookmark" class="hidediv"> <!-- saved bm START -->
+		<li data-tags="" title="click to save"><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
+		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
+		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
+		</span><!-- saved bm END -->
+		<span class="ddnavmenu pBdC" title="Bottom of bookmark menu">bottom</span>
 	</div>
 </div><!-- bm = bookmark END -->
 <div class="wideScreenTitle">Settings - CTS</div>
@@ -60,8 +64,8 @@
 
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
 <!-- footnotes group START --> 
-<div id="f1" class="ttdiv" style="top: 5px;">
-	<button class="ttbc" onclick="tdb('f1');">Close</button>
+<div id="f1" class="ttdiv tn" style="top: 5px;">
+	<button class="ttbc" onclick="history.back();">Close</button>
 	<h2>Footnote 1</h2>
 	<p>Below are descriptions of what the buttons do.</p> <hr>
 	<p>
@@ -73,7 +77,7 @@
 	<p>
 	<button class="smenubtn">Themes</button> select text, border, and background color. 
 	</p>
-	<button class="ttbc" onclick="tdb('f1');">Close</button>
+	<button class="ttbc" onclick="history.back();">Close</button>
 </div>
 <!-- footnotes group END -->
 <div id="acon" class="ttdiv apu" style="top: 5px;"><!-- appendix container START -->
@@ -81,10 +85,10 @@
 <nav class="headerpopup"> <!-- headernav START   -->
 <div class="popupTitle">Appendix</div>
 <div class="sddcontainer"><!-- close START -->
-	<a href="about:blank" target="ai"><button class="menubtn apmenubtn" onclick="tdb('acon');">Close </button></a>
+	<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
 </div><!-- close END -->
 <div class="sddcontainer"><!-- content START -->
-	<a href="ap/topics.html" target="ai"><button class="menubtn apmenubtn">topics</button></a>
+	<a href="ap/topics.html" onclick="event.preventDefault(); document.getElementById('ai').contentWindow.location.replace(this.href);"><button class="menubtn apmenubtn">Topics</button></a>
 </div><!-- content END -->
 </nav><!-- headernav END -->
 </header>
@@ -97,7 +101,7 @@
 <div id="sddid" class="sddcontent"> <!-- sddcontent START -->
 	<div class="sfs settingstitle">
 		<div>
-			<span style="font-size: 1.5em;">Settings<sup><a class="ttbo" onclick="tdb('f1');">[1]</a></sup></span> 
+			<span style="font-size: 1.5em;">Settings<sup><button class="ttbo" title="footnote" onclick="tdb('f1');">[1]</button></sup></span> 
 		</div>
 		<div>
 			<button class="srDefaults" onclick="restoreDefaults();">Restore Defaults</button> 
@@ -191,7 +195,7 @@
 	</div>
 </div><!-- sddcontent END -->
 
-<section id="previewbm" class="pFS pFC pFF pBgC pBdC"> <!-- preview -->
+<section id="preview" class="pFS pFC pFF pBgC pBdC"> <!-- preview -->
 	<p>
 	<span id="viewFF"></span> - <span id="status-display"></span><br>
 	the quick brown fox jumps over the lazy dog. <br>
@@ -202,6 +206,7 @@
 	</p> 
 	<a href="test.html">Test</a>
 	<br>
+	<a href="ap/app.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">appendix</a>
 	
 </section>
 

@@ -55,7 +55,7 @@ header {
 /* header colors apx */
 .hcapx{ background-color: #800000; color: rgb(255, 255, 255);}
 /* header colors settings */
-.hcsettings{ background-color: #cfd2ff; color: black;}
+.hcsettings{ background-color: #222fec; color: rgb(255, 255, 255);}
 /* headernav */
 .headernav{
   display: flex;
