@@ -307,7 +307,6 @@ function sp() {
   localStorage.setItem('savedPage', window.location.href);
 }
 // function to go to saved page
-/* old go back just in case
 function goBack() {
   let savedUrl = localStorage.getItem('savedPage');
   if (savedUrl) {
@@ -315,19 +314,7 @@ function goBack() {
   } else {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
-} */
-
-function goBack() {
-  let savedUrl = localStorage.getItem('savedPage');
-  if (savedUrl) {
-      const freshUrl = new URL(savedUrl);
-      // Forces the browser to ignore its cache and fetch from the server
-      freshUrl.searchParams.set('cache_bypass', Date.now()); 
-      window.location.href = freshUrl.href;
-    } else {
-      window.location.href = '/'; // Fallback
-      }
-}
+} 
 
 
 /**

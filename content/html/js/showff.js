@@ -1,38 +1,3 @@
-(function() {
-    let settingsChanged = false;
-
-    // 1. Function to activate the "trap"
-    function activateTrap() {
-        if (!settingsChanged) {
-            settingsChanged = true;
-            
-            // Push the trap state so the back button is intercepted
-            history.pushState({ page: 'settings_active' }, '');
-
-            // 2. Clean up: Stop listening for interactions since the trap is now set
-            document.removeEventListener('click', activateTrap);
-            document.removeEventListener('keydown', activateTrap);
-        }
-    }
-
-    // 3. Listen for the FIRST click OR keypress
-    document.addEventListener('click', activateTrap);
-    document.addEventListener('keydown', activateTrap);
-
-    // 4. Handle the back button (popstate)
-    window.addEventListener('popstate', function(event) {
-        if (settingsChanged) {
-            // Run your UI cleanup
-            if (typeof cleanUpUI === "function") cleanUpUI();
-            
-            // Force the fresh reload to the previous page
-            goBack(); 
-        }
-    });
-})();
-
-
-
 window.addEventListener('DOMContentLoaded', () => showFF());
 // show current font family
 function showFF() {
