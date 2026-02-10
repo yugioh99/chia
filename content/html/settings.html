@@ -7,58 +7,6 @@
 	<title>settings - CTS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
-
-<script>
-(function() {
-    // A more aggressive patch that locks the method
-    const noop = function() { console.log('History API blocked'); };
-
-    try {
-        Object.defineProperty(window.history, 'pushState', {
-            value: noop,
-            writable: false,
-            configurable: false
-        });
-        Object.defineProperty(window.history, 'replaceState', {
-            value: noop,
-            writable: false,
-            configurable: false
-        });
-    } catch (e) {
-        // Fallback for older browsers
-        window.history.pushState = noop;
-        window.history.replaceState = noop;
-    }
-
-    // Interaction tracking
-    let hasInteracted = false;
-    const setInteracted = () => { hasInteracted = true; };
-    window.addEventListener('click', setInteracted, { once: true });
-    window.addEventListener('keydown', setInteracted, { once: true });
-
-    // Force a dummy state so there's always a 'pop' to catch
-    // Use the original reference to pushState to bypass our own block just once
-    const originalPush = Object.getOwnPropertyDescriptor(History.prototype, 'pushState').value;
-    originalPush.call(window.history, { dummy: true }, "", window.location.href);
-
-    window.onpopstate = function() {
-        if (hasInteracted) {
-            // goBack() will be available globally once script1.js loads
-            if (typeof goBack === "function") {
-                goBack();
-            } else {
-                window.location.href = localStorage.getItem('savedPage') || '/';
-            }
-        } else {
-            // No interaction: user just landed and hit back. 
-            // We go back twice: once for our dummy state, once for the actual page.
-            history.go(-2);
-        }
-    };
-})();
-</script>
-
-
 	<script src="js/script1.js" type="text/javascript" defer></script>
 	<script src="js/showff.js" type="text/javascript" defer></script>
 	<!-- favicon -->
@@ -261,7 +209,6 @@
 	<a href="test.html">Test</a>
 	<br>
 	<a href="ap/app.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">appendix</a> <br>
-	4:31pm
 	
 </section>
 
