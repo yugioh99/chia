@@ -7,6 +7,39 @@
 	<title>settings - CTS</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="css/style1.css" rel="stylesheet">
+	<!-- patch for back click START -->
+	<script>
+(function() {
+    // Block push/pop as soon as possible
+    history.pushState = function() {};
+    history.replaceState = function() {};
+
+    let hasInteracted = false;
+    window.addEventListener('click', () => hasInteracted = true, { once: true });
+    window.addEventListener('keydown', () => hasInteracted = true, { once: true });
+
+    // Dummy state so there's something to "pop"
+    history.pushState({ dummy: true }, "");
+
+    window.onpopstate = function() {
+        if (hasInteracted) {
+            // Check if goBack exists before calling it
+            if (typeof goBack === "function") {
+                goBack();
+            } else {
+                // Fallback: If script1.js hasn't loaded yet, just use location
+                let savedUrl = localStorage.getItem('savedPage');
+                window.location.href = savedUrl || '/';
+            }
+        } else {
+            history.back();
+        }
+    };
+})();
+</script>
+
+<!-- script1.js provides the actual sp() and goBack() code -->
+	<!-- patch for back click END -->
 	<script src="js/script1.js" type="text/javascript" defer></script>
 	<script src="js/showff.js" type="text/javascript" defer></script>
 	<!-- favicon -->
