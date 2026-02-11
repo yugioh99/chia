@@ -33,3 +33,10 @@ function detectFont(fontName) {
     target.textContent = `NOT AVAILABLE`;
   }
 }
+
+// load instructions for goBack
+document.addEventListener('DOMContentLoaded', () => {
+  o('instructions');
+});
+
+
