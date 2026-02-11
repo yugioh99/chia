@@ -152,6 +152,20 @@ function bmddbtn() {
   document.getElementById("bmddid").classList.toggle("bmshow");
   document.getElementById("bmddid2").classList.toggle("bmshow");
 }
+// appendix display id toggle
+function showApId() {
+  const spans = document.querySelectorAll('.ap-id');
+  
+  spans.forEach(span => {
+    // Check current display and toggle
+    if (span.style.display === "inline") {
+      span.style.display = "none";
+    } else {
+      span.style.display = "inline";
+    }
+  });
+}
+
 
 // show only one settings sub menu or glossary appendix link
 function o(idToShow) {

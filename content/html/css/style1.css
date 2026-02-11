@@ -805,6 +805,8 @@ img:hover {
 }
 /* tools, strategies, theories button END */
 
+/* appendix display id toggle */
+.ap-id {display: none;}
 /* use class hidediv for div that you want to toggle display */
 .hidediv {display: none;}
 /* toggle needs to be underneath the class that it acts upon */
