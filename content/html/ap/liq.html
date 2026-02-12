@@ -4,7 +4,7 @@
 	<meta name="robots" content="noindex, nofollow">
 	<!--  Essentials -->
 	<meta charset="UTF-8">
-	<title>Appendix bracket order</title>
+	<title>Liquidity</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="../css/style1.css" rel="stylesheet">
 	<script src="../js/script1.js" type="text/javascript" defer></script>
@@ -22,7 +22,7 @@
 
 <header class="hcmain pFC pBgC pBdC">
 <nav class="headerpopup"> <!-- headernav START   -->
-<div class="popupTitle put2 pBgC">Bracket Order</div>
+<div class="popupTitle put2 pBgC">Liquidity</div>
 </nav><!-- headernav END -->
 </header>
 
@@ -71,45 +71,29 @@
 </section>  -->
 
 <section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
-	<h2>Bracket Order
+	<h2>Liquidity
 	<sup><span onclick="showApId();">&#9432;</span></sup>
-	<span class="ap-id"><br>(bra)</span>
+	<span class="ap-id"><br>(liq)</span>
 	</h2>
 	<h3>TL;DR</h3>
 	<p> 
-		A bracket order is when you place an order and add a stop loss and take profit order along with it all at once. 
-	</p>
-	<p>
-		Bracket orders are generally used to manage risk by capping potential losses while simultaneously securing gains. 
+		TooLongDidntRead
 	</p>
 	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
 	<hr>
-		<p>
-			A bracket order is an advanced, three-part order used to automate trading by simultaneously placing a primary entry order along with two opposite-side "child" orders—a profit-taking limit order and a stop-loss order. When the initial position is filled, both the profit-taker and stop-loss are activated; when one is triggered, the other is automatically cancelled. 
-		</p>
-		<p>
-			Key Aspects of Bracket Orders:
-			<ul>
-				<li>Three-in-One Structure: It consists of the parent order (entry) and two contingent orders (profit-taker and stop-loss).</li>
-				<li>Automation: Eliminates the need to constantly monitor the market to close a position, securing profits and limiting losses.</li>
-				<li>Order Types: If you go long (buy), the bracket includes a higher-price sell limit and a lower-price sell stop. If you go short (sell), it includes a lower-price buy limit and a higher-price buy stop.</li>
-				<li>Common Use: Primarily used by active traders to manage risk in volatile markets.</li>
-				<li>Automatic Cancellation: Once one of the exit orders (profit or loss) is filled, the other is immediately cancelled(OCO). </li>
-			</ul>
-		</p>
+		DeepDive
 	<hr>
 	<button onclick="tdb('deepdive');" class="smenubtn">hide Deep Dive</button>
 	</div><!-- deep dive div END -->
 
 	<h3>Illustrations <button onclick="tdb('illust');" class="smenubtn">show/hide</button></h3>
 	<div id="illust" class="hidediv"> <!-- illustration div START -->
-	<!--  -->
 	<button onclick="vi('si-ap1'); vi('si-ap2');" class="smenubtn">view all</button> <hr>
-	Bracket order for a long trade. You expect the market to go up. <br>
-	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/charting/tv/bracket-long.png" decoding="async" loading="lazy" alt="view image"> <hr>
-	Bracket order for a short trade. You expect the market to go down. <br>
-	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/charting/tv/bracket-short.png" decoding="async" loading="lazy" alt="view image"> <hr>
+	image 1 <br>
+	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 1"> <hr>
+	image 2 <br>
+	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 2"> <hr>
 	<button onclick="tdb('illust');" class="smenubtn">hide</button>
 	</div><!-- illustration div END -->
 </section>
