@@ -236,6 +236,27 @@ window.onload = function() {
   }
 };
 
+// Copy text button
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    // Get the text from 'data-copy'
+    const textToCopy = btn.getAttribute('data-copy');
+
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      
+      // Visual feedback
+      const originalText = btn.innerText;
+      btn.innerText = "Copied! ✔";
+      setTimeout(() => btn.innerText = originalText, 2000);
+      
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
+  });
+});
+
+
 /* save and view bookmarks START */
 // save bm 1
 function saveBm() {

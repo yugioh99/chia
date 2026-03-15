@@ -118,6 +118,9 @@
 	<span class="quote pBdC">quote</span>
 	Above is a quote. <br><br>
 
+	<span class="copy-span">TextToCopy</span> 
+	<button class="copy-btn" data-copy="TextToCopy">Copy Text</button> <br><br>
+
 	Hide Div
 	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
 	<div id="hidethis" class="hidediv"> 
@@ -221,14 +224,26 @@
 	<h2>Youtube how to<sup><a href="#youtube-how-to" title="bookmark">#</a></sup></h2>
 	<h3>How To For Youtube Video Embed</h3>
 	<p>
-		Use this instead of width and height class="ytvideo"
+		Use this instead of width and height <br> <span class="copy-span">class="ytvideo"</span> 
+		<button class="copy-btn" data-copy="class=&quot;ytvideo&quot;">Copy Text</button>
 	</p>
 	<p>
-		<b>?rel=0</b>  to limit relative links to that channel. <br><br>
-		<!-- Important if viewing with an editor, use &amp; not &amp;amp; -->
-		If no other parameters exist: Append <b>?start=XXX&amp;amp;end=YYY</b>  <br><br>
-		If parameters (like rel=0) already exist: Append <b>&amp;amp;start=XXX&amp;amp;end=YYY</b>  <br><br>
-		If embedding into a html, escape the &amp; with &amp;amp;
+		Use this to limit relative links to that channel. <br>
+		<span class="copy-span">?rel=0</span> 
+		<button class="copy-btn" data-copy="?rel=0">Copy Text</button>
+	</p>
+	<p>
+		<!-- Important if viewing with an editor, 
+		 use this: ?start=XXX&amp;end=YYY 
+		 It has to be &amp; in the iframe tag -->
+		If no other parameters exist, append this for start and stop time. This is for use in iframe tags. Links just use &amp;<br>
+		<span class="copy-span">?start=XXX&amp;amp;end=YYY</span> 
+		<button class="copy-btn" data-copy="?start=XXX&amp;amp;end=YYY">Copy Text</button>
+	</p>
+	<p>
+		<!-- Same rule as above. -->
+		If parameters (like rel=0) already exist, append this. <br> <span class="copy-span">&amp;amp;start=XXX&amp;amp;end=YYY</span> 
+		<button class="copy-btn" data-copy="&amp;amp;start=XXX&amp;amp;end=YYY">Copy Text</button> 
 	</p>
 </section>
 <section id="levels" class="pFF pFS pFC pBgC pBdC">

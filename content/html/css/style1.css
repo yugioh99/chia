@@ -406,7 +406,34 @@ header {
 .apmenubtn{
   font-size: 20px;
 }
-/* top menu in settings */
+/* copy text button and span */
+.copy-btn{
+  font-size: 0.8em;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 15px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+.copy-btn:hover{
+  border-color: aqua;
+  background-color: #daf9fc;
+}
+.copy-btn:active{
+  border-color: red;
+  background-color: #ffe1e1;
+  position:relative;
+	top:2px;
+  left:2px;
+}
+.copy-span{
+  background-color: rgba(57, 201, 57, 0.2);
+  padding: 1px 5px;
+  border-radius: 5px;
+  border: 2px solid rgb(131, 131, 12);
+}
+/* top menu in settings, saved pages, show hide */
 .smenubtn{
   font-size: 18px;
   font-weight: bold;
