@@ -68,7 +68,7 @@
 <!-- Section Content. Same for every topic
 <section id="Section-Content" class="pFF pFS pFC pBgC pBdC">
 	<h3>Section Content</h3>
-	<button onclick="tdsh('hidethis');" class="smenubtn">show/hide</button>
+	<button onclick="tdb('hidethis');" class="smenubtn">show/hide</button>
 	<div id="hidethis" class="hidediv"> 
 	<hr>
 
@@ -105,23 +105,26 @@
 	<p>
 		You can see more appendix topics by clicking <a href="topics.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">topics</a> at the top of the screen.
 	</p>
-	<hr>
-	<h3>Deep Dive <button onclick="tdsh('deepdive');" class="smenubtn">show/hide</button></h3>
+	<h3>Deep Dive <button onclick="tdb('deepdive');" class="smenubtn">show/hide</button></h3>
 	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
-	<p>
-		TL;DR means Too Long; Didn’t Read.  There you will see a brief description of an appendix topic. The appendix does not close the current page, it's a pop-up window. Clicking the browser back or back on your phone will close the appendix. The design goal is to make it quick and easy to get in and out of the appendix.
-	</p>
-	<p>
-		The deep dive will give a more in-depth description of the appendix topic. Illustration will have pictures and videos.
-	</p>
-	<p>
-		Index links will have a list of links for where you can read more about this appendix topic. It's grouped by category.
-	</p>
-	
-	<button onclick="tdsh('deepdive');" class="smenubtn">hide Deep Dive</button>
-	</div><!-- deep dive div END -->
 	<hr>
-	<h3>Illustrations <button onclick="tdsh('illust');" class="smenubtn">show/hide</button></h3>
+		<p>
+			TL;DR means Too Long; Didn’t Read.  There you will see a brief description of an appendix topic. The appendix does not close the current page, it's a pop-up window. Clicking the browser back or back on your phone will close the appendix. The design goal is to make it quick and easy to get in and out of the appendix.
+
+		</p>
+		<p>
+			The deep dive will give a more in-depth description of the appendix topic. Illustration will have pictures and videos.
+
+		</p>
+		<p>
+			Index links will have a list of links for where you can read more about this appendix topic. It's grouped by category.
+
+		</p>
+	<hr>
+	<button onclick="tdb('deepdive');" class="smenubtn">hide Deep Dive</button>
+	</div><!-- deep dive div END -->
+
+	<h3>Illustrations <button onclick="tdb('illust');" class="smenubtn">show/hide</button></h3>
 	<div id="illust" class="hidediv"> <!-- illustration div START -->
 
 	empty <br> <!--
@@ -130,7 +133,7 @@
 	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 1"> <hr>
 	image 2 <br>
 	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 2"> <hr>-->
-	<button onclick="tdsh('illust');" class="smenubtn">hide</button>
+	<button onclick="tdb('illust');" class="smenubtn">hide</button>
 	</div><!-- illustration div END -->
 </section>
 

@@ -476,9 +476,36 @@ header {
 	top:2px;
   left:2px;
 }
+/* settings save changes button */
+.sChanges {
+  margin: 5px 2px 2px 5%;
+  padding: 3px 3px;
+  margin: 1px;
+  border-style: solid;
+  border-color: green;
+  border-width: 8px;
+  border-radius: 15px;
+  float: right;
+  text-decoration-line: none;
+  color: black;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: rgb(236, 237, 250);
+}
+.sChanges:hover  {
+  border-color: aqua;
+  color: inherit;
+  background-color: rgb(228, 254, 255);
+}
+.sChanges:active  {
+  border-color: aqua;
+  color: rgb(0, 47, 255);
+  position:relative;
+	top:2px;
+  left:2px;
+}
 /* restore settings defaults button */
 .srDefaults {
-  border-width: 2px;
   margin: 5px 2px 2px 5%;
   padding: 3px 3px;
   margin: 1px;
@@ -830,3 +857,4 @@ img:hover {
 .tdbs {display:block;}
 .tdibs {display:inline-block;}
 .tdfs {display:flex;}
+.tdshs {display:block;}

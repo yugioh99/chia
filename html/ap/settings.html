@@ -4,102 +4,77 @@
 	<meta name="robots" content="noindex, nofollow">
 	<!--  Essentials -->
 	<meta charset="UTF-8">
-	<title>settings - CTS old</title>
+	<title>Settings</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="css/style1.css" rel="stylesheet">
-	<script src="js/script1.js" type="text/javascript" defer></script>
-	<script src="js/showff.js" type="text/javascript" defer></script>
+	<link href="../css/style1.css" rel="stylesheet">
+	<script src="../js/script1.js" type="text/javascript" defer></script>
+	<script src="../js/ap.js" type="text/javascript" defer></script>
+	<script src="../js/showff.js" type="text/javascript" defer></script>
 	<!-- favicon -->
-	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
-	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
-	<link href="../img/favicons/favicon.ico" rel="icon">
-	<link href="../img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-	<link href="../img/favicons/manifest.json" rel="manifest">
+	<link href="../../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
+	<link href="../../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
+	<link href="../../img/favicons/favicon.ico" rel="icon">
+	<link href="../../img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="../../img/favicons/manifest.json" rel="manifest">
 	<meta name="apple-mobile-web-app-title" content="CTS">
 </head>
 
-	<body class="pFS pFF pFC">
+	<body class="pFF pFS pFC">
 
-<header class="hcsettings pBdC"> 
-<nav class="headernav"><!-- headernav START   -->
-<div class="smallScreenTitle">CTS</div>
-<div class="midScreenTitle">Settings - CTS</div>
-<div class="lddcontainer lddsh"><!-- ldd = location drop down = Navigation START  -->
-	<button class="navdropbtn menubtn">Navigation</button>
-	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
-		<span class="ddnavmenu pBdC" title="Navigation Menu">Navigation</span>
-		<a href="home.html">Home</a>	
-		<a href="#" onclick="event.preventDefault(); goBack();">Return to previous page</a>
-		<span class="ddnavmenu pBdC" title="You are here.">Settings</span>
-	</div>
-</div><!-- navigation END -->
-<div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
-	<button  class="menubtn navdropbtn">Bookmarks</button>
-	<div id="bmddid2" class="bmddcontent2 pBdC">
-		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
-	</div>
-	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
-		<span class="ddnavmenu pBdC" title="Bookmarks on this page">Bookmarks</span>
-		<!-- <li data-tags=""><a href="#"></a></li> -->
-		<li data-tags=""><span class="ddnavmenu pBdC" title="View saved bookmarks"><button onclick="tdb('savedBookmark');" class="smenubtn">Saved</button></span></li>
-		<span id="savedBookmark" class="hidediv"> <!-- saved bm START -->
-		<li data-tags="" title="click to save"><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
-		<li data-tags="" title="click to save"><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
-		<li data-tags="" title="click to save"><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
-		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
-		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
-		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
-		</span><!-- saved bm END -->
-		<span class="ddnavmenu pBdC" title="Bottom of bookmark menu">bottom</span>
-	</div>
-</div><!-- bm = bookmark END -->
-<div class="wideScreenTitle">Settings - CTS</div>
-<div class="sddcontainer"><!-- settings START -->
-	<button class="menubtn" onclick="goBack();">Go Back</button>
-</div><!-- settings END -->
+<header class="hcmain pFC pBgC pBdC">
+<nav class="headerpopup"> <!-- headernav START   -->
+<div class="popupTitle put2 pBgC">Settings</div>
 </nav><!-- headernav END -->
 </header>
 
 <div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
-<!-- footnotes group START --> 
-<div id="f1" class="ttdiv tn" style="top: 5px;">
-	<button class="ttbc" onclick="history.back();">Close</button>
-	<h2>Footnote 1</h2>
-	<p>Below are descriptions of what the buttons do.</p> <hr>
-	<p>
-	<button class="srDefaults" style="float: none;">Restore Defaults</button><br>
-	This button will reset the website to its default appearance. It will also clear view # in the bookmarks menu. 
-	</p><hr>
-	<button class="smenubtn">Text Size</button> select text size. <hr>
-	<button class="smenubtn">Font Family</button> select font style. <hr>
-	<p>
-	<button class="smenubtn">Themes</button> select text, border, and background color. 
-	</p>
-	<button class="ttbc" onclick="history.back();">Close</button>
+
+<!-- footnotes group START -->
+<div id="fa0" class="ttdiv tn">
+	<button class="ttbc" onclick="closeLocalFootnote();">Close</button>
+	<h2>Footnote 0</h2>
+	<p>FootnoteTextGoesHere</p> 	
+	<img id="fai0" decoding="async" onclick="vi('fai0');" data-src="../../img/icons/footnotes.png" alt="view image 1">
 </div>
 <!-- footnotes group END -->
-<div id="acon" class="ttdiv apu" style="top: 5px;"><!-- appendix container START -->
-<header class="hcapx pBdC">
-<nav class="headerpopup"> <!-- headernav START   -->
-<div class="popupTitle">Appendix</div>
-<div class="sddcontainer"><!-- close START -->
-	<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
-</div><!-- close END -->
-<div class="sddcontainer"><!-- content START -->
-	<a href="ap/topics.html" onclick="event.preventDefault(); document.getElementById('ai').contentWindow.location.replace(this.href);"><button class="menubtn apmenubtn">Topics</button></a>
-</div><!-- content END -->
-</nav><!-- headernav END -->
-</header>
-<iframe name="ai" id="ai" src="about:blank" class="aif"></iframe>	
-</div><!-- appendix container END -->
+
 </div><!-- ttgroup END -->
 
 <main><!-- Main  ----------------------------   -->
+<!-- Empty Section. Copy and Past
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
+	<h2>SectionTitle</h2>
+
+</section> -->
+<!-- Section Content. Same for every topic
+<section id="Section-Content" class="pFF pFS pFC pBgC pBdC">
+	<h3>Section Content</h3>
+	<button onclick="tdsh('hidethis');" class="smenubtn">show/hide</button>
+	<div id="hidethis" class="hidediv"> 
+	<hr>
+
+	Below is a quote.
+	<span class="quote pBdC">quote</span>
+	Above is a quote. <br><br>
+	
+	Footnote button <br>
+	<sup><button class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[0]</button></sup>  <br><br>
+	 
+	link to big image in new window <br>
+	<a href="../../img/background/1.jpg" target="_blank" rel="noopener" title="new window">view&nbsp;image&nearr;</a> <br><br>
+	
+	Appendix Topic <br>
+	<a href="" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic"></a>
+
+	<hr>
+	<button onclick="tdsh('hidethis');" class="smenubtn">hide</button>
+	</div>
+</section>  -->
 
 <div id="sddid" class="sddcontent"> <!-- sddcontent START -->
 	<div class="sfs settingstitle">
 		<div>
-			<span style="font-size: 1.5em;">Settings<sup><button class="ttbo" title="footnote" onclick="tdb('f1');">[1]</button></sup></span> 
+			<button class="sChanges" onclick="loadChanges();">Save Changes</button>  
 		</div>
 		<div>
 			<button class="srDefaults" onclick="restoreDefaults();">Restore Defaults</button> 
@@ -199,7 +174,7 @@
 		</div> 
 	</div>
 	<div id="instructions" class="ssm ssmc">
-		Important! <span style="font-weight: normal;">If you are on <b>mobile</b>, use</span> <button class="menubtn" onclick="goBack();">Go Back</button> <span style="font-weight: normal;">or <a href="#" onclick="event.preventDefault(); goBack();">Return&nbsp;to&nbsp;previous&nbsp;page</a> after you're finished to save changes instead of the browser back button.</span>
+		<span style="font-weight: normal;">Click</span> Save Changes <span style="font-weight: normal;">when you are finished.</span>
 	</div>
 	</div>
 </div><!-- sddcontent END -->
@@ -213,14 +188,11 @@
 	uppercase i, lowercase L, one <br>
 	Il1
 	</p> 
-	<a href="test.html">Test</a>
-	<br>
-	<a href="ap/app.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">appendix</a> <br>
-	
 </section>
 
 </main>
 
 	</body>
 
+	
 </html>

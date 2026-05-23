@@ -61,16 +61,16 @@
 		<li data-tags="" title="click to save"><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
 		<li data-tags=""><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
 		<li data-tags=""><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
-		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
-		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
-		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
+		<li data-tags=""><a id="label-bm1" onclick="goToBm();">view #1</a></li>
+		<li data-tags=""><a id="label-bm2" onclick="goToBm2();">view #2</a></li>
+		<li data-tags=""><a id="label-bm3" onclick="goToBm3();">view #3</a></li>
 		</span><!-- saved bm END -->
 		<span class="ddnavmenu pBdC" title="Bottom of bookmark menu">bottom</span>
 	</div>
 </div><!-- bm = bookmark END -->
 <div class="wideScreenTitle">Introduction - CTS</div>
 <div class="sddcontainer"><!-- settings START -->
-	<a href="settings.html" onclick="sp();"><button class="menubtn">Settings</button></a>
+	<a href="ap/settings.html" onclick="event.preventDefault(); openAcon(this.href);"><button class="menubtn">Settings</button></a>
 </div><!-- settings END -->
 
 </nav><!-- headernav END -->

@@ -146,6 +146,10 @@ function tdf(id) {
   const el = document.getElementById(id); 
   el.classList.toggle("tdfs");
 }
+function tdsh(id) {
+  const el = document.getElementById(id); 
+  el.classList.toggle("tdshs");
+}
 
 // bookmark show and hide 
 function bmddbtn() {
@@ -336,7 +340,7 @@ function updateLabels() {
 window.addEventListener('DOMContentLoaded', updateLabels);
 /* save and view bookmarks END */
 
-/* for go back button in appendix and settings */
+/* for go back button in appendix and settings 
 // save page before going to ap or set
 function sp() {
   localStorage.setItem('savedPage', window.location.href);
@@ -350,7 +354,7 @@ function goBack() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 } 
-
+*/
 
 /**
  * --- PHASE 2: UI MANAGEMENT ---
@@ -422,12 +426,26 @@ function openAcon(url) {
 
 // Click Outside to Close Logic
 document.addEventListener('click', function(event) {
+    const acon = document.getElementById('acon');
     const openFootnote = document.querySelector('.tn.tdbs');
+
+    if (acon && acon.classList.contains('tdbs')) {
+        const isInsideAcon = acon.contains(event.target);
+        const isTrigger = event.target.closest('[onclick*="openAcon"]');
+
+        if (!isInsideAcon && !isTrigger) {
+            if (history.state?.view === 'acon') {
+                history.back();
+            } else {
+                cleanUpUI();
+            }
+        }
+        return; // Don't fall through to footnote logic while acon is open
+    }
+
     if (!openFootnote) return;
-
-    const isInside = openFootnote.contains(event.target);
+    const isInside  = openFootnote.contains(event.target);
     const isTrigger = event.target.closest('[onclick*="tdb"]');
-
     if (!isInside && !isTrigger) {
         if (history.state?.view === 'footnote') {
             history.back();
@@ -439,11 +457,13 @@ document.addEventListener('click', function(event) {
 
 
 
-
-
-// 888888888888 888888888 888888888 8888888888 8888 888888888 8888888
+// settings buttons for restore defaults and save changes. loadChanges doesn't actually do anything, it just refresh the page so they see the changes.
 
 function restoreDefaults() {
   localStorage.clear(); 
-  window.location.reload();
+  window.top.location.reload();
+}
+
+function loadChanges() { 
+  window.top.location.reload();
 }

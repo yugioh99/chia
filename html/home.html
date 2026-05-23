@@ -68,7 +68,7 @@
 </div><!-- bm = bookmark END -->
 <div class="wideScreenTitle">Chia Trading System</div>
 <div class="sddcontainer"><!-- settings START -->
-	<a href="settings.html" onclick="sp();"><button class="menubtn">Settings</button></a>
+	<a href="ap/settings.html" onclick="event.preventDefault(); openAcon(this.href);"><button class="menubtn">Settings</button></a>
 </div><!-- settings END -->
 
 </nav><!-- headernav END -->
@@ -161,10 +161,10 @@
 		
 	</p>
 	<hr>
-	<button onclick="tdb('atlist');" class="smenubtn">Indexed</button>
+	<button onclick="tdsh('atlist');" class="smenubtn">Indexed</button>
 	<div id="atlist" class="hidediv"> <!-- list of app linked here START -->
 	<p>
-		Appendix topics with indexed links to this page in the (Home) category
+		Appendix topics with indexed links to this page in the (Home) category<sup><button class="ttbo" title="footnote" onclick="tdb('f0');">[0]</button></sup>
 	</p>
 	<p><!-- template  -->
 		<a href="ap/app.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">appendix</a> <br>
