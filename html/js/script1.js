@@ -8,26 +8,12 @@
     
     if (cleanupTime) {
         const now = Date.now();
-        const sixtySeconds = 60000;
-
-        // 1. Check if the flag is "fresh" (less than 60 seconds old)
-        if (now - cleanupTime < sixtySeconds) {
-            // 2. Clear the flag immediately
+        if (now - cleanupTime < 60000) {
             localStorage.removeItem('pending_acon_cleanup');
-
-            // 3. Sync history state
-            /* this is redundant. can be avoided.
-            if (history.state?.view === 'acon' || history.state?.view === 'footnote') {
-                history.back();
-            }
-            */
-
-            // 4. Force UI reset once elements exist
             window.addEventListener('DOMContentLoaded', () => {
                 if (typeof cleanUpUI === "function") cleanUpUI();
             });
         } else {
-            // 5. Delete stale flag if it's over a minute old
             localStorage.removeItem('pending_acon_cleanup');
         }
     }
@@ -362,23 +348,40 @@ function goBack() {
  * --- PHASE 2: UI MANAGEMENT ---
  */
 
-// Central function to wipe all temporary UI
-function cleanUpUI() {
-    // 1. Hide the appendix div
-    const acon = document.getElementById('acon');
-    if (acon) acon.classList.remove('tdbs');
+function createIframe(url) {
+    const existing = document.getElementById('ai');
+    if (existing) existing.remove();
 
-    // 2. Hide all parent footnotes
-    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
+    const iframe = document.createElement('iframe');
+    iframe.id = 'ai';
+    iframe.name = 'ai';
+    iframe.className = 'aif';
 
-    // 3. Reset the iframe to about:blank via replace (keeps history clean)
-    const iframe = document.getElementById('ai');
-    if (iframe) {
-        iframe.contentWindow.location.replace("about:blank");
+    // Add any other attributes your iframe needs here
+    // e.g. iframe.setAttribute('sandbox', '...');
+
+    const container = document.getElementById('acon');
+    if (container) {
+        container.appendChild(iframe);
+        // Set src AFTER appending so it only ever has one history entry
+        iframe.src = url;
     }
 }
 
-// Global listener for Browser Back button and history.back() calls
+function destroyIframe() {
+    const iframe = document.getElementById('ai');
+    if (iframe) iframe.remove();
+}
+
+function cleanUpUI() {
+    const acon = document.getElementById('acon');
+    if (acon) acon.classList.remove('tdbs');
+
+    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
+
+    destroyIframe();
+}
+
 window.onpopstate = function() {
     cleanUpUI();
 };
@@ -387,12 +390,10 @@ window.onpopstate = function() {
  * --- PHASE 3: INTERACTION LOGIC ---
  */
 
-// Toggle parent footnotes with History Guard
 function tdb(id) {
     const el = document.getElementById(id);
     if (!el) return;
 
-    // Close other open footnotes
     document.querySelectorAll('.tn.tdbs').forEach(fn => {
         if (fn !== el) fn.classList.remove('tdbs');
     });
@@ -400,7 +401,6 @@ function tdb(id) {
     el.classList.toggle('tdbs');
 
     if (el.classList.contains('tdbs')) {
-        // Only push history if we aren't already in a menu state
         if (history.state?.view !== 'footnote' && history.state?.view !== 'acon') {
             history.pushState({ view: 'footnote' }, "");
         }
@@ -409,24 +409,20 @@ function tdb(id) {
     }
 }
 
-// Open Appendix with specialized iframe loading
 function openAcon(url) {
-    // Hide parent footnotes first
     document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
 
     const acon = document.getElementById('acon');
-    const iframe = document.getElementById('ai');
-
-    // Overwrite iframe history so one-back always works
-    if (iframe) iframe.contentWindow.location.replace(url);
     if (acon) acon.classList.add('tdbs');
+
+    // Create a fresh iframe with no history baggage
+    createIframe(url);
 
     if (history.state?.view !== 'acon') {
         history.pushState({ view: 'acon' }, "");
     }
 }
 
-// Click Outside to Close Logic
 document.addEventListener('click', function(event) {
     const acon = document.getElementById('acon');
     const openFootnote = document.querySelector('.tn.tdbs');
@@ -442,7 +438,7 @@ document.addEventListener('click', function(event) {
                 cleanUpUI();
             }
         }
-        return; // Don't fall through to footnote logic while acon is open
+        return;
     }
 
     if (!openFootnote) return;

@@ -1,3 +1,41 @@
+// At the top of your parent script
+/**
+ * --- PHASE 1: IMMEDIATE CLEANUP ---
+ * This runs before the rest of the page logic to clear any "ghost" states
+ */
+(function() {
+    const cleanupTime = localStorage.getItem('pending_acon_cleanup');
+    
+    if (cleanupTime) {
+        const now = Date.now();
+        const sixtySeconds = 60000;
+
+        // 1. Check if the flag is "fresh" (less than 60 seconds old)
+        if (now - cleanupTime < sixtySeconds) {
+            // 2. Clear the flag immediately
+            localStorage.removeItem('pending_acon_cleanup');
+
+            // 3. Sync history state
+            /* this is redundant. can be avoided.
+            if (history.state?.view === 'acon' || history.state?.view === 'footnote') {
+                history.back();
+            }
+            */
+
+            // 4. Force UI reset once elements exist
+            window.addEventListener('DOMContentLoaded', () => {
+                if (typeof cleanUpUI === "function") cleanUpUI();
+            });
+        } else {
+            // 5. Delete stale flag if it's over a minute old
+            localStorage.removeItem('pending_acon_cleanup');
+        }
+    }
+})();
+
+
+
+
 /* settings START */
 
 /* change font family */
@@ -99,11 +137,9 @@ function smBdC(color){
 
 /* navigation START */
 
-// toggle display block, inline-block & flex by id 
-function tdb(id) {
-  const el = document.getElementById(id); 
-  el.classList.toggle("tdbs");
-}
+/* toggle display block, inline-block & flex by id 
+tdb was moved near the bottom with appendix and footnote sync
+*/
 function tdib(id) {
   const el = document.getElementById(id); 
   el.classList.toggle("tdibs");
@@ -112,12 +148,30 @@ function tdf(id) {
   const el = document.getElementById(id); 
   el.classList.toggle("tdfs");
 }
+function tdsh(id) {
+  const el = document.getElementById(id); 
+  el.classList.toggle("tdshs");
+}
 
 // bookmark show and hide 
 function bmddbtn() {
   document.getElementById("bmddid").classList.toggle("bmshow");
   document.getElementById("bmddid2").classList.toggle("bmshow");
 }
+// appendix display id toggle
+function showApId() {
+  const spans = document.querySelectorAll('.ap-id');
+  
+  spans.forEach(span => {
+    // Check current display and toggle
+    if (span.style.display === "inline") {
+      span.style.display = "none";
+    } else {
+      span.style.display = "inline";
+    }
+  });
+}
+
 
 // show only one settings sub menu or glossary appendix link
 function o(idToShow) {
@@ -188,10 +242,32 @@ window.onload = function() {
   }
 };
 
+// Copy text button
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    // Get the text from 'data-copy'
+    const textToCopy = btn.getAttribute('data-copy');
+
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      
+      // Visual feedback
+      const originalText = btn.innerText;
+      btn.innerText = "Copied! ✔";
+      setTimeout(() => btn.innerText = originalText, 2000);
+      
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
+  });
+});
+
+
 /* save and view bookmarks START */
-// set bm 1
+// save bm 1
 function saveBm() {
   localStorage.setItem("currentUrl", window.location.href); 
+  updateLabels(); // Refresh text immediately
 }
 // go to bm1
 function goToBm() {
@@ -202,10 +278,10 @@ function goToBm() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
-
-// set bm 2
+// save bm 2
 function saveBm2() {
   localStorage.setItem("currenttwoUrl", window.location.href); 
+  updateLabels(); // Refresh text immediately
 }
 // go to bm2
 function goToBm2() {
@@ -216,9 +292,57 @@ function goToBm2() {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
 }
+// save bm 3
+function saveBm3() {
+    localStorage.setItem("currentthreeUrl", window.location.href); 
+    updateLabels(); // Refresh text immediately
+}
+// go to bm 3
+function goToBm3() {
+    let savedBmthree = localStorage.getItem('currentthreeUrl');
+    if (savedBmthree) {
+        window.location.href = savedBmthree;
+    } else {
+        alert('No saved page found!');
+    }
+}
+// get file and anchor name
+function getCleanLabel(url) {
+    if (!url) return "Empty Slot";
+    try {
+        const u = new URL(url);
+        // 1. Get filename and remove '.html'
+        let filename = u.pathname.split('/').pop().replace('.html', '');
+        
+        // 2. If there is an anchor, add a space before it
+        let anchor = u.hash ? ' ' + u.hash : '';
+        
+        return filename + anchor;
+    } catch (e) {
+        return "Invalid Link";
+    }
+}
+// Function to update all 3 dropdown labels
+function updateLabels() {
+    const bmMap = {
+        'label-bm1': 'currentUrl',
+        'label-bm2': 'currenttwoUrl',
+        'label-bm3': 'currentthreeUrl'
+    };
+
+    for (let [id, storageKey] of Object.entries(bmMap)) {
+        const url = localStorage.getItem(storageKey);
+        const element = document.getElementById(id);
+        if (url && element) {
+            element.textContent = getCleanLabel(url);
+        }
+    }
+}
+// Update labels when page loads
+window.addEventListener('DOMContentLoaded', updateLabels);
 /* save and view bookmarks END */
 
-/* for go back button in appendix and settings */
+/* for go back button in appendix and settings 
 // save page before going to ap or set
 function sp() {
   localStorage.setItem('savedPage', window.location.href);
@@ -231,42 +355,117 @@ function goBack() {
   } else {
   // Handle case where no saved page exists (optional)
   alert('No saved page found!');}
+} 
+*/
+
+/**
+ * --- PHASE 2: UI MANAGEMENT ---
+ */
+
+// Central function to wipe all temporary UI
+function cleanUpUI() {
+    // 1. Hide the appendix div
+    const acon = document.getElementById('acon');
+    if (acon) acon.classList.remove('tdbs');
+
+    // 2. Hide all parent footnotes
+    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
+
+    // 3. Reset the iframe to about:blank via replace (keeps history clean)
+    const iframe = document.getElementById('ai');
+    if (iframe) {
+        iframe.contentWindow.location.replace("about:blank");
+    }
 }
 
-// Appendix open and close
-function closeAcon() {
+// Global listener for Browser Back button and history.back() calls
+window.onpopstate = function() {
+    cleanUpUI();
+};
+
+/**
+ * --- PHASE 3: INTERACTION LOGIC ---
+ */
+
+// Toggle parent footnotes with History Guard
+function tdb(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Close other open footnotes
+    document.querySelectorAll('.tn.tdbs').forEach(fn => {
+        if (fn !== el) fn.classList.remove('tdbs');
+    });
+
+    el.classList.toggle('tdbs');
+
+    if (el.classList.contains('tdbs')) {
+        // Only push history if we aren't already in a menu state
+        if (history.state?.view !== 'footnote' && history.state?.view !== 'acon') {
+            history.pushState({ view: 'footnote' }, "");
+        }
+    } else if (history.state?.view === 'footnote') {
+        history.back();
+    }
+}
+
+// Open Appendix with specialized iframe loading
+function openAcon(url) {
+    // Hide parent footnotes first
+    document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
+
     const acon = document.getElementById('acon');
-    // Only run if the div is currently visible
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon'); // Toggle display: none
-        // Clear the iframe so it doesn't show old content next time
-        document.getElementById('ai').src = 'about:blank';
-        // Clean up history: If we are on the 'dummy' state we pushed, 
-        // move history back so the browser's back button stays accurate.
-        if (window.history.state && window.history.state.iframeOpen) {
-            window.history.back();
+    const iframe = document.getElementById('ai');
+
+    // Overwrite iframe history so one-back always works
+    if (iframe) iframe.contentWindow.location.replace(url);
+    if (acon) acon.classList.add('tdbs');
+
+    if (history.state?.view !== 'acon') {
+        history.pushState({ view: 'acon' }, "");
+    }
+}
+
+// Click Outside to Close Logic
+document.addEventListener('click', function(event) {
+    const acon = document.getElementById('acon');
+    const openFootnote = document.querySelector('.tn.tdbs');
+
+    if (acon && acon.classList.contains('tdbs')) {
+        const isInsideAcon = acon.contains(event.target);
+        const isTrigger = event.target.closest('[onclick*="openAcon"]');
+
+        if (!isInsideAcon && !isTrigger) {
+            if (history.state?.view === 'acon') {
+                history.back();
+            } else {
+                cleanUpUI();
+            }
+        }
+        return; // Don't fall through to footnote logic while acon is open
+    }
+
+    if (!openFootnote) return;
+    const isInside  = openFootnote.contains(event.target);
+    const isTrigger = event.target.closest('[onclick*="tdb"]');
+    if (!isInside && !isTrigger) {
+        if (history.state?.view === 'footnote') {
+            history.back();
+        } else {
+            cleanUpUI();
         }
     }
-}
-// Keep the popstate listener from before to catch physical back-button hits
-window.addEventListener('popstate', function(event) {
-    const acon = document.getElementById('acon');
-    if (acon.classList.contains('tdbs')) {
-        tdb('acon');
-        document.getElementById('ai').src = 'about:blank';
-    }
 });
-// open function
-function apOpen(url) {
-    tdb('acon');
-  //  document.getElementById('ai').src = url;
-    document.getElementById('ai').contentWindow.location.replace(url);
-    // Pushes a state so the next 'Back' hit triggers popstate instead of leaving the page
-    window.history.pushState({ iframeOpen: true }, "");
-}
 
+
+
+// settings buttons for restore defaults and save changes. loadChanges doesn't actually do anything, it just refresh the page so they see the changes.
 
 function restoreDefaults() {
   localStorage.clear(); 
-  window.location.reload();
+  window.top.location.reload();
+}
+
+function loadChanges() { 
+  window.top.location.reload();
 }
