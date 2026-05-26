@@ -413,7 +413,7 @@ function openAcon(url) {
     document.querySelectorAll('.tn.tdbs').forEach(fn => fn.classList.remove('tdbs'));
 
     const acon = document.getElementById('acon');
-    if (acon) acon.classList.add('tdbs');
+    if (acon) acon.classList.add('tdbs'); // show the container FIRST
 
     // Create a fresh iframe with no history baggage
     createIframe(url);
