@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" id="root">
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<!--  Essentials -->
+	<meta charset="UTF-8">
+	<title>template0 - CTS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style1.css" rel="stylesheet">
+	<script src="js/script1.js" type="text/javascript" defer></script>
+	<!-- favicon -->
+	<link href="../img/favicons/favicon-96x96.png" rel="icon" type="image/png" sizes="96x96">
+	<link href="../img/favicons/favicon.svg" rel="icon" type="image/svg+xml">
+	<link href="../img/favicons/favicon.ico" rel="icon">
+	<link href="../img/favicons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+	<link href="../img/favicons/manifest.json" rel="manifest">
+	<meta name="apple-mobile-web-app-title" content="CTS">
+</head>
+
+	<body class="pFF pFS pFC">
+
+<header class="hcmain pFC pBgC pBdC">
+<nav class="headernav"> <!-- headernav START -->
+<div class="smallScreenTitle">CTS</div>
+<div class="midScreenTitle">Template0 - CTS</div>
+<div class="lddcontainer lddsh"><!-- ldd = location drop down = navigation START  -->
+	<button class="navdropbtn menubtn">Navigation</button>
+	<div id="lddid" class="lddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Navigation Menu">Navigation</span>	
+		<a href="home.html">Home</a>
+		<span class="ddnavmenu pBdC" title="You are here">Template0</span>
+	</div>
+</div><!-- navigation END -->
+<div class="bmddcontainer bmddsh"><!-- bm = bookmark START -->
+	<button  class="menubtn navdropbtn">Bookmarks</button>
+	<div id="bmddid2" class="bmddcontent2 pBdC">
+		<input type="text" placeholder="Search.." id="bmInput" onkeyup="bmfilter();">
+	</div>
+	<div id="bmddid" class="bmddcontent pBdC pFC pBgC"> 
+		<span class="ddnavmenu pBdC" title="Bookmarks on this page">Bookmarks</span>
+		<!-- <li data-tags=""><a href="#"></a></li> -->
+		<li data-tags="SectionTitle"><a href="#SectionTitle">SectionTitle</a></li>
+		<li data-tags="appendix notes"><a href="#appendix-notes">Appendix Notes</a></li>
+		<li data-tags=""><span class="ddnavmenu pBdC" title="View saved bookmarks"><button onclick="tdb('savedBookmark');" class="smenubtn">Saved</button></span></li>
+		<span id="savedBookmark" class="hidediv"> <!-- saved bm START -->
+		<li data-tags="" title="click to save"><a onclick="saveBm();"><button class="settingsbtn">save #1</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm2();"><button class="settingsbtn">save #2</button></a></li>
+		<li data-tags="" title="click to save"><a onclick="saveBm3();"><button class="settingsbtn">save #3</button></a></li>
+		<li data-tags=""><a id="label-bm1" onclick="goToBm(); sp();">view #1</a></li>
+		<li data-tags=""><a id="label-bm2" onclick="goToBm2(); sp();">view #2</a></li>
+		<li data-tags=""><a id="label-bm3" onclick="goToBm3(); sp();">view #3</a></li>
+		</span><!-- saved bm END -->
+		<span class="ddnavmenu pBdC" title="Bottom of bookmark menu">bottom</span>
+	</div>
+</div><!-- bm = bookmark END -->
+<div class="wideScreenTitle">Template0 - CTS</div>
+<div class="sddcontainer"><!-- settings START -->
+	<a href="settings.html" onclick="sp();"><button class="menubtn">Settings</button></a>
+</div><!-- settings END -->
+
+</nav><!-- headernav END -->
+</header>
+
+<div class="ttgroup pBgC pBdC"><!-- ttgroup START -->
+
+<!-- footnotes group START -->
+<div id="f0" class="ttdiv tn">
+	<button class="ttbc" onclick="history.back();">Close</button>
+	<h2>Footnote 0</h2>
+	<p>FootnoteTextGoesHere</p> 	
+	<img id="fi0" onclick="vi('fi0');" data-src="../img/icons/footnotes.png" decoding="async" alt="view image 1">
+</div>
+
+<!-- footnotes group END -->
+
+<div id="acon" class="ttdiv apu" ><!-- appendix container START -->
+	<header class="hcapx pBdC">
+	<nav class="headerpopup"> <!-- headernav START   -->
+	<div class="popupTitle">
+		Appendix &nbsp;
+	</div>
+	<div class="sddcontainer"><!-- close START -->
+		<button class="menubtn apmenubtn" onclick="history.back()">Close</button> &nbsp;
+	</div><!-- close END -->
+	<div class="sddcontainer"><!-- content START -->
+		<a href="ap/topics.html" onclick="event.preventDefault(); document.getElementById('ai').contentWindow.location.replace(this.href);"><button class="menubtn apmenubtn">Topics</button></a>
+	</div><!-- content END -->
+	</nav><!-- headernav END -->
+	</header>
+	<iframe name="ai" id="ai" src="about:blank" class="aif"></iframe>	
+</div><!-- appendix container END -->
+
+</div><!-- ttgroup END -->
+
+<main><!-- Main  ----------------------------   -->
+<div class="pageTC"> <!-- PageTitle -->
+	<div class="pageTitle pFF pFS pFC pBgC pBdC"><h1>Template0</h1></div>
+</div>
+<!-- Empty Section. Copy and Past
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
+	<h2>SectionTitle<sup><a href="#SectionTitle" title="bookmark">#</a></sup></h2>
+
+</section> -->
+
+<!-- Local Content. Adjusted relative links 
+<section id="Local-Content" class="pFF pFS pFC pBgC pBdC">
+	<h3>Local Content</h3>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content show/hide</button>
+	<div id="secloc-hide" class="hidediv">
+	<hr>
+	 
+	view multiple images in this section <br>
+	<button onclick="vi('si-sectit1'); vi('si-sectit2');" class="smenubtn">view multi</button> <br><br>
+
+	inline image 1 <br>
+	<img id="si-sectit1" onclick="vi('si-sectit1');" alt="view image 1" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	inline image 2 <br>
+	<img id="si-sectit2" onclick="vi('si-sectit2');" alt="view image 2" decoding="async" loading="lazy" data-src="../img/tooltips/example.PNG"> <br><br>
+
+	big image in new window <br>
+	<a href="../img/background/1.jpg" target="_blank" title="new window">view&nbsp;image&nearr;</a> 
+
+	<hr>
+	<button onclick="tdb('secloc-hide');" class="smenubtn">Local Content hide</button>
+	</div>
+</section>-->
+<section id="SectionTitle" class="pFF pFS pFC pBgC pBdC">
+	<h2>SectionTitle<sup><a href="#SectionTitle" title="bookmark">#</a></sup></h2>
+<p>
+	Who is Chia?
+
+Chia is a contemporary artist in the early 21st century. She inspired the creation of chiado. 
+
+What is Chiado?
+
+In the Naruto universe, nindo (literally "Ninja Way") is a personal creed, motto, or philosophy that a shinobi lives by. It serves as a moral compass that guides a character's actions, decisions, and growth throughout their life.
+
+Chiado (literally “Chia Way”) is a real-life application of this concept. Chiado is a heterodox, henotheistic, dystheistic mystical nindo practiced only by Kenny. Chia is perceived as gaining divinity through apotheosis. Divinity in this context is described as an imperfect pursuit for optimization of ontological efficacy. Divinity is in the pursuit itself rather than a perfect ethereal endpoint. There is no need for unfalsifiable claims of omniscence in this context. 
+
+In a mereological nihilistic context, religion is hypothesized to be a social technology. God is a functional psychological and sociological construct, possibly in part, as an effect of overactive agency detection. Atheistic awe produces a different neural signature than religious awe. Chiado posits that some aspects of religious awe can be garnered through the apotheosis of Chia without sacrificing epistemological rigor, by constructing chiado as part of an emerging social media milieu that is subverting some aspects of religion in the current zeitgeist of the information age (circa early 21st century). In some ways, chiado is like an open label placebo for spirituality.
+
+https://www.youtube.com/watch?v=qGGG0hnitQM
+
+Henotheism 
+
+In Luciferianism, the Lucifer archetype represents the pursuit of knowledge, enlightenment, and individual sovereignty — embodying the defiance of ignorance and dogma in favor of rational self-mastery and human transcendence. 
+
+Chia doesn’t represent the Lucifer archetype per se, but she embodies the techniques to obtain such an archetype through molding chakra. 
+ 
+Chakra elements
+In the Naruto universe, chakra is the fundamental source of life energy that all living beings possess. It functions as the magical power system of the universe, allowing ninja to perform superhuman feats like walking on water, creating clones, or breathing fire.
+
+In chiado, chakra represents various aspects of psychology and physiology that affect cognition, behavior and physicality. 
+
+The 5 elements of chakra.
+
+Earth: Check your physical existence and observe the physical world around you with your senses. 
+
+Wind: Intellect, alertness, movement and speed. 
+
+Fire: Passion, energy and endurance.
+
+Water: Fluid, feelings, emotions, flexibility and sound therapy.
+
+Ether: Astral projection, higher consciousness or into the void.
+
+Chia techniques
+This part isn’t finished yet but it will have the techniques used to mold chakra.
+
+
+Types of human perception
+1. Interoception
+This is the sense of the internal state of the body. It involves various receptors in our internal organs, bones, and skin that send signals to the brain to help regulate functions like hunger, thirst, and temperature.
+Nociception: The perception of pain.
+Thermoception: The ability to sense heat and cold.
+Baroception: The sensing of blood pressure.
+Chemoreception: Detection of internal chemical changes, such as blood oxygen levels or carbon dioxide.
+2. Proprioception
+Often called the "sixth sense," proprioception is the awareness of the position and movement of the body. It relies on receptors in the muscles, tendons, and joints.
+Kinesthesia: Specifically refers to the awareness of the motion of our limbs and body parts.
+Vestibular Sense: Originating in the inner ear, this provides our sense of balance and spatial orientation, helping us understand which way is "up."
+3. Exteroception
+These are the senses that perceive the external environment. Beyond the traditional five, scientists often break these down further based on the stimuli they detect:
+Vision (Ophthalmoception): Perception of light and color.
+Hearing (Audioception): Perception of sound vibrations.
+Taste (Gustaoception): Detection of chemical flavors.
+Smell (Olfacception): Detection of airborne chemical molecules.
+Touch (Somatosensation): A complex system that includes pressure, vibration, and texture.
+
+4  Chronoception 
+How we perceive the passage of time. This isn't tied to a single organ but is a distributed cognitive process.
+5 Agency 
+The subjective awareness that you are the one initiating and executing an action.
+
+
+The major networks
+Default mode network (DMN)
+ — anchored in the medial prefrontal cortex (mPFC), posterior cingulate cortex (PCC), and angular gyrus. It's most active when you're not focused on an external task: daydreaming, imagining the future, recalling the past, thinking about yourself or others. It's the brain's "resting state" that's actually quite active.
+Salience network
+ — centered on the anterior insula and dorsal anterior cingulate cortex (dACC). Its job is to detect what matters right now — biologically significant, emotionally charged, or unexpected stimuli — and switch the brain between the DMN and task-focused networks. It's essentially a gatekeeper.
+Dorsal attention network (DAN)
+ — built around the frontal eye fields (FEF) and intraparietal sulcus (IPS). This is top-down, voluntary attention: deliberately directing your gaze or focus to a location or object. It works with the task-positive network.
+Ventral attention network (VAN)
+ — centered on the temporoparietal junction (TPJ) and ventral frontal cortex. This is bottom-up, reflexive attention: your head snapping toward a sudden loud noise. It breaks into the dorsal system to reorient when something important demands attention.
+Task positive network
+ — the broad set of regions (dlPFC, ACC, parietal cortex) that collectively ramp up during any effortful, externally directed task. It's the rough anti-correlation partner to the DMN — when one is up, the other tends to be down.
+Frontoparietal control network
+ — the dlPFC and lateral parietal cortex working together for flexible, goal-directed control. It bridges the salience network and the DMN/task-positive systems, helping you adapt strategies and regulate other networks.
+Cingulo-opercular network
+ — dACC, anterior insula, and thalamus. Maintains sustained task sets over time, monitors for errors, and keeps you "online" during prolonged tasks. Often considered the slower, more tonic counterpart to the faster frontoparietal network.
+Anatomically constrained systems
+Sensorimotor, visual, auditory, limbic, and language networks are more anatomically constrained systems handling their respective modalities.
+
+Metacognition: where is it and how does it monitor?
+Metacognition is the brain's ability to think about its own thinking — monitoring confidence, detecting errors, evaluating memory, and modeling one's own mental states. It doesn't have a single dedicated area; instead it emerges from a distributed set of nodes that are embedded within other networks, allowing second-order monitoring.
+Key regions and what they monitor:
+Rostrolateral/anterior PFC (BA10)
+ — the most "metacognitive" area. Active when you hold a mental task in mind while doing another (branching), and during prospective memory. It monitors ongoing cognition at a high level.
+mPFC
+ — overlaps heavily with the DMN. Crucial for judging one's own beliefs, values, and mental states. It monitors the self-model.
+dlPFC
+ — monitors working memory and task performance. Signals when something isn't going as planned. Overlaps with the task-positive and frontoparietal networks.
+Anterior insula
+ — interoceptive metacognition: monitoring your own bodily and emotional states ("I feel uncertain"). Bridges salience and metacognitive functions.
+Temporoparietal junction (TPJ)
+ — tracks the difference between your own mental states and others'. Key for agency (is this action mine?) and perspective-taking. Overlaps with the ventral attention network.
+Precuneus / posterior cingulate cortex
+ — autobiographical self-monitoring, episodic recall about yourself, and scene construction. Deeply embedded in the DMN.
+dACC 
+— error detection and performance monitoring. Fires when outcomes mismatch expectations, feeding that signal upward to metacognitive evaluation.
+Key insights
+The key insight is that metacognition doesn't watch the brain from outside — its nodes are the same nodes that run the DMN, salience, and frontoparietal networks, just recruited into second-order loops. When you monitor your own confidence in a memory, the hippocampus and PCC run the memory, and the mPFC/anterior PFC evaluates how reliable that memory feels.
+
+</p>
+</section>
+
+<article id="appendix-notes" class="pFS pFC pFF pBgC" >
+	<h2>Appendix Notes<sup><a href="#appendix-notes" title="bookmark">#</a></sup></h2>
+	<p>
+		
+	</p>
+	<hr>
+	<button onclick="tdb('atlist');" class="smenubtn">Indexed</button>
+	<div id="atlist" class="hidediv"> <!-- list of app linked here START -->
+	<p>
+		Appendix topics with indexed links to this page in the (Introduction User Manual Tools Theories Strategies) category
+	</p>
+	<p><!-- template  -->
+		<a href="ap/tem.html" onclick="event.preventDefault(); openAcon(this.href);" class="ttbo" title="appendix topic">template</a> <br>
+		Link: copy &amp; past from appendix topic <br>
+	</p>
+	<button onclick="tdb('atlist');" class="smenubtn">hide</button>
+	</div><!-- list of app linked here END -->
+</article>
+
+</main>
+
+	</body>
+
+	
+</html>
