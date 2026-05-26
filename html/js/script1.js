@@ -16,9 +16,11 @@
             localStorage.removeItem('pending_acon_cleanup');
 
             // 3. Sync history state
+            /* this is redundant. can be avoided.
             if (history.state?.view === 'acon' || history.state?.view === 'footnote') {
                 history.back();
             }
+            */
 
             // 4. Force UI reset once elements exist
             window.addEventListener('DOMContentLoaded', () => {
