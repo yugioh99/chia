@@ -20,6 +20,12 @@ function closeLocalFootnote() {
 function escapeAndClean(url) {
     if (!url || url.trim() === "" || url === "undefined") return;
 
+    // Neutralize the acon history entry before leaving,
+    // so it won't be in the stack when the user presses back
+    if (window.top.history.state?.view === 'acon') {
+        window.top.history.replaceState(null, "");
+    }
+
     // Save the exact time the link was clicked
     localStorage.setItem('pending_acon_cleanup', Date.now());
     
