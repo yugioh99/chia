@@ -28,11 +28,20 @@ function escapeAndClean(url) {
 
     // Save the exact time the link was clicked
     localStorage.setItem('pending_acon_cleanup', Date.now());
-    
     window.top.location.href = url;
 }
 
+// Overwrite tdb from script1.js — no history manipulation inside the iframe
+function tdb(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
 
+    document.querySelectorAll('.tn.tdbs').forEach(fn => {
+        if (fn !== el) fn.classList.remove('tdbs');
+    });
+
+    el.classList.toggle('tdbs');
+}
 
 
 
