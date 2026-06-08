@@ -87,7 +87,7 @@
 	</div>
 </section>  -->
 
-<section id="tldr" class="pFF pFS pFC pBgC pBdC">
+<section id="summary" class="pFF pFS pFC pBgC pBdC">
 	<h2>Appendix<sup><button class="ttbo" title="footnote" onclick="tdb('fa2');">[2]</button></sup>
 	<sup><span onclick="showApId();">&#9432;</span></sup>
 	<span class="ap-id"><br>(app)</span>
@@ -116,15 +116,17 @@
 	</p>
 </section>
 <section id="illustrations" class="pFF pFS pFC pBgC pBdC">
-	<h3>Illustrations </h3>
-	empty <br> <!---->
+	<h3>illustrations </h3>
+	Click view image to see it. <br>
+	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 1">
+	 <br> <!-- use copy and past to save template
 	<button onclick="vi('si-ap1'); vi('si-ap2');" class="smenubtn">view all</button> <hr>
 	image 1 <br>
 	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 1"> <hr>
 	image 2 <br>
 	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 2"> <hr>
 	link to big image in new window <br>
-	<a href="../../img/background/1.jpg" target="_blank" rel="noopener" title="new window">view&nbsp;image&nearr;</a>
+	<a href="../../img/background/1.jpg" target="_blank" rel="noopener" title="new window">view&nbsp;image&nearr;</a> -->
 </section>
 <section id="Related-Topics" class="pFF pFS pFC pBgC pBdC">
 	<h2>Related Topics</h2>
@@ -132,23 +134,12 @@
 </section>
 
 <article class="pFF pFS pFC pBgC"><!-- Indexed Links -->
-	<h2>Indexed Links</h2>
+	<h2>Indexed Links</h2> <!-- -->
 	by category
 	<h3>Home</h3>
 	<p>
 		<a href="../home.html" onclick="event.preventDefault(); escapeAndClean(this.href);">Link</a>: on the home page
 	</p>
-	<!-- 
-	<h3>Theories</h3>
-	<p> 
-		
-	</p> -->
-	<!--  
-	<h3>Settings</h3>
-	<p>
-		<a href="../settings.html" onclick="event.preventDefault(); escapeAndClean(this.href);">Link</a>: test link to settings
-	</p>
-	-->
 </article>
 </main>
 
