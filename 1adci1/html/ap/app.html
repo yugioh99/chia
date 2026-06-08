@@ -78,19 +78,16 @@
 	
 	Footnote button <br>
 	<sup><button class="ttbo" title="footnote" onclick="tdb('fa0'); vi('fai0');">[0]</button></sup>  <br><br>
-	 
-	link to big image in new window <br>
-	<a href="../../img/background/1.jpg" target="_blank" rel="noopener" title="new window">view&nbsp;image&nearr;</a> <br><br>
 	
 	Appendix Topic <br>
 	<a href="" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic"></a>
 
 	<hr>
-	<button onclick="tdb('hidethis');" class="smenubtn">hide</button>
+	<button onclick="tdsh('hidethis');" class="smenubtn">hide</button>
 	</div>
 </section>  -->
 
-<section id="appendix" class="pFF pFS pFC pBgC pBdC">
+<section id="tldr" class="pFF pFS pFC pBgC pBdC">
 	<h2>Appendix<sup><button class="ttbo" title="footnote" onclick="tdb('fa2');">[2]</button></sup>
 	<sup><span onclick="showApId();">&#9432;</span></sup>
 	<span class="ap-id"><br>(app)</span>
@@ -105,9 +102,9 @@
 	<p>
 		You can see more appendix topics by clicking <a href="topics.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">topics</a> at the top of the screen.
 	</p>
-	<hr>
-	<h3>Deep Dive <button onclick="tdsh('deepdive');" class="smenubtn">show/hide</button></h3>
-	<div id="deepdive" class="hidediv"> <!-- deep dive div START -->
+</section>
+<section id="Deep-Dive" class="pFF pFS pFC pBgC pBdC">
+	<h3>Deep Dive</h3>
 	<p>
 		TL;DR means Too Long; Didn't Read.  There you will see a brief description of an appendix topic. The appendix does not close the current page, it's a pop-up window. Clicking the browser back or back on your phone will close the appendix. The design goal is to make it quick and easy to get in and out of the appendix.
 	</p>
@@ -117,24 +114,19 @@
 	<p>
 		Index links will have a list of links for where you can read more about this appendix topic. It's grouped by category.
 	</p>
-	
-	<button onclick="tdsh('deepdive');" class="smenubtn">hide Deep Dive</button>
-	</div><!-- deep dive div END -->
-	<hr>
-	<h3>Illustrations <button onclick="tdsh('illust');" class="smenubtn">show/hide</button></h3>
-	<div id="illust" class="hidediv"> <!-- illustration div START -->
-
-	empty <br> <!--
+</section>
+<section id="illustrations" class="pFF pFS pFC pBgC pBdC">
+	<h3>Illustrations </h3>
+	empty <br> <!---->
 	<button onclick="vi('si-ap1'); vi('si-ap2');" class="smenubtn">view all</button> <hr>
 	image 1 <br>
 	<img id="si-ap1" onclick="vi('si-ap1');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 1"> <hr>
 	image 2 <br>
-	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 2"> <hr>-->
-	<button onclick="tdsh('illust');" class="smenubtn">hide</button>
-	</div><!-- illustration div END -->
+	<img id="si-ap2" onclick="vi('si-ap2');" data-src="../../img/tooltips/example.PNG" decoding="async" loading="lazy" alt="view image 2"> <hr>
+	link to big image in new window <br>
+	<a href="../../img/background/1.jpg" target="_blank" rel="noopener" title="new window">view&nbsp;image&nearr;</a>
 </section>
-
-<section id="RelatedTopics" class="pFF pFS pFC pBgC pBdC">
+<section id="Related-Topics" class="pFF pFS pFC pBgC pBdC">
 	<h2>Related Topics</h2>
 	<a href="topics.html" onclick="event.preventDefault(); location.replace(this.href);" class="ttbo" title="appendix topic">topics</a>: a list of appendix topics
 </section>

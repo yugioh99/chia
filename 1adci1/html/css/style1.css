@@ -10,7 +10,7 @@ html {
 body{
   font-size: 1rem;
   line-height: 1.5;
-  background-image: url("../../perm/black.png");
+  background-image: url("../../../perm/black.png");
   color: rgb(221, 221, 221);
   width: 100%;
   margin: auto;
@@ -478,9 +478,8 @@ header {
 }
 /* settings save changes button */
 .sChanges {
-  margin: 5px 2px 2px 5%;
+  margin: 5px 2px 5px 2px;
   padding: 3px 3px;
-  margin: 1px;
   border-style: solid;
   border-color: green;
   border-width: 8px;
@@ -506,9 +505,8 @@ header {
 }
 /* restore settings defaults button */
 .srDefaults {
-  margin: 5px 2px 2px 5%;
+  margin: 5px 2px 5px 2px;
   padding: 3px 3px;
-  margin: 1px;
   border-style: solid;
   border-color: red;
   border-width: 5px;
